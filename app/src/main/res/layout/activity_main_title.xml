@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccent">
+    android:background="#999999">
     <Button
         android:id="@+id/btn_select_account"
         android:text="账户"
@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         />
     <Button
-
         android:id="@+id/btn_institute"
         android:text="统计"
         android:layout_weight="1"

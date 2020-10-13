@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(actionbar!=null){
             actionbar.hide();
         }
+
         initView();
         setButtonListener();
         //ListView
