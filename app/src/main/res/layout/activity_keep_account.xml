@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".KeepAccountActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/edit_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:hint="0.00"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/btn_show_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分类"
+        />
+
+    <Button
+        android:id="@+id/btn_show_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="账户选择"
+        />
+
+    <Button
+        android:id="@+id/btn_show_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="日期"
+        />
+
+    <Button
+        android:id="@+id/btn_show_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="时间"
+        />
+
+    <Button
+        android:id="@+id/btn_show_project"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目"
+        />
+
+    <Button
+        android:id="@+id/btn_show_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="商家"
+        />
+
+    <Button
+        android:id="@+id/btn_show_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成员"
+        />
+
+    <EditText
+        android:id="@+id/edit_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="备注"
+        />
+</LinearLayout>
