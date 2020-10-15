@@ -1,0 +1,84 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.accountbook"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:5:5-30:19
+12        android:allowBackup="true"
+12-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.3.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity android:name="com.example.accountbook.KeepAccountActivity" />
+21-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:12:9-66
+21-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:12:19-54
+22        <activity android:name="com.example.accountbook.Institute" />
+22-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:13:9-47
+22-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:13:19-44
+23        <activity android:name="com.example.accountbook.PasswordConfirm" />
+23-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:14:9-53
+23-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:14:19-50
+24        <activity android:name="com.example.accountbook.ChartAnalysis" />
+24-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:15:9-51
+24-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:15:19-48
+25        <activity
+25-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:16:9-19:59
+26            android:name="com.example.accountbook.SelectAccount"
+26-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:17:13-42
+27            android:label="@string/title_activity_select_account"
+27-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:18:13-66
+28            android:theme="@style/AppTheme.NoActionBar" />
+28-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:19:13-56
+29        <activity
+29-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:20:9-22:63
+30            android:name="com.example.accountbook.SettingsActivity"
+30-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:21:13-45
+31            android:label="@string/title_activity_settings" />
+31-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:22:13-60
+32        <activity android:name="com.example.accountbook.MainActivity" >
+32-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:23:9-29:20
+32-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:23:19-47
+33            <intent-filter>
+33-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:24:13-28:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:25:17-69
+34-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:25:25-66
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:27:17-77
+36-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:27:27-74
+37            </intent-filter>
+38        </activity>
+39
+40        <provider
+40-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+41            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+41-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+42            android:authorities="com.example.accountbook.lifecycle-process"
+42-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+43            android:exported="false"
+43-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+44            android:multiprocess="true" />
+44-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+45    </application>
+46
+47</manifest>
