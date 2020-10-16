@@ -1,7 +1,10 @@
 package com.example.accountbook;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.accountbook.adapter.NormalAdapter;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +17,11 @@ public class SimpleItemTouchCallback extends ItemTouchHelper.Callback {
         mAdapter = adapter;
         mData = data;
     }
-
+    //是否支持侧滑
+    @Override
+    public boolean isItemViewSwipeEnabled() {
+        return true;
+    }
     //设置支持的拖拽、滑动的方向
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -51,9 +58,12 @@ public class SimpleItemTouchCallback extends ItemTouchHelper.Callback {
 
     //拖拽或滑动完成之后调用，用来清除一些状态
     @Override
-    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
         NormalAdapter.ViewHolder holder = (NormalAdapter.ViewHolder)viewHolder;
         holder.itemView.setBackgroundColor(0xffeeeeee); //背景色还原
     }
+
+
+
 }

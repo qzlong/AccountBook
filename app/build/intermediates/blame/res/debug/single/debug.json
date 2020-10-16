@@ -116,6 +116,10 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_t.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\t.xml"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
