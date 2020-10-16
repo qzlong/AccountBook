@@ -80,18 +80,18 @@ public class NormalAdapter extends WeSwipeProxyAdapter<NormalAdapter.ViewHolder>
 //                    }
 //                }
 //            });
-//        //列表项长按事件（查看详情）
-//        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    if(onItemClickListener != null) {
-//                        int pos = holder.getLayoutPosition();
-//                        onItemClickListener.onItemLongClick(holder.itemView, pos);
-//                    }
-//                    //表示此事件已经消费，不会触发单击事件
-//                    return true;
-//                }
-//            });
+        //列表项长按事件（查看详情）
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(onItemClickListener != null) {
+                        int pos = holder.getLayoutPosition();
+                        onItemClickListener.onItemLongClick(holder.itemView, pos);
+                    }
+                    //表示此事件已经消费，不会触发单击事件
+                    return true;
+                }
+            });
         //删除按钮点击事件
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override

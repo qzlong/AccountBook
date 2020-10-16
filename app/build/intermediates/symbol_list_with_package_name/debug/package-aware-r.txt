@@ -1898,7 +1898,6 @@ id linear
 id list
 id listItem_content
 id listItem_delete
-id listItem_delete_btn
 id listMode
 id list_item
 id masked

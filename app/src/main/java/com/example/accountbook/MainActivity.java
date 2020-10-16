@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.accountbook.adapter.NormalAdapter;
+import com.example.accountbook.decoration.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,6 @@ import cn.we.swipe.helper.WeSwipe;
 import cn.we.swipe.helper.WeSwipeHelper;
 
 public class MainActivity extends AppCompatActivity {
-    private Button mDelItemBtn;
     private RecyclerView mRecyclerView;
     private NormalAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         initAction();
         initView();
 
-
     }
 
     public void initData() {
@@ -55,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         WeSwipe weSwipe = WeSwipe.attach(mRecyclerView).setType(WeSwipeHelper.SWIPE_ITEM_TYPE_FLOWING);
         mAdapter.setWeSwipe(weSwipe);
-        // 设置Item之间间隔样式
-        //mRecyclerView.addItemDecoration(new MDLinearRvDividerDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerDecoration(this, LinearLayoutManager.VERTICAL));
         mAdapter.setDeleteItemListener(mDeletedItemListener);
         mAdapter.setOnItemClickListener(mListItemClickListener);
     }
@@ -91,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this,"click " + position + " item", Toast.LENGTH_SHORT).show();
 //            }
             @Override
+            //长按列表项动作
             public void onItemLongClick(View view, int position) {
                 Toast.makeText(MainActivity.this,"long click " + position + " item", Toast.LENGTH_SHORT).show();
             }
@@ -98,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDeletedItemListener = new NormalAdapter.DeletedItemListener() {
             @Override
+            //点击删除键动作
             public void deleted(int position) {
                 mAdapter.deleteItem(position);
             }

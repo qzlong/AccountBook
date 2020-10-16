@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="2dp"
-        android:background="#E3F2FD"
+        android:background="#F4F4F4"
         android:clipChildren="false"
         android:gravity="top"
         android:orientation="horizontal"
