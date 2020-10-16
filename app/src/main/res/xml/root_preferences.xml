@@ -1,35 +1,78 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/messages_header">
+    <PreferenceCategory app:title="@string/auto_task_header">
 
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+        <Preference
+            app:key="auto_keep_account"
+            app:title="@string/account_title"
+            app:summary="@string/account_summary" />
 
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+        <Preference
+            app:key="auto_alarm"
+            app:title="@string/alarm_title"
+            app:summary="@string/alarm_summary" />
+        <Preference
+            app:key="auto_backup"
+            app:title="@string/backup_title"
+            app:summary="@string/backup_summary" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/security_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="password_open"
+            app:title="@string/password_title"
+            app:summaryOff="@string/password_summary_off"
+            app:summaryOn="@string/password_summary_on"
+            />
 
         <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+            app:dependency="password_open"
+            app:key="fingerprint_password"
+            app:summaryOff="@string/fingerprint_summary_off"
+            app:title="@string/fingerprint_password_title" />
 
+        <SwitchPreferenceCompat
+            app:dependency="password_open"
+            app:key="text_password"
+            app:summaryOff="@string/fingerprint_summary_off"
+            app:summaryOn="@string/fingerprint_summary_off"
+            app:title="@string/text_password_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="password_open"
+            app:key="graph_password"
+            app:summaryOff="@string/fingerprint_summary_off"
+            app:summaryOn="@string/fingerprint_summary_off"
+            app:title="@string/graph_password_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/date_service_header">
+        <Preference
+            app:key="email_setting"
+            app:title="@string/email_title"
+            app:useSimpleSummaryProvider="false"
+            app:summary="@string/email_summary"
+        />
+        <Preference
+            app:key="date_output"
+            app:title="@string/data_output_title"
+            app:summary="@string/data_output_summary" />
+
+        <Preference
+            app:key="date_input"
+            app:title="@string/data_input_title"
+            app:summary="@string/data_input_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/others_header">
+        <Preference
+            app:key="clear_all_data"
+            app:title="@string/clear_all_data_title"
+            app:summary="@string/clear_all_data_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
