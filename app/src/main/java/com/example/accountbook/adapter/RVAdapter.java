@@ -19,10 +19,10 @@ import java.util.List;
 import cn.we.swipe.helper.WeSwipeHelper;
 import cn.we.swipe.helper.WeSwipeProxyAdapter;
 
-public class NormalAdapter extends WeSwipeProxyAdapter<NormalAdapter.ViewHolder> {
+public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
 
 
-    private NormalAdapter.OnItemClickListener onItemClickListener;
+    private OnItemClickListener onItemClickListener;
     private DeletedItemListener delectedItemListener;
     //创建ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder implements WeSwipeHelper.SwipeLayoutTypeCallBack {
@@ -58,7 +58,7 @@ public class NormalAdapter extends WeSwipeProxyAdapter<NormalAdapter.ViewHolder>
     }
     //读取数据
     private List<Bill> mData;
-    public NormalAdapter(List<Bill> data) {
+    public RVAdapter(List<Bill> data) {
         this.mData = data;
         notifyDataSetChanged();
     }
@@ -135,15 +135,21 @@ public class NormalAdapter extends WeSwipeProxyAdapter<NormalAdapter.ViewHolder>
         mData.remove(position);
         proxyNotifyItemRemoved(position);
     }
-
+     public void setData(List<Bill> data) {
+        if (mData.equals(data)) {
+            return;
+        }
+        mData = data;
+        notifyDataSetChanged();
+     }
     /**
      * 设置回调监听
      */
-    public void setOnItemClickListener(NormalAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(RVAdapter.OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 
-//    public void setOnStartDragListener(NormalAdapter.OnStartDragListener listener){
+//    public void setOnStartDragListener(RVAdapter.OnStartDragListener listener){
 //        this.onStartDragListener = listener;
 //    }
 

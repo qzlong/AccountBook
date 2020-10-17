@@ -32,6 +32,10 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_spinner.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable\\bg_spinner.xml"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
@@ -54,6 +58,10 @@
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_display.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\list_display.xml"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
@@ -114,6 +122,10 @@
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\spinner_item.xml"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_t.xml.flat",

@@ -4,16 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.accountbook.adapter.NormalAdapter;
+import com.example.accountbook.adapter.RVAdapter;
 
 import java.util.Collections;
 import java.util.List;
 
 public class SimpleItemTouchCallback extends ItemTouchHelper.Callback {
 
-    private NormalAdapter mAdapter;
+    private RVAdapter mAdapter;
     private List<Bill> mData;
-    public SimpleItemTouchCallback(NormalAdapter adapter, List<Bill> data){
+    public SimpleItemTouchCallback(RVAdapter adapter, List<Bill> data){
         mAdapter = adapter;
         mData = data;
     }
@@ -51,7 +51,7 @@ public class SimpleItemTouchCallback extends ItemTouchHelper.Callback {
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         super.onSelectedChanged(viewHolder, actionState);
         if(actionState != ItemTouchHelper.ACTION_STATE_IDLE){
-            NormalAdapter.ViewHolder holder = (NormalAdapter.ViewHolder)viewHolder;
+            RVAdapter.ViewHolder holder = (RVAdapter.ViewHolder)viewHolder;
             holder.itemView.setBackgroundColor(0xffbcbcbc); //设置拖拽和侧滑时的背景色
         }
     }
@@ -60,7 +60,7 @@ public class SimpleItemTouchCallback extends ItemTouchHelper.Callback {
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
-        NormalAdapter.ViewHolder holder = (NormalAdapter.ViewHolder)viewHolder;
+        RVAdapter.ViewHolder holder = (RVAdapter.ViewHolder)viewHolder;
         holder.itemView.setBackgroundColor(0xffeeeeee); //背景色还原
     }
 

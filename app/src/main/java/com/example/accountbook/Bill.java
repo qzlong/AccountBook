@@ -26,4 +26,5 @@ public class Bill {
     public String getDate() {
         return this.date ;
     }
+
 }
