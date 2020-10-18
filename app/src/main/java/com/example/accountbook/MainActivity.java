@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.ViewManager;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_selaccount;
+    private Button btn_select_account;
     private Button btn_graphanalysis;
     private Button btn_insititute;
     private Button btn_setting;
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         ActionBar actionbar = getSupportActionBar();
         if(actionbar!=null){
             actionbar.hide();
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initView() {
-        btn_selaccount = (Button) findViewById(R.id.btn_select_account);
+        btn_select_account = (Button) findViewById(R.id.btn_select_account);
         btn_graphanalysis = (Button) findViewById(R.id.btn_graph_analysis);
         btn_insititute = (Button) findViewById(R.id.btn_institute);
         btn_setting = (Button) findViewById(R.id.btn_setting);
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_setting.setOnClickListener(this);
         btn_insititute.setOnClickListener(this);
         btn_graphanalysis.setOnClickListener(this);
-        btn_selaccount.setOnClickListener(this);
+        btn_select_account.setOnClickListener(this);
     }
 
     @Override
@@ -54,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = null;
         switch (v.getId()){
             case R.id.btn_setting:
-                intent = new Intent(MainActivity.this,SettingsActivity.class);
+                intent = new Intent(MainActivity.this,MainActivity2.class);
                 break;
             case R.id.btn_graph_analysis:
                 intent = new Intent(MainActivity.this,ChartAnalysis.class);
