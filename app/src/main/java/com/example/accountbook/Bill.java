@@ -1,6 +1,9 @@
 package com.example.accountbook;
 
-public class Bill {
+import java.io.Serializable;
+
+public class Bill implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String billCategory;
     private String money;
     private String date;

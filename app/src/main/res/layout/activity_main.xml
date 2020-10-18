@@ -9,73 +9,25 @@
     tools:context=".MainActivity">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <Button
+        android:id="@+id/button_to_BillDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:text="明细"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#E3F2FD">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/statis_searchBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Search" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#E8F5E9"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/statis_spinner_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#E0F2F1" />
-
-                <Spinner
-                    android:id="@+id/statis_spinner_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#E0F2F1"
-                    android:dropDownWidth="match_parent"
-                    android:entries="@array/categories"
-                    android:spinnerMode="dropdown" />
-
-                <Spinner
-                    android:id="@+id/statis_spinner_account"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#E0F2F1" />
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/accountList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="LinearLayoutManager">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-
-        </LinearLayout>
-    </ScrollView>
-
+    <Button
+        android:id="@+id/button_to_chartAnalysis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="32dp"
+        android:text="图表"
+        app:layout_constraintStart_toEndOf="@+id/button_to_BillDetails"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,10 @@
         <activity android:name="com.example.accountbook.KeepAccountActivity" />
         <activity android:name="com.example.accountbook.Institute" />
         <activity android:name="com.example.accountbook.PasswordConfirm" />
-        <activity android:name="com.example.accountbook.ChartAnalysis" />
+        <activity
+            android:name="com.example.accountbook.ChartAnalysisActivity"
+            android:parentActivityName="com.example.accountbook.MainActivity" >
+        </activity>
         <activity
             android:name="com.example.accountbook.SelectAccount"
             android:label="@string/title_activity_select_account"
@@ -35,6 +38,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.accountbook.BillDetailsActivity"
+            android:parentActivityName="com.example.accountbook.MainActivity" >
         </activity>
 
         <provider
