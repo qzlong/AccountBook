@@ -7,13 +7,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class KeepAccountActivity extends AppCompatActivity implements View.OnClickListener{
-
+    private Button btn_go_back;
     private TextView text_template;//moban
     private TextView text_expenditure;//zhichu
     private TextView text_income;//
@@ -30,6 +31,7 @@ public class KeepAccountActivity extends AppCompatActivity implements View.OnCli
     }
     private void InitView() {
         //指定控件id
+        btn_go_back = (Button) findViewById(R.id.goback);
         text_template = (TextView)findViewById(R.id.text_template);
         text_expenditure = (TextView)findViewById(R.id.text_expenditure);
         text_income = (TextView)findViewById(R.id.text_income);
@@ -37,6 +39,7 @@ public class KeepAccountActivity extends AppCompatActivity implements View.OnCli
         text_loan = (TextView)findViewById(R.id.text_loan);
         myViewPager = (ViewPager) findViewById(R.id.myViewPager);
         //设置响应事件
+        btn_go_back.setOnClickListener(this);
         text_template.setOnClickListener(this);
         text_expenditure.setOnClickListener(this);
         text_income.setOnClickListener(this);
@@ -59,6 +62,9 @@ public class KeepAccountActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.goback:
+                finish();
+                break;
             case R.id.text_template:
                 myViewPager.setCurrentItem(0);
                 changeColor(0);
