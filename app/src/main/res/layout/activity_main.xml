@@ -79,13 +79,13 @@
     </LinearLayout>
     <!--左滑界面-->
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#FFF">
+        android:background="#FFFFFF">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ffsdfasdf"/>
+            android:text="setting" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

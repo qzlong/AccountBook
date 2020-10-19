@@ -42,27 +42,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        //Intent intent = null;
+        Intent intent = null;
         switch (v.getId()){
             case R.id.btn_setting:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 //intent = new Intent(MainActivity.this,SettingsActivity.class);
                 break;
             case R.id.btn_graph_analysis:
-                //intent = new Intent(MainActivity.this,ChartAnalysis.class);
+                intent = new Intent(MainActivity.this,ChartAnalysis.class);
                 break;
             case R.id.btn_institute:
-                //intent = new Intent(MainActivity.this,Institute.class);
+                intent = new Intent(MainActivity.this,Institute.class);
                 break;
             case R.id.btn_select_account:
-                //intent = new Intent(MainActivity.this,SelectAccount.class);
+                intent = new Intent(MainActivity.this,SelectAccount.class);
                 break;
             case R.id.btn_keep_account:
-                //intent = new Intent(MainActivity.this,KeepAccountActivity.class);
+                intent = new Intent(MainActivity.this,KeepAccountActivity.class);
                 break;
             default:
                 break;
         }
-        //startActivity(intent);
+        if(intent != null){
+            startActivity(intent);
+        }
     }
 }
