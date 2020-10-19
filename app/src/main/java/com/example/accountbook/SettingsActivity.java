@@ -53,7 +53,7 @@ public class SettingsActivity extends AppCompatActivity implements Preference.On
 
         //initialize auto task preferences
 //        PreferenceManager m = new PreferenceManager();
-//        auto_backup = (Preference) m.findPreference(auto_backup_key);
+//        auto_backup = (Preference) findPreference(auto_backup_key);
     }
 
     @Override

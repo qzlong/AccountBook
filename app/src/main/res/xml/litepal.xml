@@ -8,7 +8,7 @@
     	For example:
     	<dbname value="demo" />
     -->
-    <dbname value="demo" />
+    <dbname value="AccountBookDB" />
 
     <!--
     	Define the version of your database. Each time you want
@@ -32,6 +32,9 @@
     	</list>
     -->
     <list>
+            <mapping class="com.example.accountbook.PickerDataHelper" />
+            <mapping class="com.example.accountbook.Account" />
+            <mapping class="com.example.accountbook.Detail" />
     </list>
 
     <!--
