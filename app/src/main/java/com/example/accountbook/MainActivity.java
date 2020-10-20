@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         optionList.add(option4);
         Option option5 = new Option(" ","    密码安全");
         optionList.add(option5);
-        Option option6 = new Option("   指纹密码","    添加/删除指纹");
+        Option option6 = new Option("   指纹密码","    打开/关闭使用指纹密码");
         optionList.add(option6);
         Option option7 = new Option("   文本密码","    设置/更改文本密码");
         optionList.add(option7);
