@@ -1853,7 +1853,6 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
-id drawer_layout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -1866,7 +1865,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fade
 id fill
 id fill_horizontal
@@ -1896,7 +1894,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id info
 id invisible
 id italic
@@ -1954,10 +1951,8 @@ id multiply
 id nav_controller_view_tag
 id nav_gallery
 id nav_home
-id nav_host_fragment
 id nav_host_fragment_container
 id nav_slideshow
-id nav_view
 id navigation_header_container
 id never
 id noScroll
@@ -2019,7 +2014,6 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
-id settings
 id shanchu
 id shortcut
 id showCustom
@@ -2082,12 +2076,8 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
-id text_gallery
-id text_home
 id text_input_end_icon
 id text_input_start_icon
-id text_slideshow
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2099,7 +2089,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
-id toolbar
 id top
 id topPanel
 id touch_outside
@@ -2189,16 +2178,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_bill_details
 layout activity_chart_analysis
-layout activity_institute
-layout activity_keep_account
 layout activity_main
-layout activity_password_confirm
-layout activity_select_account
-layout app_bar_main
 layout chart_line
-layout chart_linear_page
 layout chart_pie
-layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2216,12 +2198,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout expand_button
-layout fragment_blank
-layout fragment_gallery
-layout fragment_home
-layout fragment_slideshow
 layout image_frame
-layout list_display
 layout list_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
@@ -2251,7 +2228,6 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
-layout nav_header_main
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -2286,7 +2262,6 @@ layout preference_widget_switch_compat
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
-layout settings_activity
 layout spinner_item
 layout support_simple_spinner_dropdown_item
 layout t
