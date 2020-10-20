@@ -1839,7 +1839,7 @@ int id design_menu_item_action_area_stub 0x7f09008a
 int id design_menu_item_text 0x7f09008b
 int id design_navigation_view 0x7f09008c
 int id detail_sum 0x7f09008d
-int id detail_sum_titile 0x7f09008e
+int id detail_sum_title 0x7f09008e
 int id dialog_button 0x7f09008f
 int id dimensions 0x7f090090
 int id direct 0x7f090091
