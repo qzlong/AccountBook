@@ -3,7 +3,7 @@ package com.example.accountbook;
 import java.util.ArrayList;
 
 public class FirstLaunch {
-    private PickerDataHelper pickerDataHelper;
+//    private PickerDataHelper pickerDataHelper = new PickerDataHelper();
 
     private final String[] pay_category1 = {
             "衣服饰品","食品酒水","学习进修",
@@ -91,7 +91,8 @@ public class FirstLaunch {
             for(int j=0;j<string_list_1[i].length;++j)
             {
                 for(int k=0;k<strings_list_2[i][j].length;++k){
-                    pickerDataHelper.addCategory(string_name[i],string_list_1[i][j],strings_list_2[i][j][k]);
+                    //System.out.println(string_name[i]+string_list_1[i][j]+strings_list_2[i][j][k]);
+                    new PickerDataHelper().addCategory( string_name[i],string_list_1[i][j],strings_list_2[i][j][k]);
                 }
             }
         }

@@ -1,4 +1,6 @@
 package com.example.accountbook;
+import android.util.Log;
+
 import org.litepal.LitePal;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
@@ -9,7 +11,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 public class PickerDataHelper extends LitePalSupport {
-    @Column(unique = true, nullable = false)
+    @Column(unique = false, nullable = false)
     private String Name;
 
     @Column(index = true)
@@ -41,12 +43,15 @@ public class PickerDataHelper extends LitePalSupport {
     public ArrayList<String> findCategory1(String name){
         ArrayList<String> ret = new ArrayList<String>();
         List<PickerDataHelper> fetch_cate1 = LitePal.where("Name like ?", name).find(PickerDataHelper.class);
+        Log.d("test", "fetch_cate1.size:"+fetch_cate1.size());
         for(PickerDataHelper cate1: fetch_cate1){
             ret.add(cate1.getCategory1());
         }
         Set<String> dup = new HashSet<String>(ret);
+        System.out.println(dup);
         ret.clear();
         ret.addAll(dup);
+        Log.d("test","Array1.size"+ret.size());
         return ret;
     }
 
@@ -59,6 +64,7 @@ public class PickerDataHelper extends LitePalSupport {
         Set<String> dup = new HashSet<String>(ret);
         ret.clear();
         ret.addAll(dup);
+
         return ret;
     }
 
@@ -68,6 +74,7 @@ public class PickerDataHelper extends LitePalSupport {
         for(String cate1: cate1_list){
             ret.add(findCategory2(name, cate1));
         }
+        Log.d("test","Array2.size"+ret.size());
         return ret;
     }
 }
