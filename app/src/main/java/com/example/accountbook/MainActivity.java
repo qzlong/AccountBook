@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initOptions() {
+
         optionList.clear();
         Option option1 = new Option(" ","    定时任务");
         optionList.add(option1);
