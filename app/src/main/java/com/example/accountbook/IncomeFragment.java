@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -194,6 +195,8 @@ public class IncomeFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.btn_save:
                 saveBill();
+                Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_LONG).show();
+                getActivity().finish();
                 break;
             default:
                 break;
