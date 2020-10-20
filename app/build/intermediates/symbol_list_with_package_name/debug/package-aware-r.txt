@@ -1838,6 +1838,8 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail_sum
+id detail_sum_titile
 id dialog_button
 id dimensions
 id direct

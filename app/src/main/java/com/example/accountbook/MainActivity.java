@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BillDetailsActivity.class);
-                intent.putExtra("data", (Serializable) bill_list);
                 startActivity(intent);
             }
         });
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ChartAnalysisActivity.class);
-                intent.putExtra("data", (Serializable) bill_list);
                 startActivity(intent);
             }
         });
