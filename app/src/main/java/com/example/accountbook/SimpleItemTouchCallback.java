@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.accountbook.adapter.RVAdapter;
+import com.example.accountbook.bean.Bill;
 
 import java.util.Collections;
 import java.util.List;

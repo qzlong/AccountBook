@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.accountbook.Bill;
+import com.example.accountbook.bean.Bill;
 import com.example.accountbook.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import cn.we.swipe.helper.WeSwipeHelper;
@@ -66,10 +67,12 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
     //绑定数据
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-
-        holder.describe.setText(mData.get(position).getBillCategory());
-        holder.money.setText(mData.get(position).getMoney());
-        holder.date.setText(mData.get(position).getDate());
+        String moneyStr = String.valueOf(mData.get(position).getMoneyf());
+        Calendar dateCal = mData.get(position).getTime();
+        String dateStr = (dateCal.get(Calendar.MONTH) + 1) + "月" + dateCal.get(Calendar.DATE) + "日";
+        holder.describe.setText(mData.get(position).getNote());
+        holder.money.setText(moneyStr);
+        holder.date.setText(dateStr);
         //列表项点击事件
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override

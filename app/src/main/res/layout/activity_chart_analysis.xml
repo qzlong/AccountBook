@@ -18,14 +18,14 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/chartAnlysis_viewPager"
         android:layout_width="match_parent"
-        android:layout_height="475dp"
+        android:layout_height="541dp"
         android:background="#E8EAF6"
         android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/chartAnalysis_bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#FFF3E0"
         android:gravity="bottom"
