@@ -14,19 +14,20 @@ import com.bigkoo.pickerview.listener.OnTimeSelectChangeListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class TimePicker {
     private TimePickerView time_picker;
-    private Calendar date;
-
+    private Calendar dateForReturn = Calendar.getInstance();
     public TimePickerView getTimePicker(Context context, final Button btn) {
         TimePickerBuilder time_builder = new TimePickerBuilder(context, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
                 Calendar c = Calendar.getInstance();
                 c.setTime(date);
+                dateForReturn.setTime(date);
                 String change_time_text = c.get(Calendar.HOUR_OF_DAY)+"时"+c.get(Calendar.MINUTE)+"分";
                 btn.setText(change_time_text);
             }
@@ -35,13 +36,14 @@ public class TimePicker {
                 .setOutSideCancelable(true)
                 .setItemVisibleCount(7)
                 .isDialog(true)
-                .setDate(date)
+                .setDate(dateForReturn)
                 .isCyclic(true)
                 .setTimeSelectChangeListener(new OnTimeSelectChangeListener() {
                     @Override
                     public void onTimeSelectChanged(Date date) {
                         Calendar c = Calendar.getInstance();
                         c.setTime(date);
+                        dateForReturn.setTime(date);
                         String change_time_text = c.get(Calendar.HOUR_OF_DAY)+"时"+c.get(Calendar.MINUTE)+"分";
                         btn.setText(change_time_text);
                     }
@@ -74,5 +76,7 @@ public class TimePicker {
         }
         return time_picker;
     }
-
+    public Calendar getTime(){
+        return this.dateForReturn;
+    }
 }

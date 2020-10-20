@@ -5,11 +5,10 @@ import org.litepal.LitePal;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
-import java.security.PublicKey;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
+
 
 public class PickerDataHelper extends LitePalSupport {
     @Column(unique = false, nullable = false)
@@ -49,27 +48,32 @@ public class PickerDataHelper extends LitePalSupport {
 
     public ArrayList<String> findCategory1(String name){
         ArrayList<String> ret = new ArrayList<String>();
-        List<PickerDataHelper> fetch_cate1 = LitePal.where("Name like ?", name).find(PickerDataHelper.class);
+        ArrayList<String> fetch_cate1 = new ArrayList<String>();
+        List<PickerDataHelper> fetch_detail = LitePal.where("Name like ?", name).order("id asc").find(PickerDataHelper.class);
 //        Log.d("test", "fetch_cate1.size:"+fetch_cate1.size());
-        for(PickerDataHelper cate1: fetch_cate1){
-            ret.add(cate1.getCategory1());
+        for(PickerDataHelper detail: fetch_detail){
+            fetch_cate1.add(detail.getCategory1());
         }
-        Set<String> dup = new HashSet<String>(ret);
-        ret.clear();
-        ret.addAll(dup);
+        for(String cate1: fetch_cate1){
+            if(!ret.contains(cate1)){
+                ret.add(cate1);
+            }
+        }
         return ret;
     }
 
     private ArrayList<String> findCategory2(String name, String cate1){
         ArrayList<String> ret = new ArrayList<String>();
-        List<PickerDataHelper> fetch_cate2 = LitePal.where("Name like ? and Category1 like ?", name, cate1).find(PickerDataHelper.class);
-        for(PickerDataHelper cate2: fetch_cate2){
-            ret.add(cate2.getCategory2());
+        ArrayList<String> fetch_cate2 = new ArrayList<String>();
+        List<PickerDataHelper> fetch_detail = LitePal.where("Name like ? and Category1 like ?", name, cate1).order("id asc").find(PickerDataHelper.class);
+        for(PickerDataHelper detail: fetch_detail){
+            fetch_cate2.add(detail.getCategory2());
         }
-        Set<String> dup = new HashSet<String>(ret);
-        ret.clear();
-        ret.addAll(dup);
-
+        for(String cate2: fetch_cate2){
+            if(!ret.contains(cate2)){
+                ret.add(cate2);
+            }
+        }
         return ret;
     }
 

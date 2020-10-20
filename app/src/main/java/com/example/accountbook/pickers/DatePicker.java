@@ -19,7 +19,7 @@ import java.util.Date;
 
 public class DatePicker {
     private TimePickerView date_picker;
-    private Calendar date;
+    private Calendar dateForReturn = Calendar.getInstance();
 
     public TimePickerView getDatePicker(Context context, final Button btn) {
         TimePickerBuilder time_builder = new TimePickerBuilder(context, new OnTimeSelectListener() {
@@ -27,6 +27,7 @@ public class DatePicker {
             public void onTimeSelect(Date date, View v) {
                 Calendar c = Calendar.getInstance();
                 c.setTime(date);
+                dateForReturn.setTime(date);
                 String change_date_text = c.get(Calendar.YEAR)+"年"+(c.get(Calendar.MONTH)+1)+"月"+c.get(Calendar.DATE)+"日";
                 btn.setText(change_date_text);
             }
@@ -34,7 +35,7 @@ public class DatePicker {
                 .isAlphaGradient(true)
                 .setItemVisibleCount(7)
                 .isDialog(true)
-                .setDate(date)
+                .setDate(dateForReturn)
                 .setOutSideCancelable(true)
                 .isCyclic(true)
                 .setTimeSelectChangeListener(new OnTimeSelectChangeListener() {
@@ -42,6 +43,7 @@ public class DatePicker {
                     public void onTimeSelectChanged(Date date) {
                         Calendar c = Calendar.getInstance();
                         c.setTime(date);
+                        dateForReturn.setTime(date);
                         String change_date_text = c.get(Calendar.YEAR)+"年"+(c.get(Calendar.MONTH)+1)+"月"+c.get(Calendar.DATE)+"日";
                         btn.setText(change_date_text);
                     }
@@ -74,5 +76,7 @@ public class DatePicker {
         }
         return date_picker;
     }
-
+    public Calendar getTime(){
+        return this.dateForReturn;
+    }
 }

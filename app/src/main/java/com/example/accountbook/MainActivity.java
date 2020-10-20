@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private DrawerLayout mDrawerLayout;
-    private Button btn_selaccount;
     private Button btn_graphanalysis;
     private Button btn_insititute;
     private Button btn_setting;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setButtonListener();
         SharedPreferences sharedPreferences = this.getSharedPreferences("first_launch",MODE_PRIVATE);
         boolean isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch",true);
-        if(isFirstLaunch) {
+        //if(isFirstLaunch) {
             LitePal.initialize(this);
             SQLiteDatabase db = LitePal.getDatabase();
             FirstLaunch firstLaunch = new FirstLaunch();
@@ -40,11 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SharedPreferences.Editor editor = getSharedPreferences("first_launch",MODE_PRIVATE).edit();
             editor.putBoolean("isFirstLaunch",false);
             editor.apply();
-        }
+        //}
     }
     private void initView() {
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-//        btn_selaccount = (Button) findViewById(R.id.btn_select_account);
         btn_graphanalysis = (Button) findViewById(R.id.btn_graph_analysis);
         btn_insititute = (Button) findViewById(R.id.btn_institute);
         btn_setting = (Button) findViewById(R.id.btn_setting);
@@ -57,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_setting.setOnClickListener(this);
         btn_insititute.setOnClickListener(this);
         btn_graphanalysis.setOnClickListener(this);
-//        btn_selaccount.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btn_setting:
                 mDrawerLayout.openDrawer(GravityCompat.START);
-                //intent = new Intent(MainActivity.this,SettingsActivity.class);
                 break;
             case R.id.btn_graph_analysis:
                 intent = new Intent(MainActivity.this,SettingsActivity.class);
@@ -73,9 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_institute:
                 intent = new Intent(MainActivity.this,Institute.class);
                 break;
-//            case R.id.btn_select_account:
-//                intent = new Intent(MainActivity.this,SelectAccount.class);
-//                break;
             case R.id.btn_keep_account:
                 intent = new Intent(MainActivity.this,KeepAccountActivity.class);
                 break;
