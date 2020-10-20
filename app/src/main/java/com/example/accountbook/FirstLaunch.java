@@ -66,13 +66,20 @@ public class FirstLaunch {
             {"应收款项(CNY)","公司报销(CNY)"},
             {"基金账户(CNY)","余额宝(CNY)","股票账户(CNY)"}
     };
+    private final String[] lender_1 = {
+            "所有"
+    };
+    private final String[][] lender_2 = {
+            {"公司报销","银行"}
+    };
     private final String[][] string_list_1 = {
             pay_category1,
             income_category1,
             universe_people_1,
             universe_project_1,
             universe_store_1,
-            universe_account_1
+            universe_account_1,
+            lender_1
     };
     private final String[][][] strings_list_2 = {
             pay_category2,
@@ -80,12 +87,15 @@ public class FirstLaunch {
             universe_people_2,
             universe_project_2,
             universe_store_2,
-            universe_account_2
+            universe_account_2,
+            lender_2
     };
     private final String[] string_name = {
             "pay_category","income_category",
-            "people","project","store","account"
+            "people","project","store","account",
+            "lender"
     };
+
     public void initPickerData(){
         for(int i=0;i<string_list_1.length;++i){
             for(int j=0;j<string_list_1[i].length;++j)

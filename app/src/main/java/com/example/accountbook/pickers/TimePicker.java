@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
@@ -20,14 +21,18 @@ public class TimePicker {
     private TimePickerView time_picker;
     private Calendar date;
 
-    private void initTimePicker(Context context) {
+    public TimePickerView getTimePicker(Context context, final Button btn) {
         TimePickerBuilder time_builder = new TimePickerBuilder(context, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-
+                Calendar c = Calendar.getInstance();
+                c.setTime(date);
+                String change_time_text = c.get(Calendar.HOUR_OF_DAY)+"时"+c.get(Calendar.MINUTE)+"分";
+                btn.setText(change_time_text);
             }
         }).setType(new boolean[]{false,false,false,true,true,false})
                 .isAlphaGradient(true)
+                .setOutSideCancelable(true)
                 .setItemVisibleCount(7)
                 .isDialog(true)
                 .setDate(date)
@@ -38,7 +43,7 @@ public class TimePicker {
                         Calendar c = Calendar.getInstance();
                         c.setTime(date);
                         String change_time_text = c.get(Calendar.HOUR_OF_DAY)+"时"+c.get(Calendar.MINUTE)+"分";
-                        //btn_show_time.setText(change_time_text);
+                        btn.setText(change_time_text);
                     }
                 })
                 .addOnCancelClickListener(new View.OnClickListener() {
@@ -67,6 +72,7 @@ public class TimePicker {
                 dialogWindow.setDimAmount(0.3f);
             }
         }
+        return time_picker;
     }
 
 }

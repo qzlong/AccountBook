@@ -5,6 +5,7 @@ import org.litepal.LitePal;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -31,7 +32,13 @@ public class PickerDataHelper extends LitePalSupport {
     private String getCategory2(){
         return Category2;
     }
-
+    public final static String PAY_CATEGORY = "pay_category";
+    public final static String INCOME_CATEGORY = "income_category";
+    public final static String PEOPLE = "people";
+    public final static String PROJECT="project";
+    public final static String STORE = "store";
+    public final static String ACCOUNT = "account";
+    public final static String LENDER = "lender";
 
     public void addCategory(String name, String cate1, String cate2){
         this.Name = name;
@@ -43,15 +50,13 @@ public class PickerDataHelper extends LitePalSupport {
     public ArrayList<String> findCategory1(String name){
         ArrayList<String> ret = new ArrayList<String>();
         List<PickerDataHelper> fetch_cate1 = LitePal.where("Name like ?", name).find(PickerDataHelper.class);
-        Log.d("test", "fetch_cate1.size:"+fetch_cate1.size());
+//        Log.d("test", "fetch_cate1.size:"+fetch_cate1.size());
         for(PickerDataHelper cate1: fetch_cate1){
             ret.add(cate1.getCategory1());
         }
         Set<String> dup = new HashSet<String>(ret);
-        System.out.println(dup);
         ret.clear();
         ret.addAll(dup);
-        Log.d("test","Array1.size"+ret.size());
         return ret;
     }
 
@@ -74,7 +79,6 @@ public class PickerDataHelper extends LitePalSupport {
         for(String cate1: cate1_list){
             ret.add(findCategory2(name, cate1));
         }
-        Log.d("test","Array2.size"+ret.size());
         return ret;
     }
 }

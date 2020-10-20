@@ -9,7 +9,7 @@
         android:layout_height="wrap_content">
         <!--金额-->
         <EditText
-            android:id="@+id/jine"
+            android:id="@+id/edit_money"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="0.00"
@@ -33,6 +33,7 @@
             android:text="存入账户"/>
 
         <Button
+            android:id="@+id/btn_show_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -49,8 +50,9 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:drawableLeft="@drawable/chengyuan"
-            android:text="借贷人"/>
+            android:text="放贷人"/>
         <Button
+            android:id="@+id/btn_show_lender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -70,6 +72,7 @@
             android:drawableLeft="@drawable/shangjia"
             android:text="商家"/>
         <Button
+            android:id="@+id/btn_show_store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -89,6 +92,7 @@
             android:drawableLeft="@drawable/riqi"
             android:text="日期"/>
         <Button
+            android:id="@+id/btn_show_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -108,6 +112,7 @@
             android:drawableLeft="@drawable/shike"
             android:text="时刻"/>
         <Button
+            android:id="@+id/btn_show_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -127,6 +132,7 @@
             android:drawableLeft="@drawable/chengyuan"
             android:text="成员"/>
         <Button
+            android:id="@+id/btn_show_member"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -146,6 +152,7 @@
             android:drawableLeft="@drawable/xiangmu"
             android:text="项目"/>
         <Button
+            android:id="@+id/btn_show_project"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -166,6 +173,7 @@
             android:text="备注"/>
 
         <EditText
+            android:id="@+id/edit_remark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -181,6 +189,7 @@
         android:orientation="horizontal"
         android:gravity="bottom">
         <Button
+            android:id="@+id/btn_save_as_model"
             android:layout_width="120dp"
             android:layout_height="45dp"
             android:layout_marginLeft="50dp"
@@ -190,6 +199,7 @@
             android:background="@drawable/btn_background" />
 
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="120dp"
             android:layout_height="45dp"
             android:layout_marginLeft="50dp"
