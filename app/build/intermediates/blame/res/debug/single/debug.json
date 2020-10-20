@@ -28,8 +28,8 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
-        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_chart_linear.xml.flat",
-        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\chart_linear.xml"
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_chart_linear_page.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\chart_linear_page.xml"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -158,6 +158,10 @@
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\menu_select_account.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\menu\\select_account.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_chart_line.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\chart_line.xml"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",

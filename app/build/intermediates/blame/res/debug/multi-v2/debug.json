@@ -1762,6 +1762,21 @@
             ]
         },
         {
+            "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-port_values-port.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\Tools\\Java\\Android\\.gradle\\caches\\transforms-2\\files-2.1\\bf96d2b5a86ecd602a621e7e96856420\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-km_values-km.arsc.flat",
             "map": [
                 {
@@ -1830,21 +1845,6 @@
                         "startOffsets": "2793,2862,3162,3239,3557,3726,3806",
                         "endColumns": "68,89,76,132,168,79,76",
                         "endOffsets": "2857,2947,3234,3367,3721,3801,3878"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-port_values-port.arsc.flat",
-            "map": [
-                {
-                    "source": "D:\\Tools\\Java\\Android\\.gradle\\caches\\transforms-2\\files-2.1\\bf96d2b5a86ecd602a621e7e96856420\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
                     }
                 }
             ]
@@ -2325,22 +2325,6 @@
             ]
         },
         {
-            "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-v25_values-v25.arsc.flat",
-            "map": [
-                {
-                    "source": "D:\\Tools\\Java\\Android\\.gradle\\caches\\transforms-2\\files-2.1\\bf96d2b5a86ecd602a621e7e96856420\\appcompat-1.2.0\\res\\values-v25\\values-v25.xml",
-                    "from": {
-                        "startLines": "2,3,4,6",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,126,209,308",
-                        "endLines": "2,3,5,7",
-                        "endColumns": "70,82,12,12",
-                        "endOffsets": "121,204,303,414"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-gl_values-gl.arsc.flat",
             "map": [
                 {
@@ -2409,6 +2393,22 @@
                         "startOffsets": "3024,3142",
                         "endColumns": "117,121",
                         "endOffsets": "3137,3259"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\values-v25_values-v25.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\Tools\\Java\\Android\\.gradle\\caches\\transforms-2\\files-2.1\\bf96d2b5a86ecd602a621e7e96856420\\appcompat-1.2.0\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
                     }
                 }
             ]

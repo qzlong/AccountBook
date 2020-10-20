@@ -1803,6 +1803,7 @@ id chartAnalysis_spinner_category
 id chartAnalysis_spinner_time
 id chartAnalysis_tabLayout
 id chartAnlysis_viewPager
+id chart_line
 id chart_pie
 id checkbox
 id checked
@@ -2082,7 +2083,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView3
 id text_gallery
 id text_home
 id text_input_end_icon
@@ -2195,7 +2195,8 @@ layout activity_main
 layout activity_password_confirm
 layout activity_select_account
 layout app_bar_main
-layout chart_linear
+layout chart_line
+layout chart_linear_page
 layout chart_pie
 layout content_main
 layout custom_dialog
