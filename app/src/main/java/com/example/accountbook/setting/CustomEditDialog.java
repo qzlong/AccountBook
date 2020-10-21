@@ -93,7 +93,8 @@ public class CustomEditDialog extends Dialog implements View.OnClickListener{
                 email_address = edit_mail.getText().toString();
                 if(isEmail(email_address)){
                     btn_send_code.setClickable(false);
-                    btn_send_code.setBackgroundColor(Color.GRAY);
+                    //btn_send_code.setBackgroundColor(Color.GRAY);
+                    btn_send_code.setBackgroundResource(R.drawable.dialog_btn_gray);
                     btn_send_code.setTextColor(Color.WHITE);
                     CodeHelper codeHelper = new CodeHelper();
                     code = codeHelper.generateCode();
