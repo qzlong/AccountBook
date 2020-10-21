@@ -15,5 +15,26 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <!--这个说明提示框是否有边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--这个说明提示框是否是浮动的-->
+        <item name="android:windowIsFloating">true</item>
+        <!--这个说明提示框是滞是透明的-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--这个说明提示框是否有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--这个说明提示框的背景颜色是什么-->
+<!--        <item name="android:windowBackground">@drawable/bg_dialog_confirm</item>-->
+        <!--这个说明是否充许对话框的背景变暗。为true则充许变暗-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+<!--    <shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:shape="rectangle">-->
 
+<!--        <size android:height="40dp" android:width="40dp"/>-->
+<!--        <solid android:color="#EFEFEF"/>-->
+<!--        <corners android:radius="12dp"/>-->
+
+<!--    </shape>-->
 </resources>

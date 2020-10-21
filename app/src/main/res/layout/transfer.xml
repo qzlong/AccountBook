@@ -159,7 +159,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="5dp"
             android:background="@android:color/transparent"
-            android:hint="记一笔"
+            android:hint=".."
             android:textSize="18dp" />
     </LinearLayout>
     <LinearLayout

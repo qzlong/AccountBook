@@ -1,7 +1,9 @@
-package com.example.accountbook;
+package com.example.accountbook.setting;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,13 +23,14 @@ public class EmailSupporterThread extends Thread {
     private final String myEmailAccount = "861673644@qq.com";
     private final String myEmailPassword = "nrstmsufjpkbbbch";
     private final String smtpPort = "587";
+    Context mContext;
     private String info = null;
-    private String code = null;
-    public void setCode(String code){
-        this.code = code;
-    }
-    public void setReceiverAddress(String receiverAddress){
+    private String code;
+
+    public EmailSupporterThread(Context context,String receiverAddress,String code){
+        this.mContext = context;
         this.receiverAddress = receiverAddress;
+        this.code = code;
     }
 
     private Session createSession(){
@@ -68,6 +71,9 @@ public class EmailSupporterThread extends Thread {
         {
             Log.d("test", "error");
             e.printStackTrace();
+            Looper.prepare();
+            Toast.makeText(mContext,"验证码发送失败,请稍后再试",Toast.LENGTH_SHORT).show();
+            Looper.loop();
         }
         Log.d("test","5");
         //6.发送邮件
@@ -82,9 +88,12 @@ public class EmailSupporterThread extends Thread {
         super.run();
         try {
             sendTextMail();
+            Looper.prepare();
+            Toast.makeText(mContext,"发送成功",Toast.LENGTH_SHORT).show();
+            Looper.loop();
             Log.d("test", "run: success");
         } catch (Exception e) {
-            e.printStackTrace();
+            //
         }
     }
 

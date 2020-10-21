@@ -1,20 +1,25 @@
 package com.example.accountbook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.accountbook.setting.CustomEditDialog;
+
 import java.util.List;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder>{
     private List<Option> mOptionList;
+    private Context context;
     static class ViewHolder extends RecyclerView.ViewHolder{
         View optionView;
         TextView aboveText;
@@ -26,8 +31,9 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             belowText = (TextView)view.findViewById(R.id.belowText);
         }
     }
-    public OptionAdapter(List<Option> optionList){
-        mOptionList = optionList;
+    public OptionAdapter(List<Option> optionList,Context context){
+        this.mOptionList = optionList;
+        this.context = context;
     }
 
     @Override
@@ -69,7 +75,11 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 Toast.makeText(v.getContext(),"图形密码",Toast.LENGTH_SHORT).show();
                 break;
             case 9: //绑定邮箱
-                Toast.makeText(v.getContext(),"绑定邮箱",Toast.LENGTH_SHORT).show();
+                CustomEditDialog customEditDialog = new CustomEditDialog(context);
+                customEditDialog.setTile("绑定邮箱");
+                final EditText editMail = (EditText) customEditDialog.getEmail();
+                final EditText editCode = (EditText) customEditDialog.getCode();
+                customEditDialog.show();
                 break;
             case 10: //数据导出
                 Toast.makeText(v.getContext(),"数据导出",Toast.LENGTH_SHORT).show();

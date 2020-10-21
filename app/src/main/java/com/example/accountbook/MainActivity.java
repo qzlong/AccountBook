@@ -21,12 +21,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    //主页面
     private DrawerLayout mDrawerLayout;
     private Button btn_graphanalysis;
     private Button btn_insititute;
     private Button btn_setting;
     private Button btn_keepaccount;
     private List<Option> optionList = new ArrayList<>();
+    //设置页面
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        OptionAdapter adapter = new OptionAdapter(optionList);
+        OptionAdapter adapter = new OptionAdapter(optionList,this);
         recyclerView.setAdapter(adapter);
         setButtonListener();
         SharedPreferences sharedPreferences = this.getSharedPreferences("first_launch",MODE_PRIVATE);
@@ -53,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initOptions() {
-
         optionList.clear();
         Option option1 = new Option(" ","    定时任务");
         optionList.add(option1);
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.btn_graph_analysis:
-                intent = new Intent(MainActivity.this,SettingsActivity.class);
+                intent = new Intent(MainActivity.this,ChartAnalysis.class);
                 break;
             case R.id.btn_institute:
                 intent = new Intent(MainActivity.this,Institute.class);
@@ -123,4 +125,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
+
 }

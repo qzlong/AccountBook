@@ -74,6 +74,9 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
         String date_text = date.get(Calendar.YEAR) + "年" + date.get(Calendar.MONTH) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
         btn_show_time.setText(time_text);
         btn_show_date.setText(date_text);
+        btn_show_member.setText("默认->无成员");
+        btn_show_project.setText("默认->无项目");
+        btn_show_store.setText("默认->无商家");
     }
     private String getDefaultValue(ArrayList array1,ArrayList<ArrayList<String>> array2){
         return array1.get(1)+"->"+array2.get(1).get(0);
@@ -202,7 +205,7 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
                 break;
             case R.id.btn_save:
                 saveBill();
-                Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_SHORT).show();
                 getActivity().finish();
                 break;
             default:
