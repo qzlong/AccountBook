@@ -1,4 +1,4 @@
-#Tue Oct 20 20:06:46 CST 2020
-base.0=D\:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Thu Oct 22 11:37:32 CST 2020
+base.0=D\:\\Projects\\Java\\Android\\AccountBook-dev\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

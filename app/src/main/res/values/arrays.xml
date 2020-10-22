@@ -10,6 +10,13 @@
         <item>reply_all</item>
     </string-array>
 
+    <string-array name="auto_backup">
+        <item>每天</item>
+        <item>每周</item>
+        <item>每月</item>
+        <item>不开启自动备份</item>
+    </string-array>
+
     <string-array name="categories">
         <item>全部类别</item>
         <item>收入</item>

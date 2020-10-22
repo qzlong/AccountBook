@@ -8,7 +8,10 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="30" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -18,17 +21,17 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.accountbook.SelectAccount" />
         <activity android:name="com.example.accountbook.KeepAccountActivity" />
         <activity android:name="com.example.accountbook.Institute" />
         <activity android:name="com.example.accountbook.PasswordConfirm" />
+        <activity android:name="com.example.accountbook.ChartAnalysis" />
         <activity
             android:name="com.example.accountbook.ChartAnalysisActivity"
-            android:parentActivityName="com.example.accountbook.MainActivity" >
-        </activity>
+            android:parentActivityName="com.example.accountbook.MainActivity" />
         <activity
-            android:name="com.example.accountbook.SelectAccount"
-            android:label="@string/title_activity_select_account"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name="com.example.accountbook.BillDetailsActivity"
+            android:parentActivityName="com.example.accountbook.MainActivity" />
         <activity
             android:name="com.example.accountbook.SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -38,10 +41,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.accountbook.BillDetailsActivity"
-            android:parentActivityName="com.example.accountbook.MainActivity" >
         </activity>
 
         <provider
