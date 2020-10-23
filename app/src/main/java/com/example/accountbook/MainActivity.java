@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startActivity(new Intent(MainActivity.this,PasswordConfirm.class));
         initView();
         initOptions();
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);

@@ -42,4 +42,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    implementation 'com.wei.android.lib:fingerprintidentify:1.2.6'
+    implementation 'com.andrognito.patternlockview:patternlockview:1.0.0'
 }
