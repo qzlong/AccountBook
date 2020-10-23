@@ -3,6 +3,7 @@ package com.example.accountbook;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //左滑页面recycleview
         initView();
         initOptions();
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
@@ -75,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_keepaccount = (Button) findViewById(R.id.btn_keep_account);
 
     }
-
     private void setButtonListener() {
         btn_keepaccount.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
