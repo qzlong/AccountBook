@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent1 = new Intent(MainActivity.this,PasswordConfirm.class);
+        startActivity(intent1);
         //左滑页面recycleview
         initView();
         initOptions();
