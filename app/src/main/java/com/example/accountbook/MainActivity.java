@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,ChartAnalysisActivity.class);
                 break;
             case R.id.btn_institute:
-                intent = new Intent(MainActivity.this,BillDetailsActivity.class);
+                intent = new Intent(MainActivity.this, StatisticsActivity.class);
                 break;
             case R.id.btn_keep_account:
                 intent = new Intent(MainActivity.this,KeepAccountActivity.class);

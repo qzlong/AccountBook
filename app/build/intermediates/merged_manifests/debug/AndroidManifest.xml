@@ -30,8 +30,11 @@
             android:name="com.example.accountbook.ChartAnalysisActivity"
             android:parentActivityName="com.example.accountbook.MainActivity" />
         <activity
-            android:name="com.example.accountbook.BillDetailsActivity"
+            android:name="com.example.accountbook.StatisticsActivity"
             android:parentActivityName="com.example.accountbook.MainActivity" />
+        <activity
+            android:name="com.example.accountbook.BillDetailActivity"
+            android:parentActivityName="com.example.accountbook.StatisticsActivity" />
         <activity
             android:name="com.example.accountbook.SettingsActivity"
             android:label="@string/title_activity_settings" />

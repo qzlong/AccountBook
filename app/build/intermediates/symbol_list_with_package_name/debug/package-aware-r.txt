@@ -2261,6 +2261,7 @@ layout activity_main
 layout activity_main_title
 layout activity_password_confirm
 layout activity_select_account
+layout activity_statistics
 layout chart_line
 layout chart_pie
 layout custom_dialog

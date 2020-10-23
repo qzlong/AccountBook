@@ -17,9 +17,10 @@
         <activity android:name=".ChartAnalysis" />
         <activity android:name=".ChartAnalysisActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".BillDetailsActivity"
+        <activity android:name=".StatisticsActivity"
             android:parentActivityName=".MainActivity" />
-
+        <activity android:name=".BillDetailActivity"
+            android:parentActivityName=".StatisticsActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
