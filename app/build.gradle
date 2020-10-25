@@ -38,10 +38,14 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:24.2.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation files('libs\\mail.jar')
+    implementation project(path: ':pickerview')
+    implementation project(path: ':wheelview')
+    implementation 'com.mysugr.MPAndroidChart:MPAndroidChart:3.1.0-mysugr-1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    implementation 'com.github.WangcWj:WeSwipe:1.0.2'
     implementation 'com.wei.android.lib:fingerprintidentify:1.2.6'
     implementation 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    implementation 'org.litepal.guolindev:core:3.2.2'
 }

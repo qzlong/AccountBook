@@ -3,6 +3,8 @@ package com.example.accountbook.pickers;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
@@ -13,8 +15,8 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import java.util.ArrayList;
 
 public class OptionsPicker {
-    OptionsPickerView optionsPickerView ;
-    public OptionsPickerView getOptionsPickerView(Context mContext, String titlename, final Button btn, final ArrayList array1, final ArrayList<ArrayList<String>> array2){
+    private OptionsPickerView optionsPickerView ;
+    public OptionsPickerView getOptionsPickerView(final Context mContext, final String titlename, final Button btn, final ArrayList array1, final ArrayList<ArrayList<String>> array2, Window window, final String Type){
         OptionsPickerBuilder opbuilder = new OptionsPickerBuilder(mContext, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -23,6 +25,7 @@ public class OptionsPicker {
             }
         }).setTitleText(titlename)
                 .setContentTextSize(20)
+                .setCancelText("添加")
                 .setSelectOptions(0,0)
                 .setBgColor(Color.WHITE)
                 .setTitleBgColor(Color.LTGRAY)
@@ -32,6 +35,7 @@ public class OptionsPicker {
                 .setTextColorCenter(Color.BLACK)
                 .isRestoreItem(true)
                 .isCenterLabel(false)
+                .setDecorView((ViewGroup) window.getDecorView().findViewById(android.R.id.content))
                 .setOutSideColor(0x00000000)
                 .setOptionsSelectChangeListener(new OnOptionsSelectChangeListener() {
                     @Override
@@ -40,10 +44,11 @@ public class OptionsPicker {
                         btn.setText(tx);
                     }
                 })
-                .addOnCancelClickListener(new View.OnClickListener() {
+                .addOnCancelClickListener(new View.OnClickListener() { //已更改为添加分类
                     @Override
                     public void onClick(View v) {
-
+                        AddCategoryDialog addCategoryDialog = new AddCategoryDialog(mContext,Type,titlename);
+                        addCategoryDialog.show();
                     }
                 });
         optionsPickerView = opbuilder.build();

@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChartAnalysis">
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Spinner
+        android:id="@+id/chartAnalysis_spinner_category"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#E0F2F1"
+        android:dropDownWidth="match_parent"
+        android:spinnerMode="dropdown" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/chartAnlysis_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="541dp"
+        android:background="#E8EAF6"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/chartAnalysis_bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#FFF3E0"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/chartAnalysis_spinner_time"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="#F1F8E9"
+            android:spinnerMode="dialog" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/chartAnalysis_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_pieChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#E3F2FD"
+                android:text="饼图" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_linearChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#E3F2FD"
+                android:text="折线图" />
+
+        </com.google.android.material.tabs.TabLayout>
+    </LinearLayout>
+</LinearLayout>

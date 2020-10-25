@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.accountbook.widget.CusRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="1dp"
+    android:clipChildren="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="2dp"
+        android:background="#E3F2FD"
+        android:clipChildren="false"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:tag="slide_flag">
+
+
+        <LinearLayout
+            android:id="@+id/listItem_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="256dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="14dp"
+                    android:text="describe"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:paddingLeft="25dp"
+                    android:text="date"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="money"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/listItem_delete"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#E57373"
+            android:paddingLeft="38dp"
+            android:paddingTop="45dp"
+            android:text="Delete"
+            app:layout_constraintStart_toEndOf="@+id/listItem_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:fontFamily="sans-serif" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.example.accountbook.widget.CusRelativeLayout>

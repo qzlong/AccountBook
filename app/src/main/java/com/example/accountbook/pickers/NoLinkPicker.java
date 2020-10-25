@@ -3,6 +3,8 @@ package com.example.accountbook.pickers;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 public class NoLinkPicker {
     OptionsPickerView optionsPickerView ;
 //    private  ArrayList<String> defaultList = new ArrayList<>();
-    public OptionsPickerView getOptionsPickerView(Context mContext, String titlename, final Button btn, final ArrayList array1, final ArrayList array2){
+    public OptionsPickerView getOptionsPickerView(Context mContext, String titlename, final Button btn, final ArrayList array1, final ArrayList array2, Window window){
         OptionsPickerBuilder opbuilder = new OptionsPickerBuilder(mContext, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -30,6 +32,7 @@ public class NoLinkPicker {
                 .setCancelColor(Color.BLACK)
                 .setSubmitColor(Color.BLACK)
                 .setTextColorCenter(Color.BLACK)
+                .setDecorView((ViewGroup) window.getDecorView().findViewById(android.R.id.content))
                 .setOutSideCancelable(true)
                 .isCenterLabel(true)
                 .setLabels(":转出",":转入",null)

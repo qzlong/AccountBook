@@ -1,6 +1,6 @@
 package com.example.accountbook.setting;
 
-import com.example.accountbook.Detail;
+import com.example.accountbook.bean.Detail;
 
 import org.litepal.LitePal;
 

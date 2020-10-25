@@ -10,8 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bigkoo.pickerview.view.TimePickerView;
-import com.example.accountbook.pickers.TimePicker;
+import com.example.accountbook.adapter.TabFragmentPagerAdapter;
+import com.example.accountbook.fragments.ExpenditureFragment;
+import com.example.accountbook.fragments.IncomeFragment;
+import com.example.accountbook.fragments.LoanFragment;
+import com.example.accountbook.fragments.TemplateFragment;
+import com.example.accountbook.fragments.TransferFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -32,9 +32,9 @@
     	</list>
     -->
     <list>
-            <mapping class="com.example.accountbook.PickerDataHelper" />
+            <mapping class="com.example.accountbook.helper.PickerDataHelper" />
 <!--            <mapping class="com.example.accountbook.Account" />-->
-            <mapping class="com.example.accountbook.Detail" />
+            <mapping class="com.example.accountbook.bean.Detail" />
     </list>
     <storage value="internal"/>
     <!--
