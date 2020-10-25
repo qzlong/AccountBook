@@ -2,6 +2,7 @@ package com.example.accountbook.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.accountbook.ChartAnalysisActivity;
 import com.example.accountbook.R;
+import com.example.accountbook.setting.CustomDialog;
+import com.example.accountbook.setting.CustomDialogClickListener;
 import com.example.accountbook.setting.CustomEditDialog;
 import com.example.accountbook.setting.MailWithAttachmentThread;
 import com.example.accountbook.setting.Option;
@@ -28,6 +31,7 @@ import java.util.List;
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder>{
     private List<Option> mOptionList;
     private Context context;
+    private SharedPreferences sharedPreferences;
     static class ViewHolder extends RecyclerView.ViewHolder{
         View optionView;
         TextView aboveText;
@@ -89,7 +93,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 Toast.makeText(v.getContext(),"图形密码",Toast.LENGTH_SHORT).show();
                 break;
             case 9: //绑定邮箱
-                CustomEditDialog customEditDialog = new CustomEditDialog(context);
+                final CustomEditDialog customEditDialog = new CustomEditDialog(context);
                 customEditDialog.setTile("绑定邮箱");
                 final EditText editMail = (EditText) customEditDialog.getEmail();
                 final EditText editCode = (EditText) customEditDialog.getCode();
@@ -121,7 +125,17 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 Toast.makeText(v.getContext(),"数据导入",Toast.LENGTH_SHORT).show();
                 break;
             case 13: //清空账单
-                Toast.makeText(v.getContext(),"清空账单",Toast.LENGTH_SHORT).show();
+                CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
+                    @Override
+                    public void clickConfirm() {
+                        //TODO
+                    }
+                    @Override
+                    public void clickCancel() {
+                        //Do nothing
+                    }
+                }).setMessage("确定删除所有账单数据？该操作不可逆!!").setTile("警告");
+                customDialog.show();
                 break;
             default:
         }
