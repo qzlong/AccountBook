@@ -1,4 +1,5 @@
 package com.example.accountbook.fragments;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.accountbook.bean.Detail;
+import com.example.accountbook.bean.Model;
 import com.example.accountbook.helper.TextSplitter;
 import com.example.accountbook.helper.PickerDataHelper;
 import com.example.accountbook.R;
@@ -75,6 +77,7 @@ public class TransferFragment extends Fragment implements View.OnClickListener{
         setDefaultValue();
         return view;
     }
+    @SuppressLint("SetTextI18n")
     private void setDefaultValue() {
         btn_show_account.setText(getDefaultValue(account,account));
         Calendar date = Calendar.getInstance();
@@ -85,6 +88,22 @@ public class TransferFragment extends Fragment implements View.OnClickListener{
         btn_show_member.setText("默认->无成员");
         btn_show_project.setText("默认->无项目");
         btn_show_store.setText("默认->无商家");
+        Model model = (Model) getArguments().getParcelable("TRANSFER");
+        if(model!=null){
+            btn_show_account.setText(model.getAccount1()+"->"+model.getAccount2());
+            String store = model.getTrader();
+            String member = model.getMember();
+            String project = model.getProject();
+            String note = model.getNote();
+            if(!store.equals("无商家"))
+                btn_show_store.setText("所有->"+store);
+            if(!member.equals("无成员"))
+                btn_show_member.setText("所有->"+member);
+            if(!project.equals("无项目"))
+                btn_show_project.setText("所有->"+project);
+            if(note==null||note.length()!=0)
+                edit_remark.setText(note);
+        }
     }
     private String getDefaultValue(ArrayList array1,ArrayList array2){
         return array1.get(0)+"->"+array2.get(0);
@@ -218,6 +237,9 @@ public class TransferFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
             case R.id.btn_save_as_model:
+                Model model = new Model(detail);
+                model.save();
+                Toast.makeText(mContext,"已添加至模板",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_save:
                 saveBill();
