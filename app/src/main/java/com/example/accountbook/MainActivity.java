@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_setting;
     private Button btn_keepaccount;
     private List<Option> optionList = new ArrayList<>();
+    //2020/10/25/18:50 test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
