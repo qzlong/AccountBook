@@ -87,7 +87,10 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         btn_show_member.setText("默认->无成员");
         btn_show_project.setText("默认->无项目");
         btn_show_store.setText("默认->无商家");
-        Model model = (Model) getArguments().getParcelable("LOAN");
+        final Bundle bundle = getArguments();
+        Model model = null;
+        if(bundle!=null)
+            model = bundle.getParcelable("LOAN");
         if(model!=null){
             btn_show_lender.setText(model.getCategory1()+"->"+model.getCategory2());
             btn_show_account.setText(model.getAccount1()+"->"+model.getAccount2());
@@ -199,7 +202,7 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         detail.setProject(temp.get(1));
         Log.d("test", "saveBill: 9");
         //10.保存至数据库
-        detail.save();
+
     }
     @Override
     public void onClick(View v) {
@@ -252,12 +255,14 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
             case R.id.btn_save_as_model:
+                saveBill();
                 Model model = new Model(detail);
                 model.save();
                 Toast.makeText(mContext,"已添加至模板",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_save:
                 saveBill();
+                detail.save();
                 Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_SHORT).show();
                 getActivity().finish();
                 break;
