@@ -19,15 +19,15 @@ public class PickerDataHelper extends LitePalSupport {
     @Column(index = true)
     private String Category2;
 
-    private String getName(){
+    public String getName(){
         return Name;
     }
 
-    private String getCategory1(){
+    public String getCategory1(){
         return Category1;
     }
 
-    private String getCategory2(){
+    public String getCategory2(){
         return Category2;
     }
     public final static String PAY_CATEGORY = "pay_category";

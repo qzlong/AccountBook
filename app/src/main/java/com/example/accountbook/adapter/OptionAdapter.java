@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.nfc.cardemulation.CardEmulation;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,26 +14,31 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.accountbook.ChartAnalysisActivity;
 import com.example.accountbook.R;
+import com.example.accountbook.helper.CsvIOHelper;
+import com.example.accountbook.setting.AddTextCodeDialog;
 import com.example.accountbook.setting.CustomDialog;
 import com.example.accountbook.setting.CustomDialogClickListener;
 import com.example.accountbook.setting.CustomEditDialog;
 import com.example.accountbook.setting.MailWithAttachmentThread;
 import com.example.accountbook.setting.Option;
+import com.wei.android.lib.fingerprintidentify.FingerprintIdentify;
+import com.wei.android.lib.fingerprintidentify.base.BaseFingerprint;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.util.Calendar;
 import java.util.List;
 
-public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder>{
+public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> implements SharedPreferences.OnSharedPreferenceChangeListener{
     private List<Option> mOptionList;
     private Context context;
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences ;
+    private SharedPreferences.Editor editor;
     static class ViewHolder extends RecyclerView.ViewHolder{
         View optionView;
         TextView aboveText;
@@ -46,6 +53,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     public OptionAdapter(List<Option> optionList,Context context){
         this.mOptionList = optionList;
         this.context = context;
+        this.sharedPreferences = context.getSharedPreferences("setting",Context.MODE_PRIVATE);
+        this.editor = sharedPreferences.edit();
     }
 
     @Override
@@ -54,6 +63,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 .inflate(R.layout.option_layout, parent, false);
         final ViewHolder holder = new ViewHolder(view);
         holder.optionView.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
@@ -67,6 +77,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         return holder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void Click(View v, int position) throws IOException {
         switch (position){
             //case 1-3 为定时事件
@@ -84,14 +95,44 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
 
             case 5: //指纹密码
-                Toast.makeText(v.getContext(),"指纹密码",Toast.LENGTH_SHORT).show();
+                boolean isOpenFingerprintCode = sharedPreferences.getBoolean("isOpenFingerprintCode",false);
+                if(!isOpenFingerprintCode) {//未设置指纹
+                    enableFingerprintCode();
+                }else{
+                    CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
+                        @Override
+                        public void clickConfirm() {
+                            editor.putBoolean("isOpenFingerprintCode",false);
+                            Toast.makeText(context,"指纹密码已关闭",Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void clickCancel() {
+                            //do nothing
+                        }
+                    });
+                }
+//                Toast.makeText(v.getContext(),"指纹密码",Toast.LENGTH_SHORT).show();
                 break;
             case 6: //文本密码
-                Toast.makeText(v.getContext(),"文本密码",Toast.LENGTH_SHORT).show();
+                boolean isSetTextCode = sharedPreferences.getBoolean("isSetTextCode",false);
+                if(!isSetTextCode){
+                    setTextCode();
+                }else{
+                    //TODO
+                    //Change code
+                    //Closed code
+                }
                 break;
             case 7: //图形密码
-                Toast.makeText(v.getContext(),"图形密码",Toast.LENGTH_SHORT).show();
+                boolean isSetPattenCode = sharedPreferences.getBoolean("isSetPattenCode",false);
+                if(!isSetPattenCode){
+                    //TODO
+                }else{
+                    //TODO
+                }
                 break;
+
             case 9: //绑定邮箱
                 final CustomEditDialog customEditDialog = new CustomEditDialog(context);
                 customEditDialog.setTile("绑定邮箱");
@@ -99,31 +140,15 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 final EditText editCode = (EditText) customEditDialog.getCode();
                 customEditDialog.show();
                 break;
-            case 10: //数据导出
 
-                String rootPath = "data/data/com.example.accountbook/a.txt";
-                boolean file_b = new File(rootPath).createNewFile();
-                FileOutputStream fop = new FileOutputStream(rootPath);
-                // 构建FileOutputStream对象,文件不存在会自动新建
-                OutputStreamWriter writer = new OutputStreamWriter(fop, "UTF-8");
-                // 构建OutputStreamWriter对象,参数可以指定编码,默认为操作系统默认编码,windows上是gbk
-                writer.append("中文输入");
-                // 写入到缓冲区
-                writer.append("\r\n");
-                // 换行
-                writer.append("English");
-                // 刷新缓存冲,写入到文件,如果下面已经没有写入的内容了,直接close也会写入
-                writer.close();
-                // 关闭写入流,同时会把缓冲区内容写入文件,所以上面的注释掉
-                fop.close();
-                // 关闭输出流,释放系统资源
-                MailWithAttachmentThread mailWithAttachmentThread = new MailWithAttachmentThread(context,"a929482132@126.com",new File(rootPath));
-                mailWithAttachmentThread.start();
-                Toast.makeText(v.getContext(),"数据导出",Toast.LENGTH_SHORT).show();
+            case 10: //数据导出
+                dataOutput(v);
                 break;
+
             case 11: //数据导入
                 Toast.makeText(v.getContext(),"数据导入",Toast.LENGTH_SHORT).show();
                 break;
+
             case 13: //清空账单
                 CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
                     @Override
@@ -140,6 +165,20 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             default:
         }
     }
+
+    private void setTextCode() {
+        AddTextCodeDialog addTextCodeDialog = new AddTextCodeDialog(context);
+        addTextCodeDialog.show();
+        if(addTextCodeDialog.isSetSuccessful()){
+            String password = addTextCodeDialog.getPassword();
+            editor.putBoolean("isSetTextCode",true);
+            editor.putString("textCode",password);
+            Toast.makeText(context,"密码设置成功",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context,"密码设置失败",Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public void onBindViewHolder(ViewHolder holder,int position){
         Option option = mOptionList.get(position);
@@ -153,8 +192,52 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         }
     }
 
+
     @Override
     public int getItemCount(){
         return mOptionList.size();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void dataOutput(View v){
+        String rootPath = "data/data/com.example.accountbook/";
+        Calendar calendar = Calendar.getInstance();
+        String filename = calendar.get(Calendar.YEAR) +"_"+calendar.get(Calendar.MONTH)+"_"+calendar.get(Calendar.DAY_OF_MONTH)+
+                "_"+calendar.get(Calendar.HOUR_OF_DAY)+"_"+calendar.get(Calendar.MINUTE)+"_"+calendar.get(Calendar.SECOND)+".csv";
+        String path = rootPath+filename;
+        CsvIOHelper csvIOHelper = new CsvIOHelper();
+        boolean createFile = csvIOHelper.writeDetail(path);
+        if(createFile) {
+            MailWithAttachmentThread mailWithAttachmentThread = new MailWithAttachmentThread(context, "a929482132@126.com", new File(path));
+            mailWithAttachmentThread.start();
+            Toast.makeText(v.getContext(), "文件已发送至您的邮箱", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(v.getContext(), "文件导出失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void enableFingerprintCode(){
+        FingerprintIdentify mFingerprintIdentify = new FingerprintIdentify(context);
+        mFingerprintIdentify.setSupportAndroidL(true);
+        mFingerprintIdentify.setExceptionListener(new BaseFingerprint.ExceptionListener() {
+            @Override
+            public void onCatchException(Throwable exception) {
+
+            }
+        });
+        mFingerprintIdentify.init();
+        boolean isHardwareEnable = mFingerprintIdentify.isHardwareEnable();
+        if(!isHardwareEnable){
+            Toast.makeText(context,"您的设备不支持指纹解锁功能",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean isRegisteredFingerprint = mFingerprintIdentify.isRegisteredFingerprint();
+        if(!isRegisteredFingerprint){
+            Toast.makeText(context,"您未在您的设备中录入指纹，请先录入指纹",Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
     }
 }

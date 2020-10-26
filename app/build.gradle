@@ -41,6 +41,7 @@ dependencies {
     implementation project(path: ':pickerview')
     implementation project(path: ':wheelview')
     implementation 'com.mysugr.MPAndroidChart:MPAndroidChart:3.1.0-mysugr-1'
+    implementation files('libs\\javacsv.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

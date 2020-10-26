@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.WangcWj:WeSwipe:1.0.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d39a5632b3dac389402c12b9dcc486d5/jetified-WeSwipe-1.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d39a5632b3dac389402c12b9dcc486d5/jetified-WeSwipe-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d39a5632b3dac389402c12b9dcc486d5/jetified-WeSwipe-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.WangcWj/WeSwipe/1.0.2/54e450736bad36d3217ebecabe14a85d24175a31/WeSwipe-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
