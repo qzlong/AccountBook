@@ -31,7 +31,7 @@ public class TextFragment extends Fragment implements View.OnClickListener {
         btn_confirm = view.findViewById(R.id.btn_confirm);
         btn_confirm.setOnClickListener(this);
         text_warn = view.findViewById(R.id.text_warn);
-        Toast.makeText(mContext,password,Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext,password,Toast.LENGTH_LONG).show();
         return view;
     }
 

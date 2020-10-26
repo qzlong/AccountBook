@@ -7,4 +7,9 @@
     <color name="text_red">#BC1212</color>
     <color name="text_blue">#2196F3</color>
     <color name="text_black">#111111</color>
+    <color name="code_bg">#80351D</color>
+    <color name="dot_blue">#2357F1</color>
+    <color name="dot_black">#000</color>
+    <color name="dot_red">#BC1212</color>
+    <color name="dot_green">#68BF03</color>
 </resources>

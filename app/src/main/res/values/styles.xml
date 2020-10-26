@@ -29,12 +29,25 @@
         <!--这个说明是否充许对话框的背景变暗。为true则充许变暗-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
-<!--    <shape xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:shape="rectangle">-->
+    <style name="LibAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
 
-<!--        <size android:height="40dp" android:width="40dp"/>-->
-<!--        <solid android:color="#EFEFEF"/>-->
-<!--        <corners android:radius="12dp"/>-->
+    <style name="PickerTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@color/colorPrimary</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+    </style>
 
-<!--    </shape>-->
+    <style name="SmoothCheckBoxStyle">
+        <item name="color_checked">@color/checkbox_color</item>
+        <item name="color_unchecked">@android:color/white</item>
+        <item name="color_unchecked_stroke">@color/checkbox_unchecked_color</item>
+        <item name="color_tick">@android:color/white</item>
+    </style>
 </resources>

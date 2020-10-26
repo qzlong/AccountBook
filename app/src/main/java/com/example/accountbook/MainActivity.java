@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        OptionAdapter adapter = new OptionAdapter(optionList,this);
+        OptionAdapter adapter = new OptionAdapter(optionList,this,MainActivity.this);
         recyclerView.setAdapter(adapter);
         setButtonListener();
         SharedPreferences sharedPreferences = this.getSharedPreferences("first_launch",MODE_PRIVATE);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isSetCode() {
         boolean isSetTextCode = setting_pref.getBoolean("isSetTextCode",false);
         boolean isSetPatternCode = setting_pref.getBoolean("isSetPatternCode",false);
-        boolean isSetFingerprintCode = setting_pref.getBoolean("isSetFingerprintCode",false);
+        boolean isSetFingerprintCode = setting_pref.getBoolean("isEnableFingerprintCode",false);
         return isSetFingerprintCode|isSetPatternCode|isSetTextCode;
     }
 
@@ -141,4 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

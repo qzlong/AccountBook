@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.accountbook">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
-    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER"/>
-    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.accountbook"
+    android:requestLegacyExternalStorage="true"
+    tools:targetApi="q">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
@@ -13,14 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SetPatternCodeActivity"></activity>
         <activity android:name=".SelectAccount" />
         <activity android:name=".KeepAccountActivity" />
         <activity android:name=".PasswordConfirm" />
-        <activity android:name=".ChartAnalysisActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".StatisticsActivity"
+        <activity
+            android:name=".ChartAnalysisActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".BillDetailActivity"
+        <activity
+            android:name=".StatisticsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".BillDetailActivity"
             android:parentActivityName=".StatisticsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -161,6 +161,7 @@
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.mysugr.MPAndroidChart:MPAndroidChart:3.1.0-mysugr-1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.wei.android.lib:fingerprintidentify:1.2.6@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.droidninja:filepicker:2.2.4@aar" level="project" />
     <orderEntry type="module" module-name="pickerview" />
     <orderEntry type="module" module-name="wheelview" />
   </component>

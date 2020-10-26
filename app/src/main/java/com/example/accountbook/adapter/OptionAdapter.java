@@ -1,16 +1,16 @@
 package com.example.accountbook.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.nfc.cardemulation.CardEmulation;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.accountbook.ChartAnalysisActivity;
 import com.example.accountbook.R;
+import com.example.accountbook.SetPatternCodeActivity;
 import com.example.accountbook.helper.CsvIOHelper;
 import com.example.accountbook.setting.AddTextCodeDialog;
 import com.example.accountbook.setting.CustomDialog;
 import com.example.accountbook.setting.CustomDialogClickListener;
-import com.example.accountbook.setting.CustomEditDialog;
+import com.example.accountbook.setting.EmailEditDialog;
 import com.example.accountbook.setting.MailWithAttachmentThread;
 import com.example.accountbook.setting.Option;
 import com.wei.android.lib.fingerprintidentify.FingerprintIdentify;
@@ -31,14 +32,22 @@ import com.wei.android.lib.fingerprintidentify.base.BaseFingerprint;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.List;
+
+import droidninja.filepicker.FilePickerBuilder;
+import droidninja.filepicker.utils.ContentUriUtils;
+
+import static java.security.AccessController.getContext;
+
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> implements SharedPreferences.OnSharedPreferenceChangeListener{
     private List<Option> mOptionList;
     private Context context;
     private SharedPreferences sharedPreferences ;
     private SharedPreferences.Editor editor;
+    private Activity activity;
     static class ViewHolder extends RecyclerView.ViewHolder{
         View optionView;
         TextView aboveText;
@@ -50,9 +59,10 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             belowText = (TextView)view.findViewById(R.id.belowText);
         }
     }
-    public OptionAdapter(List<Option> optionList,Context context){
+    public OptionAdapter(List<Option> optionList,Context context,Activity activity){
         this.mOptionList = optionList;
         this.context = context;
+        this.activity = activity;
         this.sharedPreferences = context.getSharedPreferences("setting",Context.MODE_PRIVATE);
         this.editor = sharedPreferences.edit();
     }
@@ -69,7 +79,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 int position = holder.getAdapterPosition();
                 try {
                     Click(v,position);
-                } catch (IOException e) {
+                } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
                 }
             }
@@ -78,7 +88,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void Click(View v, int position) throws IOException {
+    public void Click(View v, int position) throws IOException, URISyntaxException {
         switch (position){
             //case 1-3 为定时事件
             case 1: //自动记账
@@ -95,14 +105,34 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
 
             case 5: //指纹密码
-                boolean isOpenFingerprintCode = sharedPreferences.getBoolean("isOpenFingerprintCode",false);
+                boolean isOpenFingerprintCode = sharedPreferences.getBoolean("isEnableFingerprintCode",false);
                 if(!isOpenFingerprintCode) {//未设置指纹
-                    enableFingerprintCode();
+                    Toast.makeText(context,"开始",Toast.LENGTH_SHORT).show();
+                    boolean enable = enableFingerprintCode();
+                    if(enable){
+                        CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
+                            @Override
+                            public void clickConfirm() {
+                                editor.putBoolean("isEnableFingerprintCode",true);
+                                editor.apply();
+                                Toast.makeText(context,"指纹密码已打开",Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void clickCancel() {
+                                //do nothing
+                            }
+                        });
+                        customDialog.setMessage("确定授权使用指纹密码?");
+                        customDialog.setTile("指纹密码授权");
+                        customDialog.show();
+                    }
                 }else{
                     CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
                         @Override
                         public void clickConfirm() {
-                            editor.putBoolean("isOpenFingerprintCode",false);
+                            editor.putBoolean("isEnableFingerprintCode",false);
+                            editor.apply();
                             Toast.makeText(context,"指纹密码已关闭",Toast.LENGTH_SHORT).show();
                         }
 
@@ -111,6 +141,9 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                             //do nothing
                         }
                     });
+                    customDialog.setTile("解除授权");
+                    customDialog.setMessage("确定关闭指纹密码?");
+                    customDialog.show();
                 }
                 break;
             case 6: //文本密码
@@ -118,24 +151,30 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 if(!isSetTextCode){
                     setTextCode();
                 }else{
-
+                    Toast.makeText(context,"TODO",Toast.LENGTH_SHORT).show();
+                    //TODO
+                    //change code
+                    //close code
                 }
                 break;
             case 7: //图形密码
                 boolean isSetPatternCode = sharedPreferences.getBoolean("isSetPatternCode",false);
                 if(!isSetPatternCode){
-                    //TODO
+                    setPatternCode();
                 }else{
+                    Toast.makeText(context,"TODO",Toast.LENGTH_SHORT).show();
                     //TODO
+                    //change code
+                    //close code
                 }
                 break;
 
             case 9: //绑定邮箱
                 boolean isSetEmailAddress = sharedPreferences.getBoolean("isSetEmailAddress",false);
                 if(!isSetEmailAddress) {
-                    final CustomEditDialog customEditDialog = new CustomEditDialog(context,editor);
-                    customEditDialog.setTile("绑定邮箱");
-                    customEditDialog.show();
+                    final EmailEditDialog emailEditDialog = new EmailEditDialog(context,editor);
+                    emailEditDialog.setTile("绑定邮箱");
+                    emailEditDialog.show();
                 }else{
                     CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
                         @Override
@@ -144,7 +183,6 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                             editor.apply();
                             Toast.makeText(context,"邮箱已解除绑定",Toast.LENGTH_SHORT).show();
                         }
-
                         @Override
                         public void clickCancel() {
                             //Do nothing
@@ -157,10 +195,16 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
 
             case 10: //数据导出
-                dataOutput(v);
+                boolean email = sharedPreferences.getBoolean("isSetEmailAddress",false);
+                if(email){
+                    dataOutput(v);
+                }else{
+                    Toast.makeText(context,"请先绑定邮箱",Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case 11: //数据导入
+                dataInput(v);
                 Toast.makeText(v.getContext(),"数据导入",Toast.LENGTH_SHORT).show();
                 break;
 
@@ -179,6 +223,21 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
             default:
         }
+    }
+
+    private void setPatternCode() {
+        context.startActivity(new Intent(activity, SetPatternCodeActivity.class));
+    }
+
+    private void dataInput(View v) throws URISyntaxException {
+        String[] types = {"csv"};
+        FilePickerBuilder.getInstance()
+                .addFileSupport("CSV",types)
+                .setMaxCount(1) //optional
+                .setActivityTheme(R.style.LibAppTheme) //optional
+                .pickFile(activity);
+        Uri uri = null;
+        ContentUriUtils.INSTANCE.getFilePath(context, uri);
     }
 
     private void setTextCode() {
@@ -215,7 +274,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         CsvIOHelper csvIOHelper = new CsvIOHelper();
         boolean createFile = csvIOHelper.writeDetail(path);
         if(createFile) {
-            MailWithAttachmentThread mailWithAttachmentThread = new MailWithAttachmentThread(context, "a929482132@126.com", new File(path));
+            String EmailAddress = sharedPreferences.getString("emailAddress",null);
+            MailWithAttachmentThread mailWithAttachmentThread = new MailWithAttachmentThread(context, EmailAddress, new File(path));
             mailWithAttachmentThread.start();
             Toast.makeText(v.getContext(), "文件已发送至您的邮箱", Toast.LENGTH_SHORT).show();
         }
@@ -223,25 +283,27 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             Toast.makeText(v.getContext(), "文件导出失败", Toast.LENGTH_SHORT).show();
         }
     }
-    private void enableFingerprintCode(){
+    private boolean enableFingerprintCode(){
         FingerprintIdentify mFingerprintIdentify = new FingerprintIdentify(context);
         mFingerprintIdentify.setSupportAndroidL(true);
         mFingerprintIdentify.setExceptionListener(new BaseFingerprint.ExceptionListener() {
             @Override
             public void onCatchException(Throwable exception) {
-
+                //Do nothing
             }
         });
         mFingerprintIdentify.init();
         boolean isHardwareEnable = mFingerprintIdentify.isHardwareEnable();
         if(!isHardwareEnable){
             Toast.makeText(context,"您的设备不支持指纹解锁功能",Toast.LENGTH_SHORT).show();
-            return;
+            return false;
         }
         boolean isRegisteredFingerprint = mFingerprintIdentify.isRegisteredFingerprint();
         if(!isRegisteredFingerprint){
             Toast.makeText(context,"您未在您的设备中录入指纹，请先录入指纹",Toast.LENGTH_SHORT).show();
+            return false;
         }
+        return true;
     }
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {

@@ -20,7 +20,7 @@ import com.example.accountbook.helper.CodeHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomEditDialog extends Dialog implements View.OnClickListener{
+public class EmailEditDialog extends Dialog implements View.OnClickListener{
     Context mContext;
     private TextView btn_sure;
     private TextView btn_cancel;
@@ -31,7 +31,7 @@ public class CustomEditDialog extends Dialog implements View.OnClickListener{
     private String code = null;
     private String email_address = null;
     private SharedPreferences.Editor editor;
-    public CustomEditDialog(@NonNull Context context,SharedPreferences.Editor editor) {
+    public EmailEditDialog(@NonNull Context context, SharedPreferences.Editor editor) {
         super(context, R.style.CustomDialog);
         this.mContext = context;
         this.editor = editor;
@@ -54,7 +54,7 @@ public class CustomEditDialog extends Dialog implements View.OnClickListener{
     }
 
 
-    public CustomEditDialog setTile(String s) {
+    public EmailEditDialog setTile(String s) {
         title.setText(s);
         return this;
     }

@@ -23,7 +23,7 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
     SharedPreferences sharedPreferences;
     boolean isSetTextCode;
     boolean isSetPatternCode;
-    boolean isSetFingerprintCode;
+    boolean isEnableFingerprintCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +38,10 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
         //获取设置信息
         sharedPreferences = getSharedPreferences("setting",MODE_PRIVATE);
         isSetTextCode = sharedPreferences.getBoolean("isSetTextCode",false);
-        isSetFingerprintCode = sharedPreferences.getBoolean("isSetFingerprintCode",false);
+        isEnableFingerprintCode = sharedPreferences.getBoolean("isEnableFingerprintCode",false);
         isSetPatternCode = sharedPreferences.getBoolean("isSetPatternCode",false);
-        if(isSetFingerprintCode) {
+//        isSetPatternCode = true;
+        if(isEnableFingerprintCode) {
             changeColor(3);
             replaceFragment(new FingerprintFragment());
         }else if(isSetTextCode){
@@ -72,7 +73,7 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
             case R.id.txt_select_fingerprint_code:
-                if (isSetFingerprintCode) {
+                if (isEnableFingerprintCode) {
                     replaceFragment(new FingerprintFragment());
                     changeColor(3);
                 }else {
