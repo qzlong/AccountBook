@@ -49,6 +49,7 @@ public class PieChartFragment extends Fragment{
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             entries = (List<PieEntry>) getArguments().getSerializable(ARG_PARAM1);
+            field = getArguments().getString(ARG_PARAM2);
             //bill_list = (List<Bill>) getArguments().getSerializable(ARG_PARAM2);
         }
     }

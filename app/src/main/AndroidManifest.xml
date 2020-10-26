@@ -21,6 +21,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".BillDetailActivity"
             android:parentActivityName=".StatisticsActivity" />
+        <activity android:name=".TypeLabelActivity"
+            android:parentActivityName=".StatisticsActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />

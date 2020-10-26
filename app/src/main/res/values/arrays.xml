@@ -18,24 +18,26 @@
     </string-array>
 
     <string-array name="categories">
-        <item>全部类别</item>
-        <item>收入</item>
-        <item>支出</item>
-        <item>转账</item>
+        <item>分类</item>
+        <item>一级分类</item>
+        <item>二级分类</item>
+<!--        <item>一级支出</item>-->
+<!--        <item>二级支出</item>-->
+<!--        <item>一级收入</item>-->
+<!--        <item>二级收入</item>-->
     </string-array>
 
     <string-array name="time">
-        <item>所有时间</item>
-        <item>本月</item>
-        <item>上月</item>
-        <item>最近半年</item>
-        <item>最近一年</item>
+        <item>时间</item>
+        <item>月</item>
+        <item>年</item>
     </string-array>
 
-    <string-array name="account">
-        <item>账户1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
+    <string-array name="others">
+        <item>更多</item>
+        <item>账户</item>
+        <item>成员</item>
+        <item>商家</item>
+        <item>项目</item>
     </string-array>
 </resources>

@@ -1,14 +1,17 @@
 package com.example.accountbook.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.example.accountbook.R;
 import com.example.accountbook.bean.Detail;
@@ -21,18 +24,22 @@ import cn.we.swipe.helper.WeSwipeHelper;
 import cn.we.swipe.helper.WeSwipeProxyAdapter;
 
 public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
-
-
+    public static final int ITEM_TYPE_CONTENT = 0;
+    public static final int ITEM_TYPE_HEADER = 1;
+    private int mHeaderCount = 1;
+    private int mExpandedPosition = -1;
     private OnItemClickListener onItemClickListener;
     private DeletedItemListener delectedItemListener;
     //创建ViewHolder
-    public static class ViewHolder extends RecyclerView.ViewHolder implements WeSwipeHelper.SwipeLayoutTypeCallBack {
+    static class ViewHolder extends RecyclerView.ViewHolder implements WeSwipeHelper.SwipeLayoutTypeCallBack {
         public final TextView describe;
         public final TextView date;
         public final TextView money;
         public final ConstraintLayout itemView;
         public final LinearLayout content;
         public final TextView delete;
+        public final TextView type;
+        public final TextView cate1;
         public ViewHolder(View v) {
             super(v);
             describe = (TextView) v.findViewById(R.id.describe);
@@ -40,6 +47,8 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
             date = (TextView) v.findViewById(R.id.date);
             itemView = (ConstraintLayout) v.findViewById(R.id.list_item);
             content = (LinearLayout) v.findViewById(R.id.listItem_content);
+            type = (TextView) v.findViewById(R.id.type);
+            cate1 = (TextView) v.findViewById(R.id.cate1);
             delete = (TextView) v.findViewById(R.id.listItem_delete);
         }
         @Override
@@ -66,45 +75,55 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
 
     //绑定数据
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
-        String moneyStr = String.valueOf(mData.get(position).getMoney());
-        Calendar dateCal = mData.get(position).getTime();
-        String dateStr = (dateCal.get(Calendar.MONTH) + 1) + "月" + dateCal.get(Calendar.DATE) + "日";
-        holder.describe.setText(mData.get(position).getId() + "");
-        holder.money.setText(moneyStr);
-        holder.date.setText(dateStr);
-        //列表项点击事件
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(final View v) {
-//                    if(onItemClickListener != null) {
-//                        int pos = holder.getLayoutPosition();
-//                        onItemClickListener.onItemClick(holder.itemView, pos);
-//                    }
-//                }
-//            });
-        //列表项长按事件（查看详情）
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+            Calendar dateCal = mData.get(position).getTime();
+            String dateStr = (dateCal.get(Calendar.MONTH) + 1) + "月" + dateCal.get(Calendar.DATE) + "日";
+            holder.date.setText(dateStr);
+            holder.describe.setText(mData.get(position).getCategory2());
+            holder.cate1.setText(mData.get(position).getCategory1());
+            String moneyStr = String.valueOf(mData.get(position).getMoney());
+            holder.money.setText(moneyStr);
+
+            String type = mData.get(position).getType();
+            if (type.equals("PAY")){
+                holder.type.setText("支出");
+                holder.money.setTextColor(Color.parseColor("#32CD32"));
+            }else if(type.equals("INCOME")) {
+                holder.type.setText("收入");
+                holder.money.setTextColor(Color.parseColor("#B22222"));
+                holder.describe.setText(mData.get(position).getCategory2());
+            }else if(type.equals("LOAN")) {
+                holder.describe.setText("借贷");
+                holder.type.setText(mData.get(position).getCategory1());
+                holder.cate1.setText(mData.get(position).getCategory2());
+            }else if(type.equals("TRANSFER")) {
+                holder.describe.setText("转账");
+                holder.type.setText(mData.get(position).getAccount1());
+                holder.cate1.setText(mData.get(position).getAccount2());
+            }
+
+            //        列表项点击事件
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onLongClick(View v) {
+                public void onClick(final View v) {
                     if(onItemClickListener != null) {
                         int pos = holder.getLayoutPosition();
-                        onItemClickListener.onItemLongClick(holder.itemView, pos);
+                        onItemClickListener.onItemClick(holder.itemView, pos);
                     }
-                    //表示此事件已经消费，不会触发单击事件
-                    return true;
                 }
             });
-        //删除按钮点击事件
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int pos = holder.getLayoutPosition();
-                delectedItemListener.deleted(pos);
-                //mData.remove(pos);
-                proxyNotifyItemRemoved(pos);
-            }
-        });
+            //删除按钮点击事件
+            holder.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    delectedItemListener.deleted(pos);
+                    mData.remove(pos);
+                    proxyNotifyItemRemoved(pos);
+                }
+            });
+
+
 
     }
 
@@ -115,13 +134,22 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RVAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //实例化view
+//        View v = null;
+//        if (viewType == ITEM_TYPE_HEADER){
+//            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+//            HeaderViewHolder viewHolder = new RVAdapter.HeaderViewHolder(v);
+//            return viewHolder;
+//        }else if (viewType == ITEM_TYPE_CONTENT) {
+//            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+//            ContentViewHolder viewHolder = new RVAdapter.ContentViewHolder(v);
+//            return viewHolder;
+//        }
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-        //实例化viewholder
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
+        return new RVAdapter.ViewHolder(v);
     }
+
 
     public void addNewItem(Detail newBill) {
         if(mData == null) {
@@ -155,23 +183,14 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
         this.onItemClickListener = listener;
     }
 
-//    public void setOnStartDragListener(RVAdapter.OnStartDragListener listener){
-//        this.onStartDragListener = listener;
-//    }
-
     public void setDeleteItemListener(DeletedItemListener deletedItemListener) {
         this.delectedItemListener = deletedItemListener;
     }
 
     public interface OnItemClickListener {
-//        void onItemClick(View view, int position);
-        void onItemLongClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
-    //接口
-    public interface OnStartDragListener{
-        void startDrag(RecyclerView.ViewHolder holder);
-    }
     public interface DeletedItemListener {
         void deleted(int position);
     }

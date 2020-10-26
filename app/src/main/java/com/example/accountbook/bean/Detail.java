@@ -2,12 +2,11 @@ package com.example.accountbook.bean;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
-import java.io.Serializable;
 import java.util.Calendar;
 //当账单类型为收入和支出时，变量名和UI对应
 //当账单类型为转账时，Account1表示转出账户，Account2表示转入账户
 //当账单类型为借贷时，Category1表示放贷人一级分类，Category2表示放贷人二级分类
-public class Detail extends LitePalSupport implements Serializable {
+public class Detail extends LitePalSupport {
     private long id;
 
     @Column(nullable = false)
@@ -56,45 +55,21 @@ public class Detail extends LitePalSupport implements Serializable {
     private String  Type;  //账单类型
 
     public boolean setMoney(float m){
-//        if(m < 0)
-//            return false;
-//        else{
-//            Money = m;
-//            return true;
-//        }
         this.Money = m;
         return true;
     }
 
     public boolean setNote(String n){
-//        if(n.length() > 1000)
-//            return false;
-//        else{
-//            this.Note = n;
-//            return true;
-//        }
         this.Note = n;
         return true;
     }
 
     public boolean setTrader(String t){
-//        if(t.length() > 100)
-//            return false;
-//        else{
-//            this.Trader = t;
-//            return true;
-//        }
         this.Trader = t;
         return true;
     }
 
     public boolean setMember(String m){
-//        if(m.length() > 100)
-//            return false;
-//        else{
-//        this.Member = m;
-//            return true;
-//        }
         this.Member = m;
         return true;
     }
@@ -122,8 +97,9 @@ public class Detail extends LitePalSupport implements Serializable {
         this.Minute = tradeTime.get(Calendar.MINUTE);
     }
 
-    public long getId() {return this.id; }
-
+    public long getId(){
+        return this.id;
+    }
     public String getAccount1(){
         return this.Account1;
     }
@@ -173,4 +149,5 @@ public class Detail extends LitePalSupport implements Serializable {
     public String getTrader(){
         return this.Trader;
     }
+
 }

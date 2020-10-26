@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -21,6 +22,8 @@ import com.example.accountbook.helper.PickerDataHelper;
 import com.example.accountbook.pickers.DatePicker;
 import com.example.accountbook.pickers.OptionsPicker;
 import com.example.accountbook.pickers.TimePicker;
+
+import org.litepal.LitePal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -44,7 +47,7 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
     private TimePickerView time_picker;
     private TimePickerView date_picker;
     private OptionsPickerView category_picker,account_picker,project_picker,store_picker,people_picker;
-    private Detail detail = new Detail();
+
     private TimePicker timePicker= new TimePicker();
     private DatePicker datePicker = new DatePicker();
     ArrayList<String> category_1;
@@ -57,8 +60,10 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
     ArrayList<ArrayList<String>> member_2;
     ArrayList<String> project_1;
     ArrayList<ArrayList<String>> project_2;
-    private Detail bill;
+    private long bill_id;       //当前账单的id
+    private Detail detail;      //修改后的账单
     private Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +71,8 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_bill_details);
         mContext = this;
         intent = getIntent();
-        bill = (Detail) intent.getSerializableExtra("bill");
+        bill_id = intent.getLongExtra("id", 0);
+        detail = LitePal.find(Detail.class, bill_id);
         initPickerData();
         InitView();
         setBtnListener();
@@ -82,22 +88,22 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         btn_show_project = (Button) findViewById(R.id.btn_show_project);
         btn_show_store = (Button) findViewById(R.id.btn_show_store);
         btn_show_category = (Button) findViewById(R.id.btn_show_category);
-        btn_save_as_model = (Button) findViewById(R.id.btn_save_as_model);
         btn_save = (Button) findViewById(R.id.btn_save);
         edit_money = (EditText) findViewById(R.id.edit_money);
         edit_remark = (EditText) findViewById(R.id.edit_remark);
     }
 
+    @SuppressLint("SetTextI18n")
     private void setDefaultValue() {
-        edit_money.setText(bill.getMoney() + "");
-        btn_show_category.setText(bill.getCategory1() + " -> " + bill.getCategory2());
-        btn_show_account.setText(bill.getAccount1() + " -> " + bill.getAccount2());
-        Calendar date = bill.getTime();
+        edit_money.setText(detail.getMoney() + "");
+        btn_show_category.setText(detail.getCategory1() + "->" + detail.getCategory2());
+        btn_show_account.setText(detail.getAccount1() + "->" + detail.getAccount2());
+        Calendar date = detail.getTime();
         String time_text = date.get(Calendar.HOUR_OF_DAY) + "时" + date.get(Calendar.MINUTE) + "分";
         String date_text = date.get(Calendar.YEAR) + "年" + date.get(Calendar.MONTH) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
         btn_show_time.setText(time_text);
         btn_show_date.setText(date_text);
-        edit_remark.setText(bill.getNote());
+        edit_remark.setText(detail.getNote());
     }
     private String getDefaultValue(ArrayList array1,ArrayList<ArrayList<String>> array2){
         return array1.get(1)+"->"+array2.get(1).get(0);
@@ -135,7 +141,6 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         btn_show_store.setOnClickListener(this);
         btn_show_category.setOnClickListener(this);
         btn_save.setOnClickListener(this);
-        btn_save_as_model.setOnClickListener(this);
     }
 
     private void saveBill(){
@@ -143,7 +148,7 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         TextSplitter textSplitter = new TextSplitter();
         Log.d("test", "saveBill: 1");
         //1.设置账单类型
-        detail.setType(bill.getType());
+        //detail.setType(detail.getType());
         Log.d("test", "saveBill: 2");
         //2.设置备注
         detail.setNote(edit_remark.getText().toString());
@@ -180,7 +185,7 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         detail.setProject(temp.get(1));
         Log.d("test", "saveBill: 9");
         //10.保存至数据库
-        detail.update(bill.getId());
+        detail.save();
     }
 
     @Override
@@ -210,8 +215,6 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btn_show_project:
                 project_picker.show();
-                break;
-            case R.id.btn_save_as_model:
                 break;
             case R.id.btn_save:
                 saveBill();

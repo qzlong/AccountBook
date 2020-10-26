@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.preference:preference:1.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\2a643b4e2b4f2354ae2d89c45b60a90c\preference-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\d0f92c0b26fabb47a28488bab3cc8456\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
@@ -18,6 +18,7 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] D:\Tools\Java\Android\.gr
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e19c379eb4c78fb74307236692b5e85b\lifecycle-extensions-2.1.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.contrarywind:Android-PickerView:4.1.9] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\4e205b1b69bfc432bee66afa01fd4387\jetified-Android-PickerView-4.1.9\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\cef4294fd6a16b77af3af7d930cacfd8\jetified-MPAndroidChart-v3.1.0\AndroidManifest.xml:2:1-20:12
+MERGED from [com.jakewharton:butterknife:8.8.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\7e4e6eb6117df39e41a22d5f0f0bcc7c\jetified-butterknife-8.8.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\ee9b51f71825564f346013ea1d4d0318\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -56,29 +57,29 @@ MERGED from [androidx.print:print:1.0.0] D:\Tools\Java\Android\.gradle\caches\tr
 MERGED from [androidx.interpolator:interpolator:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\eaa1cbe2ef40ba62ba3fc8b8fb69519a\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
 	package
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:3:5-38
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:1-38:12
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:4:5-66
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:4:5-66
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:5:5-34:19
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:5:5-36:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.2.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\fee048776b4040c0a73e83e4303a6cff\material-1.2.1\AndroidManifest.xml:22:5-20
@@ -96,81 +97,87 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] D:\Tools\Ja
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:8:9-43
 	android:allowBackup
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:12:9-40
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:6:9-54
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:6:9-54
 activity#com.example.accountbook.SelectAccount
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:13:9-51
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:13:9-51
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:13:19-48
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:13:19-48
 activity#com.example.accountbook.KeepAccountActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:14:9-57
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:14:9-57
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:14:19-54
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:14:19-54
 activity#com.example.accountbook.Institute
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:15:9-47
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:15:9-47
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:15:19-44
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:15:19-44
 activity#com.example.accountbook.PasswordConfirm
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:16:9-53
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:16:9-53
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:16:19-50
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:16:19-50
 activity#com.example.accountbook.ChartAnalysis
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:17:9-51
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:17:9-51
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:17:19-48
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:17:19-48
 activity#com.example.accountbook.ChartAnalysisActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:18:9-19:57
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:18:9-19:57
 	android:parentActivityName
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:19:13-55
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:19:13-55
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:18:19-56
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:18:19-56
 activity#com.example.accountbook.StatisticsActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:20:9-21:58
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:20:9-21:58
 	android:parentActivityName
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:21:13-55
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:21:13-55
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:20:19-53
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:20:19-53
 activity#com.example.accountbook.BillDetailActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:22:9-23:64
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:22:9-23:64
 	android:parentActivityName
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:23:13-61
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:23:13-61
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:22:19-53
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:22:19-53
+activity#com.example.accountbook.TypeLabelActivity
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:24:9-25:64
+	android:parentActivityName
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:25:13-61
+	android:name
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:24:19-52
 activity#com.example.accountbook.SettingsActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:24:9-26:63
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:26:9-28:63
 	android:label
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:26:13-60
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:28:13-60
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:25:13-45
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:27:13-45
 activity#com.example.accountbook.MainActivity
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:27:9-33:20
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:29:9-35:20
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:27:19-47
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:29:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:28:13-32:29
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:31:17-77
+ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:31:27-74
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:33:27-74
 uses-sdk
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.preference:preference:1.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\2a643b4e2b4f2354ae2d89c45b60a90c\preference-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -199,6 +206,8 @@ MERGED from [com.contrarywind:Android-PickerView:4.1.9] D:\Tools\Java\Android\.g
 MERGED from [com.contrarywind:Android-PickerView:4.1.9] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\4e205b1b69bfc432bee66afa01fd4387\jetified-Android-PickerView-4.1.9\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\cef4294fd6a16b77af3af7d930cacfd8\jetified-MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\cef4294fd6a16b77af3af7d930cacfd8\jetified-MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [com.jakewharton:butterknife:8.8.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\7e4e6eb6117df39e41a22d5f0f0bcc7c\jetified-butterknife-8.8.1\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\7e4e6eb6117df39e41a22d5f0f0bcc7c\jetified-butterknife-8.8.1\AndroidManifest.xml:5:5-43
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
@@ -275,16 +284,16 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] D:\Tools\Java\Android
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\eaa1cbe2ef40ba62ba3fc8b8fb69519a\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
 ADDED from [androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
 	android:authorities
