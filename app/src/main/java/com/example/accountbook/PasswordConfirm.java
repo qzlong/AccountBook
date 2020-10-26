@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.accountbook.password.FingerprintFragment;
 import com.example.accountbook.password.PatternFragment;
@@ -18,35 +20,64 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
     private TextView txt_select_text_code;
     private TextView txt_select_graph_code;
     private TextView txt_select_fingerprint_code;
+    SharedPreferences sharedPreferences;
+    boolean isSetTextCode;
+    boolean isSetPatternCode;
+    boolean isSetFingerprintCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_confirm);
         // 指定控件并设置响应事件
-        txt_select_text_code = (TextView)findViewById(R.id.txt_select_text_code);
-        txt_select_graph_code = (TextView)findViewById(R.id.txt_select_graph_code);
-        txt_select_fingerprint_code = (TextView)findViewById(R.id.txt_select_fingerprint_code);
+        txt_select_text_code = findViewById(R.id.txt_select_text_code);
+        txt_select_graph_code = findViewById(R.id.txt_select_graph_code);
+        txt_select_fingerprint_code = findViewById(R.id.txt_select_fingerprint_code);
         txt_select_text_code.setOnClickListener(this);
         txt_select_graph_code.setOnClickListener(this);
         txt_select_fingerprint_code.setOnClickListener(this);
-        changeColor(1);
-        replaceFragment(new TextFragment());
+        //获取设置信息
+        sharedPreferences = getSharedPreferences("setting",MODE_PRIVATE);
+        isSetTextCode = sharedPreferences.getBoolean("isSetTextCode",false);
+        isSetFingerprintCode = sharedPreferences.getBoolean("isSetFingerprintCode",false);
+        isSetPatternCode = sharedPreferences.getBoolean("isSetPatternCode",false);
+        if(isSetFingerprintCode) {
+            changeColor(3);
+            replaceFragment(new FingerprintFragment());
+        }else if(isSetTextCode){
+            changeColor(1);
+            replaceFragment(new TextFragment());
+        }else{
+            changeColor(2);
+            replaceFragment(new PatternFragment());
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txt_select_text_code:
-                replaceFragment(new TextFragment());
-                changeColor(1);
+                if(isSetTextCode) {
+                    replaceFragment(new TextFragment());
+                    changeColor(1);
+                }else{
+                    Toast.makeText(PasswordConfirm.this,"您未设置文字密码",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.txt_select_graph_code:
-                replaceFragment(new PatternFragment());
-                changeColor(2);
+                if(isSetPatternCode) {
+                    replaceFragment(new PatternFragment());
+                    changeColor(2);
+                }else{
+                    Toast.makeText(PasswordConfirm.this,"您未设置图形密码",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.txt_select_fingerprint_code:
-                replaceFragment(new FingerprintFragment());
-                changeColor(3);
+                if (isSetFingerprintCode) {
+                    replaceFragment(new FingerprintFragment());
+                    changeColor(3);
+                }else {
+                    Toast.makeText(PasswordConfirm.this,"您未授权使用指纹密码",Toast.LENGTH_SHORT).show();
+                }
                 break;
             default:
         }

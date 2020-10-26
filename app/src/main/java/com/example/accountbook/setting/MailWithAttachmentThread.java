@@ -77,7 +77,7 @@ public class MailWithAttachmentThread extends Thread {
             Log.d("test", "error");
             e.printStackTrace();
             Looper.prepare();
-            Toast.makeText(mContext,"验证码发送失败,请稍后再试",Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext,"邮件发送失败,请稍后再试",Toast.LENGTH_SHORT).show();
             Looper.loop();
         }
         transport.sendMessage(message,message.getAllRecipients());
@@ -108,7 +108,7 @@ public class MailWithAttachmentThread extends Thread {
         //3.设置收件人
         message.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress(receiverAddress,"亲爱的用户","UTF-8"));
         //4.邮件主题
-        message.setSubject("验证码","UTF-8");
+        message.setSubject("账单附件","UTF-8");
         //5.设置发件时间
         message.setSentDate(new Date());
         //6.像multipart对象添加邮件的各个部分的内容（文本+附件）

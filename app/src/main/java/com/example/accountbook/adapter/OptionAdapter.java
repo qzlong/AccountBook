@@ -112,21 +112,18 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                         }
                     });
                 }
-//                Toast.makeText(v.getContext(),"指纹密码",Toast.LENGTH_SHORT).show();
                 break;
             case 6: //文本密码
                 boolean isSetTextCode = sharedPreferences.getBoolean("isSetTextCode",false);
                 if(!isSetTextCode){
                     setTextCode();
                 }else{
-                    //TODO
-                    //Change code
-                    //Closed code
+
                 }
                 break;
             case 7: //图形密码
-                boolean isSetPattenCode = sharedPreferences.getBoolean("isSetPattenCode",false);
-                if(!isSetPattenCode){
+                boolean isSetPatternCode = sharedPreferences.getBoolean("isSetPatternCode",false);
+                if(!isSetPatternCode){
                     //TODO
                 }else{
                     //TODO
@@ -134,11 +131,29 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
 
             case 9: //绑定邮箱
-                final CustomEditDialog customEditDialog = new CustomEditDialog(context);
-                customEditDialog.setTile("绑定邮箱");
-                final EditText editMail = (EditText) customEditDialog.getEmail();
-                final EditText editCode = (EditText) customEditDialog.getCode();
-                customEditDialog.show();
+                boolean isSetEmailAddress = sharedPreferences.getBoolean("isSetEmailAddress",false);
+                if(!isSetEmailAddress) {
+                    final CustomEditDialog customEditDialog = new CustomEditDialog(context,editor);
+                    customEditDialog.setTile("绑定邮箱");
+                    customEditDialog.show();
+                }else{
+                    CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
+                        @Override
+                        public void clickConfirm() {
+                            editor.putBoolean("isSetEmailAddress",false);
+                            editor.apply();
+                            Toast.makeText(context,"邮箱已解除绑定",Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void clickCancel() {
+                            //Do nothing
+                        }
+                    });
+                    customDialog.setTile("解除绑定");
+                    customDialog.setMessage("确定取消绑定该邮箱？");
+                    customDialog.show();
+                }
                 break;
 
             case 10: //数据导出
@@ -167,16 +182,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     }
 
     private void setTextCode() {
-        AddTextCodeDialog addTextCodeDialog = new AddTextCodeDialog(context);
+        AddTextCodeDialog addTextCodeDialog = new AddTextCodeDialog(context,editor);
         addTextCodeDialog.show();
-        if(addTextCodeDialog.isSetSuccessful()){
-            String password = addTextCodeDialog.getPassword();
-            editor.putBoolean("isSetTextCode",true);
-            editor.putString("textCode",password);
-            Toast.makeText(context,"密码设置成功",Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context,"密码设置失败",Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override

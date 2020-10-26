@@ -2,6 +2,7 @@ package com.example.accountbook.setting;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,22 +30,23 @@ public class CustomEditDialog extends Dialog implements View.OnClickListener{
     private Button btn_send_code;
     private String code = null;
     private String email_address = null;
-
-    public CustomEditDialog(@NonNull Context context) {
+    private SharedPreferences.Editor editor;
+    public CustomEditDialog(@NonNull Context context,SharedPreferences.Editor editor) {
         super(context, R.style.CustomDialog);
         this.mContext = context;
+        this.editor = editor;
         initView();
     }
 
     //初始化
     public void initView() {
         View view = LayoutInflater.from(mContext).inflate(R.layout.customeditdialog, null);
-        title = (TextView) view.findViewById(R.id.title);
-        edit_mail = (EditText) view.findViewById(R.id.edit_email_address);
-        btn_send_code = (Button) view.findViewById(R.id.btn_send_code);
-        edit_code = (EditText) view.findViewById(R.id.edit_code);
-        btn_sure = (TextView) view.findViewById(R.id.dialog_confirm_sure);
-        btn_cancel = (TextView) view.findViewById(R.id.dialog_confirm_cancel);
+        title = view.findViewById(R.id.title);
+        edit_mail = view.findViewById(R.id.edit_email_address);
+        btn_send_code = view.findViewById(R.id.btn_send_code);
+        edit_code = view.findViewById(R.id.edit_code);
+        btn_sure = view.findViewById(R.id.dialog_confirm_sure);
+        btn_cancel = view.findViewById(R.id.dialog_confirm_cancel);
         btn_send_code.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
         btn_sure.setOnClickListener(this);
@@ -77,7 +79,9 @@ public class CustomEditDialog extends Dialog implements View.OnClickListener{
                 {
                     String user_code = edit_code.getText().toString();
                     if(user_code.equals(code)){
-                        //TODO
+                        editor.putBoolean("isSetEmailAddress",true);
+                        editor.putString("emailAddress",email_address);
+                        editor.apply();
                         Toast.makeText(mContext,"绑定成功",Toast.LENGTH_SHORT).show();
                         dismiss();
                     }else{

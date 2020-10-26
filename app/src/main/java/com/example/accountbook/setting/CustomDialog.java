@@ -27,10 +27,10 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
     public void initView() {
         View view = LayoutInflater.from(mContext).inflate(R.layout.customdialog, null);
-        title = (TextView) view.findViewById(R.id.title);
-        message = (TextView) view.findViewById(R.id.message);
-        btn_sure = (TextView) view.findViewById(R.id.dialog_confirm_sure);
-        btn_cancel = (TextView) view.findViewById(R.id.dialog_confirm_cancel);
+        title = view.findViewById(R.id.title);
+        message = view.findViewById(R.id.message);
+        btn_sure = view.findViewById(R.id.dialog_confirm_sure);
+        btn_cancel = view.findViewById(R.id.dialog_confirm_cancel);
         btn_sure.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
         super.setContentView(view);

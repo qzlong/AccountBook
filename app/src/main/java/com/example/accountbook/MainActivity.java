@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.accountbook.bean.Model;
 import com.example.accountbook.setting.Option;
 import com.example.accountbook.adapter.OptionAdapter;
 
@@ -29,16 +30,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_setting;
     private Button btn_keepaccount;
     private List<Option> optionList = new ArrayList<>();
+    private SharedPreferences setting_pref;
     //设置页面
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //startActivity(new Intent(MainActivity.this,PasswordConfirm.class));
+        setting_pref = getSharedPreferences("setting",MODE_PRIVATE);
+        boolean isSetCode = isSetCode();
+        if(isSetCode)
+            startActivity(new Intent(MainActivity.this,PasswordConfirm.class));
+
         initView();
         initOptions();
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         OptionAdapter adapter = new OptionAdapter(optionList,this);
@@ -46,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setButtonListener();
         SharedPreferences sharedPreferences = this.getSharedPreferences("first_launch",MODE_PRIVATE);
         boolean isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch",true);
-        //if(isFirstLaunch) {
+        if(isFirstLaunch) {
             LitePal.initialize(this);
             SQLiteDatabase db = LitePal.getDatabase();
             FirstLaunch firstLaunch = new FirstLaunch();
@@ -54,7 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SharedPreferences.Editor editor = getSharedPreferences("first_launch",MODE_PRIVATE).edit();
             editor.putBoolean("isFirstLaunch",false);
             editor.apply();
-        //}
+        }
+    }
+
+    private boolean isSetCode() {
+        boolean isSetTextCode = setting_pref.getBoolean("isSetTextCode",false);
+        boolean isSetPatternCode = setting_pref.getBoolean("isSetPatternCode",false);
+        boolean isSetFingerprintCode = setting_pref.getBoolean("isSetFingerprintCode",false);
+        return isSetFingerprintCode|isSetPatternCode|isSetTextCode;
     }
 
     private void initOptions() {

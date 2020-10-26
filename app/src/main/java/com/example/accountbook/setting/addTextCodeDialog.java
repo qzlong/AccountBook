@@ -3,10 +3,12 @@ package com.example.accountbook.setting;
 import android.app.Dialog;
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -20,12 +22,12 @@ public class AddTextCodeDialog extends Dialog implements View.OnClickListener{
     private TextView txt_sure;
     private TextView txt_cancel;
     private TextView txt_warn;
-    private String password_return;
-    private boolean isSetSuccessful = false;
+    private SharedPreferences.Editor editor;
 
-    public AddTextCodeDialog(@NonNull Context context) {
+    public AddTextCodeDialog(@NonNull Context context, SharedPreferences.Editor editor) {
         super(context, R.style.CustomDialog);
         this.mContext = context;
+        this.editor = editor;
         initView();
     }
 
@@ -49,6 +51,7 @@ public class AddTextCodeDialog extends Dialog implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txt_cancel:
+                Toast.makeText(mContext,"取消设置密码",Toast.LENGTH_SHORT).show();
                 dismiss();
                 break;
             case R.id.txt_sure:
@@ -61,8 +64,10 @@ public class AddTextCodeDialog extends Dialog implements View.OnClickListener{
                 else if(!password.equals(password_confirm))
                     txt_warn.setText("两次密码不一致");
                 else{
-                    password_return = password;
-                    isSetSuccessful = true;
+                    editor.putBoolean("isSetTextCode",true);
+                    editor.putString("textCode",password);
+                    editor.apply();
+                    Toast.makeText(mContext,"密码设置成功",Toast.LENGTH_SHORT).show();
                     dismiss();
                 }
                 txt_warn.setVisibility(View.VISIBLE);
@@ -70,11 +75,5 @@ public class AddTextCodeDialog extends Dialog implements View.OnClickListener{
             default:
                 break;
         }
-    }
-    public boolean isSetSuccessful(){
-        return this.isSetSuccessful;
-    }
-    public String getPassword(){
-        return this.password_return;
     }
 }
