@@ -23,6 +23,9 @@
             android:parentActivityName=".StatisticsActivity" />
         <activity android:name=".TypeLabelActivity"
             android:parentActivityName=".StatisticsActivity" />
+        <activity android:name=".ChartDetailActivity"
+            android:parentActivityName=".ChartAnalysisActivity" />
+
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />

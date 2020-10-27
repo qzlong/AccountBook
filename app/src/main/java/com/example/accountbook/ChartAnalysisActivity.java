@@ -2,17 +2,21 @@ package com.example.accountbook;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bigkoo.pickerview.view.TimePickerView;
@@ -22,13 +26,17 @@ import com.example.accountbook.pickers.DatePicker;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.litepal.LitePal;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,8 +45,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ChartAnalysisActivity extends AppCompatActivity {
-    //mainView
-    private LinearLayout mainView;
     //Spinner
     private mSpinnerAdapter mSpinnerAdapter1;
     private mSpinnerAdapter mSpinnerAdapter2;
@@ -51,8 +57,9 @@ public class ChartAnalysisActivity extends AppCompatActivity {
     private Button btn_setStartTime;
     private Button btn_setEndTime;
     private Button btn_confirmTimePicker;
+    private Button btn_cancel;
     //pickerview
-    private CardView timePicker;
+    private ConstraintLayout timePicker;
     private TimePickerView startTimePickerView;
     private TimePickerView endTimePickerView;
     private DatePicker startTimePicker = new DatePicker();
@@ -60,6 +67,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
     //piechart
     private PieChart pieChart;
     private String cate_title;
+    private OnChartValueSelectedListener mChartSelectListener;
     //date
     private Calendar current_date = getCurrentDate();
     private final int current_month = current_date.get(Calendar.MONTH);
@@ -86,8 +94,6 @@ public class ChartAnalysisActivity extends AppCompatActivity {
     }
 
     public void initView() {
-        //mainView
-        mainView = (LinearLayout) findViewById(R.id.main);
         //Spinner
         mSpinnerAdapter1 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.chart_time, R.layout.spinner_item);
         mSpinnerAdapter2 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.chart_categories, R.layout.spinner_item);
@@ -99,14 +105,16 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         btn_setStartTime = (Button) findViewById(R.id.btn_startTime);
         btn_setEndTime = (Button) findViewById(R.id.btn_endTime);
         btn_confirmTimePicker = (Button) findViewById(R.id.btn_confirm);
+        btn_cancel = (Button) findViewById(R.id.btn_cancel);
         setTimeBtn();
         //pickerView
-        timePicker = (CardView) findViewById(R.id.timePicker);
+        timePicker = (ConstraintLayout) findViewById(R.id.timePicker);
         startTimePickerView = startTimePicker.getDatePicker(ChartAnalysisActivity.this, btn_setStartTime);
         endTimePickerView = endTimePicker.getDatePicker(ChartAnalysisActivity.this, btn_setEndTime);
         initClickListener();
         //pieChart
         pieChart = (PieChart) findViewById(R.id.chart_pie);
+        initChartListener();
         setPieChart();
     }
 
@@ -156,7 +164,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         pieChart.setHighlightPerTapEnabled(true);
 
         // add a selection listener
-        //pieChart.setOnChartValueSelectedListener(this);
+        pieChart.setOnChartValueSelectedListener(mChartSelectListener);
         pieChart.animateY(1400, Easing.EaseInOutQuad);
         Legend l = pieChart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -178,20 +186,11 @@ public class ChartAnalysisActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                try {
-                    //以下三行代码是解决问题所在
-                    Field field = AdapterView.class.getDeclaredField("mOldSelectedPosition");
-                    field.setAccessible(true);	//设置mOldSelectedPosition可访问
-                    field.setInt(mSpinner1, AdapterView.INVALID_POSITION); //设置mOldSelectedPosition的值
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
                 mSpinnerAdapter1.setSelectedPostion(position);
                 String[] times = getResources().getStringArray(R.array.chart_time);
                 time_select = times[position];
                 if (time_select.equals("自定义")){
                     timePicker.setVisibility(View.VISIBLE);
-                    mainView.setAlpha(0.5f);
                 } else {
                     setBillList();
                     setPieChart();
@@ -243,14 +242,42 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                 setBillList();
                 setPieChart();
                 timePicker.setVisibility(View.GONE);
-                mainView.setAlpha(1f);
+            }
+        });
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timePicker.setVisibility(View.GONE);
             }
         });
 
 
     }
 
+    private void initChartListener() {
+        mChartSelectListener = new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                if (e == null)
+                    return;
+                Log.i("VAL SELECTED", e.getData() +
+                        "Value: " + e.getY() + ", index: " + h.getX()
+                                + ", DataSet index: " + h.getDataSetIndex());
 
+                Intent intent = new Intent(ChartAnalysisActivity.this, ChartDetailActivity.class);
+                intent.putExtra("startTime", (Serializable) startTime);
+                intent.putExtra("endTime", (Serializable) endTime);
+                intent.putExtra("category", e.getData() + "");
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        };
+    }
     /**
      * 获取指定时间区段和类别的数据至detail_list
      */
@@ -270,6 +297,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         }
         Collections.sort(bill_list, new DetailComparetor());
 
+        if (bill_list.size() <= 1) return;
         startTime = (Calendar) current_date.clone();
         endTime = (Calendar) current_date.clone();
         switch (time_select) {
@@ -327,7 +355,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
 
     public List<PieEntry> getPieEntriesFromBillList() {
         if (bill_list.size() == 0) {
-            return new ArrayList<PieEntry>();
+            return new ArrayList<>();
         }
         List<String> exists = new ArrayList<>();
         List<Float> counts = new ArrayList<>();
@@ -345,6 +373,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     }
                     counts.set(index, counts.get(index) + bill.getMoney());
                 }
+                break;
             case "二级收入":
             case "二级支出":
                 for (Detail bill : bill_list) {
@@ -363,7 +392,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
 
         List<PieEntry> entries = new ArrayList<>();
         for (int i = 0; i < exists.size(); i++) {
-            PieEntry pieEntry = new PieEntry(counts.get(i), exists.get(i));
+            PieEntry pieEntry = new PieEntry(counts.get(i), exists.get(i), exists.get(i));
             entries.add(pieEntry);
         }
         return entries;

@@ -1858,6 +1858,7 @@ id bottom
 id bounce
 id btnCancel
 id btnSubmit
+id btn_cancel
 id btn_confirm
 id btn_endTime
 id btn_graph_analysis
@@ -1880,6 +1881,7 @@ id buttonPanel
 id cancel_action
 id cancel_button
 id cate1
+id cd_title
 id center
 id center_horizontal
 id center_vertical
@@ -1888,6 +1890,7 @@ id chains
 id chartAnalysis_bottomBar
 id chartAnalysis_spinner_category
 id chartAnalysis_spinner_time
+id chartDetail_list
 id chart_line
 id chart_pie
 id checkbox
@@ -1999,6 +2002,7 @@ id lgl_label
 id line1
 id line3
 id linear
+id linearLayout
 id listItem_content
 id listItem_delete
 id listMode
@@ -2306,6 +2310,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_bill_details
 layout activity_chart_analysis
+layout activity_chart_detail
 layout activity_institute
 layout activity_keep_account
 layout activity_label

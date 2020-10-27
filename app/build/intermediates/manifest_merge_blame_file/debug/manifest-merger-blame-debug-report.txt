@@ -15,7 +15,7 @@
 11-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:4:22-64
 12
 13    <application
-13-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:5:5-36:19
+13-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:5:5-39:19
 14        android:name="org.litepal.LitePalApplication"
 14-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:6:9-54
 15        android:allowBackup="true"
@@ -74,36 +74,42 @@
 40            android:parentActivityName="com.example.accountbook.StatisticsActivity" />
 40-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:25:13-61
 41        <activity
-41-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:26:9-28:63
-42            android:name="com.example.accountbook.SettingsActivity"
-42-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:27:13-45
-43            android:label="@string/title_activity_settings" />
-43-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:28:13-60
-44        <activity android:name="com.example.accountbook.MainActivity" >
-44-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:29:9-35:20
-44-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:29:19-47
-45            <intent-filter>
-45-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:30:13-34:29
-46                <action android:name="android.intent.action.MAIN" />
-46-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:31:17-69
-46-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:31:25-66
-47
-48                <category android:name="android.intent.category.LAUNCHER" />
-48-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:33:17-77
-48-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:33:27-74
-49            </intent-filter>
-50        </activity>
-51
-52        <provider
-52-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-53            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-53-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-54            android:authorities="com.example.accountbook.lifecycle-process"
-54-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-55            android:exported="false"
-55-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-56            android:multiprocess="true" />
-56-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-57    </application>
-58
-59</manifest>
+41-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:26:9-27:67
+42            android:name="com.example.accountbook.ChartDetailActivity"
+42-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:26:19-54
+43            android:parentActivityName="com.example.accountbook.ChartAnalysisActivity" />
+43-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:27:13-64
+44        <activity
+44-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:29:9-31:63
+45            android:name="com.example.accountbook.SettingsActivity"
+45-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:30:13-45
+46            android:label="@string/title_activity_settings" />
+46-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:31:13-60
+47        <activity android:name="com.example.accountbook.MainActivity" >
+47-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:32:9-38:20
+47-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:32:19-47
+48            <intent-filter>
+48-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:33:13-37:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:34:17-69
+49-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:34:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:36:17-77
+51-->D:\Projects\Java\Android\AccountBook-Sunzhihang\app\src\main\AndroidManifest.xml:36:27-74
+52            </intent-filter>
+53        </activity>
+54
+55        <provider
+55-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+56            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+56-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+57            android:authorities="com.example.accountbook.lifecycle-process"
+57-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+58            android:exported="false"
+58-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+59            android:multiprocess="true" />
+59-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+60    </application>
+61
+62</manifest>

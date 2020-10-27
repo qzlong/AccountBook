@@ -200,6 +200,10 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook-Sunzhihang\\app\\src\\main\\res\\layout\\activity_bill_details.xml"
     },
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook-Sunzhihang\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chart_detail.xml.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook-Sunzhihang\\app\\src\\main\\res\\layout\\activity_chart_detail.xml"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook-Sunzhihang\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook-Sunzhihang\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
