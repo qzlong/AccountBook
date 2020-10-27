@@ -6383,6 +6383,7 @@
         <item>一级收入</item>
         <item>二级收入</item>
         <item>成员</item>
+        <item>账户</item>
         <item>商家</item>
         <item>项目</item>
     </string-array><string-array name="chart_time">

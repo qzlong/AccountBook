@@ -291,6 +291,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
             case "二级收入":
                 bill_list = LitePal.where("type like ?", "INCOME").find(Detail.class);
                 break;
+            default:;
         }
         Collections.sort(bill_list, new DetailComparetor());
 
@@ -380,6 +381,54 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                         exists.add(category2);
                         counts.add(bill.getMoney());
                         index = exists.indexOf(category2);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
+                }
+                break;
+            case "成员":
+                for (Detail bill : bill_list) {
+                    String member = bill.getMember();
+                    int index = exists.indexOf(member);
+                    if (index < 0) {
+                        exists.add(member);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(member);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
+                }
+                break;
+            case "账户":
+                for (Detail bill : bill_list) {
+                    String account = bill.getAccount2();
+                    int index = exists.indexOf(account);
+                    if (index < 0) {
+                        exists.add(account);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(account);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
+                }
+                break;
+            case "商家":
+                for (Detail bill : bill_list) {
+                    String trader = bill.getTrader();
+                    int index = exists.indexOf(trader);
+                    if (index < 0) {
+                        exists.add(trader);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(trader);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
+                }
+                break;
+            case "项目":
+                for (Detail bill : bill_list) {
+                    String project = bill.getProject();
+                    int index = exists.indexOf(project);
+                    if (index < 0) {
+                        exists.add(project);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(project);
                     }
                     counts.set(index, counts.get(index) + bill.getMoney());
                 }
