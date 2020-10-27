@@ -265,6 +265,7 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                 intent.putExtra("startTime", (Serializable) startTime);
                 intent.putExtra("endTime", (Serializable) endTime);
                 intent.putExtra("category", e.getData() + "");
+                intent.putExtra("type", category_select);
                 startActivity(intent);
 
             }

@@ -41,7 +41,8 @@ public class ChartDetailActivity extends AppCompatActivity{
     //data
     private Calendar startTime;
     private Calendar endTime;
-    private String cate_select;                             //要显示的类别
+    private String category;                                 //具体的分类
+    private String type;                                    //要显示的类别
     private List<Detail> bill_list = new ArrayList<>();     //要显示的账单
 
     @Override
@@ -65,7 +66,8 @@ public class ChartDetailActivity extends AppCompatActivity{
         endTime.set(Calendar.MINUTE, 0);
         endTime.set(Calendar.HOUR_OF_DAY, 0);
         endTime.add(Calendar.DAY_OF_MONTH, 1);
-        cate_select = intent.getStringExtra("category");
+        category = intent.getStringExtra("category");
+        type = intent.getStringExtra("type");
         getData();
     }
     @SuppressLint("SetTextI18n")
@@ -74,7 +76,7 @@ public class ChartDetailActivity extends AppCompatActivity{
         goback = (Button) findViewById(R.id.goback);
         //title
         title = (TextView) findViewById(R.id.cd_title);
-        title.setText(cate_select);
+        title.setText(category);
         getData();
         //summary
         remain_all = (TextView) findViewById(R.id.statis_summary_remain);
@@ -101,7 +103,7 @@ public class ChartDetailActivity extends AppCompatActivity{
             return;
         }
         Collections.sort(bill_list, new DetailComparetor());
-        bill_list = getDataByCateFromBillList(cate_select);
+        bill_list = getDataByCateFromBillList(type);
 
         bill_list = getDataByTimeFromBillList(startTime, endTime);
     }
@@ -174,15 +176,65 @@ public class ChartDetailActivity extends AppCompatActivity{
         }
     }
 
-    private List<Detail> getDataByCateFromBillList(String category) {
+    private List<Detail> getDataByCateFromBillList(String type) {
         List<Detail> data = new ArrayList<>();
-        for (Detail bill : bill_list) {
-            if (bill.getCategory1().equals(category) || bill.getCategory2().equals(category)) {
-                    data.add(bill);
-            }
+        switch (type){
+            case "全部分类":
+            case "一级支出":
+            case "一级收入":
+                for (Detail bill : bill_list) {
+                    if (bill.getCategory1().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            case "二级支出":
+            case "二级收入":
+                for (Detail bill : bill_list) {
+                    if (bill.getCategory2().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            case "成员":
+                for (Detail bill : bill_list) {
+                    if (bill.getMember().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            case "账户":
+                for (Detail bill : bill_list) {
+                    if (bill.getAccount2().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            case "商家":
+                for (Detail bill : bill_list) {
+                    if (bill.getTrader().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            case "项目":
+                for (Detail bill : bill_list) {
+                    if (bill.getProject().equals(category)) {
+                        data.add(bill);
+                        break;
+                    }
+                }
+                break;
+            default:;
         }
         return data;
     }
+
     private List<Detail> getDataByTimeFromBillList(Calendar startTime, Calendar endTime) {
         List<Detail> data = new ArrayList<>();
         for (Detail bill : bill_list) {
@@ -211,6 +263,102 @@ public class ChartDetailActivity extends AppCompatActivity{
                 return 0;
             }
         }
+    }
+
+    /**
+     * @param cate1
+     * @return 返回指定一级分类的所有账单
+     */
+    private List<Detail> getDataListByCate1(String cate1) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_cate1 = bill.getCategory1();
+            if (bill_cate1.equals(cate1)) {
+                dataList.add(bill);
+            }
+        }
+        return dataList;
+    }
+
+    /**
+     * @param cate2
+     * @return 返回指定二级分类的所有账单
+     */
+    private List<Detail> getDataListByCate2(String cate2) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_cate2 = bill.getCategory2();
+            if (bill_cate2.equals(cate2)) {
+                dataList.add(bill);
+            }
+        }
+        return dataList;
+    }
+
+    /**
+     * @param account2
+     * @return 返回指定二级账户的所有账单
+     */
+    private List<Detail> getDataListByAccount2(String account2) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_account2 = bill.getAccount2();
+            if (bill_account2.equals(account2)) {
+                dataList.add(bill);
+            }
+        }
+        return dataList;
+    }
+
+    /**
+     * @param member
+     * @return 返回指定成员的所有账单
+     */
+    private List<Detail> getDataListByMember(String member) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_member = bill.getMember();
+            if (bill_member != null) {
+                if (bill_member.equals(member)) {
+                    dataList.add(bill);
+                }
+            }
+        }
+        return dataList;
+    }
+
+    /**
+     * @param trader
+     * @return 返回指定商家的所有账单
+     */
+    private List<Detail> getDataListByTrader(String trader) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_trader = bill.getTrader();
+            if (bill_trader != null) {
+                if (bill_trader.equals(trader)) {
+                    dataList.add(bill);
+                }
+            }
+        }
+        return dataList;
+    }
+
+    /**
+     * @param project
+     * @return 返回指定项目的所有账单
+     */
+    private List<Detail> getDataListByProject(String project) {
+        List<Detail> dataList = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_project = bill.getProject();
+            if (bill_project != null) {
+                if (bill_project.equals(project)) {
+                    dataList.add(bill);
+                }
+            }
+        }
+        return dataList;
     }
 
 }
