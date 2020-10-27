@@ -2191,6 +2191,14 @@ id postLayout
 id progress_bar
 id progress_circular
 id progress_horizontal
+id quarter_balance
+id quarter_balance_value
+id quarter_expenditure
+id quarter_expenditure_value
+id quarter_income
+id quarter_income_value
+id quarter_text
+id quarter_time
 id radio
 id ratio
 id rectangles

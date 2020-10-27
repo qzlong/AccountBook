@@ -160,9 +160,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
                         android:text="周"
                         android:textColor="@color/grey3"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/week_time"
@@ -179,7 +180,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:layout_toLeftOf="@+id/week_balance_value"
                         android:text="结余:"
                         android:textSize="14sp" />
@@ -190,9 +191,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:text="-100.00"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/week_expenditure_value"
@@ -260,9 +262,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
                         android:text="月"
                         android:textColor="@color/grey3"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/month_time"
@@ -279,7 +282,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/month_balance_value"
                         android:text="结余:"
                         android:textSize="14sp" />
@@ -290,9 +293,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:text="100.00"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/month_expenditure_value"
@@ -350,6 +354,109 @@
                 <!--年-->
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/quarter_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
+                        android:text="季"
+                        android:textColor="@color/grey3"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/quarter_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="第三季度"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/quarter_balance_value"
+                        android:text="结余:"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/quarter_balance_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="150.00"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_expenditure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/quarter_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/quarter_income"
+                        android:text="350.00"
+                        android:textColor="#32CD32"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_expenditure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/quarter_balance"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/quarter_expenditure_value"
+                        android:text="支出:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_income_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/quarter_balance"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="500.00"
+                        android:textColor="#B22222"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/quarter_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/quarter_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/quarter_income_value"
+                        android:text="收入:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCC" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
@@ -361,9 +468,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
                         android:text="年"
                         android:textColor="@color/grey3"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/year_time"
@@ -380,7 +488,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/year_balance_value"
                         android:text="结余:"
                         android:textSize="14sp" />
@@ -391,9 +499,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:text="550.00"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/year_expenditure_value"
@@ -443,10 +552,6 @@
                         android:textColor="@color/grey9e"
                         android:textSize="15dp" />
                 </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#CCC" />
             </LinearLayout>
 
         </ScrollView>

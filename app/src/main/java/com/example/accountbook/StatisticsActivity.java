@@ -473,7 +473,7 @@ public class StatisticsActivity extends AppCompatActivity{
      */
     private float getSumIncome(List<Detail> list) {
         float sum = 0;
-        for (Detail bill : bill_list) {
+        for (Detail bill : list) {
             if (bill.getType().equals("INCOME")) {
                 sum += bill.getMoney();
             }
@@ -486,7 +486,7 @@ public class StatisticsActivity extends AppCompatActivity{
      */
     private float getSumExpend(List<Detail> list) {
         float sum = 0;
-        for (Detail bill : bill_list) {
+        for (Detail bill : list) {
             if (bill.getType().equals("PAY")) {
                 sum += bill.getMoney();
             }
