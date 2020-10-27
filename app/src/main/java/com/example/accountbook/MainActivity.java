@@ -73,15 +73,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initOptions() {
-        optionList.clear();
-        Option option1 = new Option(" ","    定时任务");
-        optionList.add(option1);
-        Option option2 = new Option("   自动记账","    定时自动添加账单");
-        optionList.add(option2);
-        Option option3 = new Option("   记账提醒","    设置记账提醒");
-        optionList.add(option3);
-        Option option4 = new Option("   自动备份","    自动备份数据");
-        optionList.add(option4);
+//        optionList.clear();
+//        Option option1 = new Option(" ","    定时任务");
+//        optionList.add(option1);
+//        Option option2 = new Option("   自动记账","    定时自动添加账单");
+//        optionList.add(option2);
+//        Option option3 = new Option("   记账提醒","    设置记账提醒");
+//        optionList.add(option3);
+//        Option option4 = new Option("   自动备份","    自动备份数据");
+//        optionList.add(option4);
         Option option5 = new Option(" ","    密码安全");
         optionList.add(option5);
         Option option6 = new Option("   指纹密码","    打开/关闭使用指纹密码");

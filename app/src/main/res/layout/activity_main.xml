@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <!--上面一栏四个按钮-->
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -21,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="7dp"
                 android:background="@android:color/transparent"
+                android:layout_alignParentLeft="true"
                 android:drawableTop="@drawable/shezhi"
                 android:text="设置" />
 
@@ -28,46 +30,428 @@
                 android:id="@+id/btn_institute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="160dp"
-                android:paddingTop="7dp"
                 android:background="@android:color/transparent"
                 android:drawableTop="@drawable/liushui"
+                android:layout_toLeftOf="@id/btn_graph_analysis"
+                android:paddingLeft="160dp"
+                android:paddingTop="7dp"
                 android:text="流水" />
+
             <Button
                 android:id="@+id/btn_graph_analysis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="7dp"
                 android:background="@android:color/transparent"
                 android:drawableTop="@drawable/tubiao"
-                android:text="图表"
-                />
-            <Button
-                android:id="@+id/btn_select_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:paddingTop="7dp"
-                android:background="@android:color/transparent"
-                android:drawableTop="@drawable/zhanghu"
-                android:text="账户"
-                />
-        </LinearLayout>
-        <!--图片-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!--每日一图-->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_alignParentRight="true"
+                android:text="图表" />
+        </RelativeLayout>
         <!--流水展示-->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9">
+            android:layout_weight="9"
+            >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/cat" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="@color/cardview_light_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/statis_summary_remain_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="结余"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/statis_summary_remain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:text="0.00"
+                            android:textSize="30sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:id="@+id/statis_summary_income_title"
+                                android:layout_width="35dp"
+                                android:layout_height="wrap_content"
+                                android:text="收入" />
+
+                            <TextView
+                                android:id="@+id/statis_summary_income"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/statis_summary_divide"
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="|"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/statis_summary_expend_title"
+                                android:layout_width="35dp"
+                                android:layout_height="wrap_content"
+                                android:text="支出" />
+
+                            <TextView
+                                android:id="@+id/statis_summary_expend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!--周-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/week_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="周"
+                        android:textColor="@color/grey3"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/week_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/week_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="10月19日--10月25日"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/week_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toLeftOf="@+id/week_balance_value"
+                        android:text="结余:"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/week_balance_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="-100.00"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/week_expenditure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/week_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/week_income"
+                        android:text="150.00"
+                        android:textColor="#32CD32"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/week_expenditure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/week_balance"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/week_expenditure_value"
+                        android:text="支出:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/week_income_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/week_balance"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="50.00"
+                        android:textColor="#B22222"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/week_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/week_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/week_income_value"
+                        android:text="收入:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCC" />
+                <!--月-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/month_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="月"
+                        android:textColor="@color/grey3"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/month_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/month_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="10月"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/month_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toLeftOf="@+id/month_balance_value"
+                        android:text="结余:"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/month_balance_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="100.00"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/month_expenditure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/month_income"
+                        android:text="150.00"
+                        android:textColor="#32CD32"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/month_expenditure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_balance"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/month_expenditure_value"
+                        android:text="支出:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/month_income_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_balance"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="250.00"
+                        android:textColor="#B22222"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/month_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/month_income_value"
+                        android:text="收入:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCC" />
+                <!--季-->
+                <!--年-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/year_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="年"
+                        android:textColor="@color/grey3"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/year_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/year_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="2020年"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/year_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toLeftOf="@+id/year_balance_value"
+                        android:text="结余:"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/year_balance_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="550.00"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/year_expenditure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/year_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/year_income"
+                        android:text="1500.00"
+                        android:textColor="#32CD32"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/year_expenditure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/year_balance"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/year_expenditure_value"
+                        android:text="支出:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/year_income_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/year_balance"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="2050.00"
+                        android:textColor="#B22222"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/year_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/year_balance"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@id/year_income_value"
+                        android:text="收入:"
+                        android:textColor="@color/grey9e"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCC" />
+            </LinearLayout>
+
+        </ScrollView>
+
+
         <!--记一笔按钮-->
         <LinearLayout
             android:orientation="horizontal"
@@ -78,7 +462,7 @@
             android:paddingBottom="5dp">
             <Button
                 android:id="@+id/btn_keep_account"
-                android:layout_width="350dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_background"
                 android:text="记一笔"
