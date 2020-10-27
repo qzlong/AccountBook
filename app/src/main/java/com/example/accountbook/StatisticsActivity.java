@@ -469,7 +469,6 @@ public class StatisticsActivity extends AppCompatActivity{
         return dataList;
     }
 
-
     /**
      * @param list
      * @return 获取指定账单列表收入之和
@@ -497,6 +496,9 @@ public class StatisticsActivity extends AppCompatActivity{
         return sum;
     }
 
+    /**
+     * 设置选择器listener
+     */
     private void initSelectListener() {
         //时间选择
         mItemSelectListener1 = new AdapterView.OnItemSelectedListener() {
@@ -545,9 +547,10 @@ public class StatisticsActivity extends AppCompatActivity{
         };
     }
     /**
-     * 初始化Listener
+     * 设置点击Listener
      * 1. 列表项点击 跳转到详情页
      * 2. 删除按钮
+     * 3. 返回
      */
     private void initClickListener() {
         //点击列表项
@@ -586,7 +589,7 @@ public class StatisticsActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == 1) { //由账单详情页返回，需更新当前数据
             if (resultCode == RESULT_OK) {
                 getBillList();
                 getData();
@@ -601,6 +604,12 @@ public class StatisticsActivity extends AppCompatActivity{
         return (int)(dipValue * m + 0.5f) ;
     }
 
+    /**
+     * 设置选择器
+     * @param adapter
+     * @param listener
+     * @param id
+     */
     public void setSpinner(mSpinnerAdapter<CharSequence> adapter, AdapterView.OnItemSelectedListener listener, int id) {
         Spinner spinner = (Spinner) findViewById(id);
         adapter.setDropDownViewResource(R.layout.spinner_item);
@@ -609,6 +618,9 @@ public class StatisticsActivity extends AppCompatActivity{
         spinner.setOnItemSelectedListener(listener);
     }
 
+    /**
+     * 获取全部账单的收支之和和总结余，并显示
+     */
     private void getSummary() {
         float expend = getSumExpend(bill_list);
         this.expend_all.setText(expend + "");

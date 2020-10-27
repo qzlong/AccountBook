@@ -122,11 +122,8 @@ public class Detail extends LitePalSupport {
 
     public Calendar getTime(){
         Calendar TradeTime = Calendar.getInstance();
-        TradeTime.set(Calendar.YEAR, Year);
-        TradeTime.set(Calendar.MONTH, Month);
-        TradeTime.set(Calendar.DAY_OF_MONTH, Day);
-        TradeTime.set(Calendar.HOUR_OF_DAY, Hour);
-        TradeTime.set(Calendar.MINUTE, Minute);
+        TradeTime.set(Year, Month, Day, Hour, Minute, 0);
+        TradeTime.set(Calendar.MILLISECOND, 0);
         return TradeTime;
     }
 

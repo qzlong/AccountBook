@@ -62,6 +62,8 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array auto_backup
 array categories
+array chart_categories
+array chart_time
 array others
 array reply_entries
 array reply_values
@@ -1856,6 +1858,8 @@ id bottom
 id bounce
 id btnCancel
 id btnSubmit
+id btn_confirm
+id btn_endTime
 id btn_graph_analysis
 id btn_institute
 id btn_keep_account
@@ -1871,6 +1875,7 @@ id btn_show_member
 id btn_show_project
 id btn_show_store
 id btn_show_time
+id btn_startTime
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1883,8 +1888,6 @@ id chains
 id chartAnalysis_bottomBar
 id chartAnalysis_spinner_category
 id chartAnalysis_spinner_time
-id chartAnalysis_tabLayout
-id chartAnlysis_viewPager
 id chart_line
 id chart_pie
 id checkbox
@@ -2005,6 +2008,7 @@ id list_header_item_show
 id list_item
 id llCardBack
 id llExpandArea
+id main
 id masked
 id media_actions
 id message
@@ -2166,8 +2170,6 @@ id submenuarrow
 id submit_area
 id switchWidget
 id tabMode
-id tab_linearChart
-id tab_pieChart
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2186,6 +2188,9 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
+id textView2
+id textView3
 id text_expenditure
 id text_income
 id text_input_end_icon
@@ -2200,6 +2205,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id timePicker
 id timepicker
 id title
 id titleDividerNoCustom

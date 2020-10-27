@@ -149,6 +149,8 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
         Time.set(Calendar.YEAR,Date.get(Calendar.YEAR));
         Time.set(Calendar.MONTH,Date.get(Calendar.MONTH));
         Time.set(Calendar.DAY_OF_MONTH,Date.get(Calendar.DAY_OF_MONTH));
+        Time.set(Calendar.HOUR_OF_DAY, Time.get(Calendar.HOUR_OF_DAY));
+        Time.set(Calendar.MINUTE, Time.get(Calendar.MINUTE));
         Log.d("test", "saveBill: t");
         detail.setTime(Time);
         Log.d("test", "saveBill: 4");

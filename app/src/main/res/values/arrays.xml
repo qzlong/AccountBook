@@ -21,10 +21,6 @@
         <item>分类</item>
         <item>一级分类</item>
         <item>二级分类</item>
-<!--        <item>一级支出</item>-->
-<!--        <item>二级支出</item>-->
-<!--        <item>一级收入</item>-->
-<!--        <item>二级收入</item>-->
     </string-array>
 
     <string-array name="time">
@@ -39,5 +35,22 @@
         <item>成员</item>
         <item>商家</item>
         <item>项目</item>
+    </string-array>
+
+    <string-array name="chart_categories">
+        <item>全部分类</item>
+        <item>一级支出</item>
+        <item>二级支出</item>
+        <item>一级收入</item>
+        <item>二级收入</item>
+    </string-array>
+
+    <string-array name="chart_time">
+        <item>全部时间</item>
+        <item>本月</item>
+        <item>上月</item>
+        <item>最近半年</item>
+        <item>最近一年</item>
+        <item>自定义</item>
     </string-array>
 </resources>

@@ -2,32 +2,34 @@ package com.example.accountbook;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.accountbook.adapter.CAFragmentPagerAdapter;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.accountbook.adapter.mSpinnerAdapter;
 import com.example.accountbook.bean.Detail;
-import com.example.accountbook.bean.FilterBean;
-import com.example.accountbook.fragments.LineChartFragment;
-import com.example.accountbook.fragments.PieChartFragment;
-import com.github.mikephil.charting.data.Entry;
+import com.example.accountbook.pickers.DatePicker;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.google.android.material.tabs.TabLayout;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.litepal.LitePal;
 
-import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -35,11 +37,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ChartAnalysisActivity extends AppCompatActivity {
-    //ViewPager
-    private ViewPager mViewPager;
-    private PagerAdapter mVPAdapter;
-    //private View chart_pie, chart_line;
-    private List<Fragment> viewList = new ArrayList<>();
+    //mainView
+    private LinearLayout mainView;
     //Spinner
     private mSpinnerAdapter mSpinnerAdapter1;
     private mSpinnerAdapter mSpinnerAdapter2;
@@ -47,23 +46,31 @@ public class ChartAnalysisActivity extends AppCompatActivity {
     private Spinner mSpinner1;
     private AdapterView.OnItemSelectedListener mItemSelectListener1;
     private AdapterView.OnItemSelectedListener mItemSelectListener2;
-    private TabLayout tabLayout;
     //button
-    private Button btn_category;
-    //fragment
-    private PieChartFragment pieChartFragment;
-    private LineChartFragment lineChartFragment;
+    private Button goback;
+    private Button btn_setStartTime;
+    private Button btn_setEndTime;
+    private Button btn_confirmTimePicker;
+    //pickerview
+    private CardView timePicker;
+    private TimePickerView startTimePickerView;
+    private TimePickerView endTimePickerView;
+    private DatePicker startTimePicker = new DatePicker();
+    private DatePicker endTimePicker = new DatePicker();
+    //piechart
+    private PieChart pieChart;
+    private String cate_title;
     //date
     private Calendar current_date = getCurrentDate();
-    private int current_month = current_date.get(Calendar.MONTH);
-    private int current_day = current_date.get(Calendar.DATE);
-    private int current_year = current_date.get(Calendar.YEAR);
+    private final int current_month = current_date.get(Calendar.MONTH);
+    private final int start_month = (current_month > 6) ? current_month - 6 : 0;
     //data
-    private Calendar startTime;
-    private Calendar endTime;
-    private String category;
-    private String time;
-    private List<Detail> bill_list = new ArrayList<>();
+    private List<Detail> bill_list = new ArrayList<>(); //将要显示的账单数据
+    private Calendar startTime;     //显示数据的开始时间
+    private Calendar endTime;       //显示数据的结束时间
+    private String category_select; //显示数据选择的类别
+    private String time_select;     //显示数据选择的时间
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,122 +78,187 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chart_analysis);
         setTitle("图表分析");
         initData();
-        initListener();
         initView();
-        initAction();
     }
 
     public void initData() {
-        bill_list = LitePal.findAll(Detail.class);
-        Collections.sort(bill_list, new DetailComparetor());
-        startTime = bill_list.get(bill_list.size()-1).getTime();
-        endTime = bill_list.get(0).getTime();
-        time = "全部时间";
-        category = "全部类别";
-        mSpinnerAdapter1 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.time, R.layout.spinner_item);
-        mSpinnerAdapter2 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.categories, R.layout.spinner_item);
+        getBillList();
     }
 
     public void initView() {
+        //mainView
+        mainView = (LinearLayout) findViewById(R.id.main);
         //Spinner
+        mSpinnerAdapter1 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.chart_time, R.layout.spinner_item);
+        mSpinnerAdapter2 = mSpinnerAdapter.createFromResource(ChartAnalysisActivity.this, R.array.chart_categories, R.layout.spinner_item);
+        initSelectListener();
         setSpinner(mSpinner1, mSpinnerAdapter1, mItemSelectListener1, R.id.chartAnalysis_spinner_time);
         setSpinner(mSpinner2, mSpinnerAdapter2, mItemSelectListener2, R.id.chartAnalysis_spinner_category);
-        //tab
-        tabLayout = (TabLayout) findViewById(R.id.chartAnalysis_tabLayout);
         //button
-        //btn_category = (Button) findViewById(R.id.chartAnalysis_spinner_category);
+        goback = (Button) findViewById(R.id.goback);
+        btn_setStartTime = (Button) findViewById(R.id.btn_startTime);
+        btn_setEndTime = (Button) findViewById(R.id.btn_endTime);
+        btn_confirmTimePicker = (Button) findViewById(R.id.btn_confirm);
+        setTimeBtn();
+        //pickerView
+        timePicker = (CardView) findViewById(R.id.timePicker);
+        startTimePickerView = startTimePicker.getDatePicker(ChartAnalysisActivity.this, btn_setStartTime);
+        endTimePickerView = endTimePicker.getDatePicker(ChartAnalysisActivity.this, btn_setEndTime);
+        initClickListener();
         //pieChart
-        pieChartFragment = new PieChartFragment();
-        setPieChart(pieChartFragment, bill_list, category);
-        //lineChart
-        lineChartFragment = new LineChartFragment();
-        List<Entry> lineEntries = getLineEntries();
-        Bundle args2 = new Bundle();
-        args2.putSerializable("LineEntry", (Serializable)lineEntries);
-        lineChartFragment.setArguments(args2);
-
-        //ViewPager
-        viewList.add(pieChartFragment);
-        viewList.add(lineChartFragment);
-        mVPAdapter = new CAFragmentPagerAdapter(getSupportFragmentManager(), viewList);
-        mViewPager = (ViewPager) findViewById(R.id.chartAnlysis_viewPager);
-        mViewPager.setAdapter(mVPAdapter);
-        mViewPager.setCurrentItem(0);
-
-        tabLayout.setupWithViewPager(mViewPager);
-
+        pieChart = (PieChart) findViewById(R.id.chart_pie);
+        setPieChart();
     }
 
-    private void setPieChart(Fragment pieChartFragment, List<Detail> bill_list, String field) {
-        List<PieEntry> pieEntries = getPieEntries(field, bill_list);
-        Bundle args = new Bundle();
-        args.putSerializable("PieEntry", (Serializable) pieEntries);
-        args.putSerializable("field", field);
-        pieChartFragment.setArguments(args);
+    private void getBillList() {
+        bill_list = LitePal.findAll(Detail.class);
+        if (bill_list.size() == 0) return;
+        Collections.sort(bill_list, new DetailComparetor());
+        startTime = bill_list.get(bill_list.size()-1).getTime();
+        endTime = bill_list.get(0).getTime();
+        time_select = "全部时间";
+        category_select = "全部分类";
+        cate_title = "全部分类";
     }
 
-    private void initListener() {
+    private void setPieChart() {
+        //pieEntry
+        List<PieEntry> pieEntries = getPieEntriesFromBillList();
+        //dataset
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, cate_title);
+        pieDataSet.setColors(getColors());
+        pieDataSet.setValueTextSize(15);
+        pieDataSet.setValueTextColor(Color.DKGRAY);
+        //piedata
+        PieData pieData = new PieData(pieDataSet);
+        pieData.setValueTextSize(11f);
+        pieData.setValueTextColor(Color.DKGRAY);
+        //setdata
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+//        pieChart.setUsePercentValues(true);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5, 10, 5, 5);
+
+        pieChart.setDragDecelerationFrictionCoef(0.95f);
+
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(Color.WHITE);
+
+
+        pieChart.setHoleRadius(25f);
+        pieChart.setTransparentCircleRadius(30f);
+
+        pieChart.setDrawCenterText(true);
+
+        pieChart.setRotationAngle(0);
+        pieChart.setRotationEnabled(true);
+        pieChart.setHighlightPerTapEnabled(true);
+
+        // add a selection listener
+        //pieChart.setOnChartValueSelectedListener(this);
+        pieChart.animateY(1400, Easing.EaseInOutQuad);
+        Legend l = pieChart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+
+        // entry label styling
+        pieChart.setEntryLabelColor(Color.DKGRAY);
+        pieChart.setEntryLabelTextSize(12f);
+    }
+
+    private void initSelectListener() {
         //时间选择
         mItemSelectListener1 = new AdapterView.OnItemSelectedListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                try {
+                    //以下三行代码是解决问题所在
+                    Field field = AdapterView.class.getDeclaredField("mOldSelectedPosition");
+                    field.setAccessible(true);	//设置mOldSelectedPosition可访问
+                    field.setInt(mSpinner1, AdapterView.INVALID_POSITION); //设置mOldSelectedPosition的值
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 mSpinnerAdapter1.setSelectedPostion(position);
-                String[] times = getResources().getStringArray(R.array.time);
-                String date = times[position];
-                time = date;
-                getData();
-                pieChartFragment = new PieChartFragment();
-                setPieChart(pieChartFragment, bill_list, category);
-                viewList.clear();
-                viewList.add(pieChartFragment);
-                viewList.add(lineChartFragment);
+                String[] times = getResources().getStringArray(R.array.chart_time);
+                time_select = times[position];
+                if (time_select.equals("自定义")){
+                    timePicker.setVisibility(View.VISIBLE);
+                    mainView.setAlpha(0.5f);
+                } else {
+                    setBillList();
+                    setPieChart();
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         };
+        //分类选择
         mItemSelectListener2 = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mSpinnerAdapter2.setSelectedPostion(position);
-                String[] categories = getResources().getStringArray(R.array.categories);
-                String cate = categories[position];
-                category = cate;
-                getData();
-                pieChartFragment = new PieChartFragment();
-                setPieChart(pieChartFragment, bill_list, category);
+                String[] categories = getResources().getStringArray(R.array.chart_categories);
+                category_select = categories[position];
+                cate_title = category_select;
+                setBillList();
+                setPieChart();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         };
     }
 
-    private void initAction() {
-//        btn_category.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ChartAnalysisActivity.this, TypeLabelActivity.class);
-//                intent.putExtra("tabs", (Serializable) tab_list);
-//                startActivityForResult(intent, 1);
-//            }
-//        });
+    private void initClickListener () {
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        btn_setStartTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startTimePickerView.show();
+            }
+        });
+        btn_setEndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                endTimePickerView.show();
+            }
+        });
+        btn_confirmTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setBillList();
+                setPieChart();
+                timePicker.setVisibility(View.GONE);
+                mainView.setAlpha(1f);
+            }
+        });
+
+
     }
 
-    public void getAllData() {
-
-    }
 
     /**
-     * 获取指定时间区段和类别的数据
+     * 获取指定时间区段和类别的数据至detail_list
      */
-    public void getData() {
-        switch (category) {
-            case "全部类别":
-                bill_list = LitePal.findAll(Detail.class);
-                break;
+    public void setBillList() {
+        bill_list = LitePal.findAll(Detail.class);
+        if (bill_list.size() == 0) return;
+        switch (category_select) {
+            case "全部类别":  break;
             case "一级支出":
             case "二级支出":
                 bill_list = LitePal.where("type like ?", "PAY").find(Detail.class);
@@ -198,47 +270,39 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         }
         Collections.sort(bill_list, new DetailComparetor());
 
-        int start_month = 0;
-        if (current_month > 6) {
-            start_month = current_month - 6;
-        }
-        List<Detail> newList = new ArrayList<>();
-        switch (time) {
+        startTime = (Calendar) current_date.clone();
+        endTime = (Calendar) current_date.clone();
+        switch (time_select) {
             case "全部时间":
-                newList = LitePal.findAll(Detail.class);
-                Collections.sort(newList, new DetailComparetor());
-                startTime =  newList.get(newList.size()-1).getTime();
-                endTime =  newList.get(0).getTime();
-                break;
+                startTime = bill_list.get(bill_list.size()-1).getTime();
+                endTime = bill_list.get(0).getTime();
+                return;
             case "本月":
-                startTime = current_date;
-                startTime.set(Calendar.DATE, 0);
-                endTime = current_date;
+                startTime.set(Calendar.DAY_OF_MONTH, 0);
                 break;
             case "上月":
-                startTime = current_date;
-                startTime.set(Calendar.DATE, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 0);
                 startTime.add(Calendar.MONTH, -1);
-                endTime = current_date;
-                endTime.add(Calendar.MONTH, -1);
+                endTime.set(Calendar.DAY_OF_MONTH, 0);
                 break;
             case "最近半年" :
-                startTime = current_date;
-                startTime.set(Calendar.DATE, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 0);
                 startTime.set(Calendar.MONTH, start_month);
-                endTime = current_date;
                 break;
             case "最近一年":
-                startTime = current_date;
-                startTime.set(Calendar.DATE, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 0);
                 startTime.set(Calendar.MONTH, 0);
-                endTime = current_date;
-                endTime.set(Calendar.MONTH, 11);
+                endTime.set(Calendar.MONTH, 12);
+                endTime.set(Calendar.DAY_OF_MONTH, 0);
+                break;
+            case "自定义":
+                startTime = startTimePicker.getTime();
+                endTime = endTimePicker.getTime();
                 break;
             default:;
         }
-        newList = getDataByTime(startTime , endTime);
-        bill_list = newList;
+        setTimeBtn();
+        bill_list = getDataByTimeFromBillList(startTime, endTime);
     }
 
     public int dip2px(Context context, float dipValue) {
@@ -254,34 +318,44 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(listener);
     }
 
-    public List<PieEntry> getPieEntries(String field, List<Detail> bill_list) {
+    private void setTimeBtn() {
+        String startTime_text = startTime.get(Calendar.YEAR) + "年" + (startTime.get(Calendar.MONTH)+1) + "月" + startTime.get(Calendar.DAY_OF_MONTH) + "日";
+        String endTime_text = endTime.get(Calendar.YEAR) + "年" + (endTime.get(Calendar.MONTH)+1) +"月" + endTime.get(Calendar.DAY_OF_MONTH) +"日";
+        btn_setStartTime.setText(startTime_text);
+        btn_setEndTime.setText(endTime_text);
+    }
+
+    public List<PieEntry> getPieEntriesFromBillList() {
+        if (bill_list.size() == 0) {
+            return new ArrayList<PieEntry>();
+        }
         List<String> exists = new ArrayList<>();
         List<Float> counts = new ArrayList<>();
-        switch (field) {
-            case "全部类别":
+        switch (category_select) {
+            case "全部分类":
             case "一级支出":
             case "一级收入":
                 for (Detail bill : bill_list) {
-                        String category1 = bill.getCategory1();
-                        int index = exists.indexOf(category1);
-                        if (index < 0) {
-                            exists.add(category1);
-                            counts.add(bill.getMoney());
-                            index = exists.indexOf(category1);
-                        }
-                        counts.set(index, counts.get(index) + bill.getMoney());
+                    String category1 = bill.getCategory1();
+                    int index = exists.indexOf(category1);
+                    if (index < 0) {
+                        exists.add(category1);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(category1);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
             case "二级收入":
             case "二级支出":
                 for (Detail bill : bill_list) {
-                        String category2 = bill.getCategory2();
-                        int index = exists.indexOf(category2);
-                        if (index < 0) {
-                            exists.add(category2);
-                            counts.add(bill.getMoney());
-                            index = exists.indexOf(category2);
-                        }
-                        counts.set(index, counts.get(index) + bill.getMoney());
+                    String category2 = bill.getCategory2();
+                    int index = exists.indexOf(category2);
+                    if (index < 0) {
+                        exists.add(category2);
+                        counts.add(bill.getMoney());
+                        index = exists.indexOf(category2);
+                    }
+                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             default:;
@@ -295,43 +369,27 @@ public class ChartAnalysisActivity extends AppCompatActivity {
         return entries;
     }
 
-    public float[] getSumByMonth() {
-        float[] sum_month = new float[12];
-        for (Detail bill : bill_list) {
-            int index = bill.getTime().get(Calendar.MONTH);
-            sum_month[index] += bill.getMoney();
-        }
-        return sum_month;
-    }
-    public List<Entry> getLineEntries() {
-        List<Entry> entries = new ArrayList<>();
-        float[] sum_month = getSumByMonth();
-        for (int i = 0; i < 12; i++) {
-            Entry entry = new Entry(i+1 , sum_month[i]);
-            entries.add(entry);
-        }
-        return entries;
-    }
-
     private class DetailComparetor implements Comparator<Detail> {
         @Override
         public int compare(Detail bill1, Detail bill2) {
-            if (bill1.getTime().after(bill2.getTime())){
-                return -1;
-            }else if (bill1.getTime().before(bill2.getTime())) {
+            if (bill1.getTime().before(bill2.getTime())){
                 return 1;
+            }else if (bill2.getTime().before(bill1.getTime())) {
+                return -1;
             }else {
                 return 0;
             }
         }
     }
 
-    private List<Detail> getDataByTime(Calendar startTime, Calendar endTime) {
+    private List<Detail> getDataByTimeFromBillList(Calendar startTime, Calendar endTime) {
         List<Detail> data = new ArrayList<>();
         for (Detail bill : bill_list) {
-            Calendar time = bill.getTime();
-            if (time.after(startTime)  && time.before(endTime)) {
-                data.add(bill);
+            Calendar date = bill.getTime();
+            if (date.after(startTime)) {
+                if (date.before(endTime)) {
+                    data.add(bill);
+                }
             }
         }
         return data;
@@ -340,20 +398,26 @@ public class ChartAnalysisActivity extends AppCompatActivity {
     private Calendar getCurrentDate() {
         return Calendar.getInstance();
     }
-    private void setStart(Calendar date) {
-        startTime.set(date.get(Calendar.YEAR),
-                date.get(Calendar.MONTH),
-                date.get(Calendar.DATE),
-                date.get(Calendar.HOUR_OF_DAY),
-                date.get(Calendar.MINUTE),
-                date.get(Calendar.SECOND));
-    }
-    private void setEnd(Calendar date) {
-        endTime.set(date.get(Calendar.YEAR),
-                date.get(Calendar.MONTH),
-                date.get(Calendar.DATE),
-                date.get(Calendar.HOUR_OF_DAY),
-                date.get(Calendar.MINUTE),
-                date.get(Calendar.SECOND));
+
+    public ArrayList<Integer> getColors() {
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+        return colors;
     }
 }
