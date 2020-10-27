@@ -71,17 +71,18 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         initPickerData();
         initView(view);
         setBtnListener();
+        Log.d("test", "onCreateView: 222");
         initPickerView(mContext);
         setDefaultValue();
         return view;
     }
     @SuppressLint("SetTextI18n")
-    private void setDefaultValue() {
+    public void setDefaultValue() {
         btn_show_account.setText(getDefaultValue(account_1,account_2));
         btn_show_lender.setText(getDefaultValue(lender_1,lender_2));
         Calendar date = Calendar.getInstance();
         String time_text = date.get(Calendar.HOUR_OF_DAY) + "时" + date.get(Calendar.MINUTE) + "分";
-        String date_text = date.get(Calendar.YEAR) + "年" + date.get(Calendar.MONTH) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
+        String date_text = date.get(Calendar.YEAR) + "年" + (date.get(Calendar.MONTH)+1) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
         btn_show_time.setText(time_text);
         btn_show_date.setText(date_text);
         btn_show_member.setText("默认->无成员");
@@ -92,6 +93,7 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         if(bundle!=null)
             model = bundle.getParcelable("LOAN");
         if(model!=null){
+            edit_money.setText(Float.toString(model.getMoney()));
             btn_show_lender.setText(model.getCategory1()+"->"+model.getCategory2());
             btn_show_account.setText(model.getAccount1()+"->"+model.getAccount2());
             String store = model.getTrader();
@@ -160,7 +162,7 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
     public String getType(){
         return this.Type;
     }
-    private void saveBill(){
+    private boolean saveBill(){
         ArrayList<String> temp = new ArrayList<>();
         TextSplitter textSplitter = new TextSplitter();
         Log.d("test", "saveBill: 1");
@@ -183,9 +185,6 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         temp = textSplitter.splitArrow(btn_show_lender.getText().toString());
         detail.setCategory(temp.get(0),temp.get(1));
         Log.d("test", "saveBill: 5");
-        //5.设置金额
-        detail.setMoney(Float.parseFloat(edit_money.getEditableText().toString().trim()));
-        Log.d("test", "saveBill: 6");
         //6.设置账户
         temp = textSplitter.splitArrow(btn_show_account.getText().toString());
         detail.setAccount(temp.get(0),temp.get(1));
@@ -201,8 +200,23 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
         temp = textSplitter.splitArrow(btn_show_project.getText().toString());
         detail.setProject(temp.get(1));
         Log.d("test", "saveBill: 9");
-        //10.保存至数据库
-
+        //9.设置金额
+        try {
+            float money = Float.parseFloat(edit_money.getEditableText().toString().trim());
+            if(Math.abs(money-0)<=10e-6){
+                Toast.makeText(mContext,"金额不能为0",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if(money<0){
+                Toast.makeText(mContext,"金额不能小于0",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            detail.setMoney(money);
+        }catch (Exception e){
+            Toast.makeText(mContext,"请输入合法数字",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
     @Override
     public void onClick(View v) {
@@ -255,16 +269,20 @@ public class LoanFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
             case R.id.btn_save_as_model:
-                saveBill();
-                Model model = new Model(detail);
-                model.save();
-                Toast.makeText(mContext,"已添加至模板",Toast.LENGTH_SHORT).show();
+                boolean saveModel = saveBill();
+                if(saveModel) {
+                    Model model = new Model(detail);
+                    model.save();
+                    Toast.makeText(mContext, "已添加至模板", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_save:
-                saveBill();
-                detail.save();
-                Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                boolean save = saveBill();
+                if(save) {
+                    detail.save();
+                    Toast.makeText(mContext, "账单添加成功", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
                 break;
             default:
                 break;

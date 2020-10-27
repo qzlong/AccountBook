@@ -22,7 +22,7 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,SharedPreferences.OnSharedPreferenceChangeListener{
     //主页面
     private DrawerLayout mDrawerLayout;
     private Button btn_graphanalysis;
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setAdapter(adapter);
         setButtonListener();
         SharedPreferences sharedPreferences = this.getSharedPreferences("first_launch",MODE_PRIVATE);
+
+        //第一次运行时加载默认分类数据
         boolean isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch",true);
         if(isFirstLaunch) {
             LitePal.initialize(this);
@@ -90,7 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         optionList.add(option8);
         Option option9 = new Option(" ","    数据服务");
         optionList.add(option9);
-        Option option10 = new Option("   绑定邮箱","    绑定邮箱用于导出用户数据");
+        boolean isSetEmailAddress = setting_pref.getBoolean("isSetEmailAddress",false);
+        Option option10;
+        if(!isSetEmailAddress)
+            option10 = new Option("   绑定邮箱","    绑定邮箱用于导出用户数据");
+        else
+            option10 = new Option("   "+setting_pref.getString("emailAddress",""),"    解除邮箱绑定");
         optionList.add(option10);
         Option option11 = new Option("   数据导出","    将账单信息以CSV文件格式导出到绑定邮箱");
         optionList.add(option11);
@@ -144,5 +151,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        initOptions();
     }
 }

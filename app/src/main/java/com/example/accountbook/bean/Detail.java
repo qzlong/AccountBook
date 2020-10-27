@@ -9,28 +9,28 @@ import java.util.Calendar;
 public class Detail extends LitePalSupport {
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String Account1;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String Account2;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private float Money;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int Year;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int Month;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int Day;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int Hour;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int Minute;
 
     @Column(nullable = true)
@@ -51,7 +51,7 @@ public class Detail extends LitePalSupport {
     @Column(nullable = true)
     private String Project;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String  Type;  //账单类型
 
     public boolean setMoney(float m){

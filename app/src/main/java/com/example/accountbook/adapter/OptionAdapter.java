@@ -20,8 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.accountbook.ChartAnalysisActivity;
 import com.example.accountbook.R;
 import com.example.accountbook.SetPatternCodeActivity;
+import com.example.accountbook.bean.Detail;
 import com.example.accountbook.helper.CsvIOHelper;
 import com.example.accountbook.setting.AddTextCodeDialog;
+import com.example.accountbook.setting.ChangeCodeDialog;
+import com.example.accountbook.setting.ChangeCodeDialogListener;
 import com.example.accountbook.setting.CustomDialog;
 import com.example.accountbook.setting.CustomDialogClickListener;
 import com.example.accountbook.setting.EmailEditDialog;
@@ -30,16 +33,15 @@ import com.example.accountbook.setting.Option;
 import com.wei.android.lib.fingerprintidentify.FingerprintIdentify;
 import com.wei.android.lib.fingerprintidentify.base.BaseFingerprint;
 
+import org.litepal.LitePal;
+
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.List;
 
 import droidninja.filepicker.FilePickerBuilder;
 import droidninja.filepicker.utils.ContentUriUtils;
-
-import static java.security.AccessController.getContext;
 
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> implements SharedPreferences.OnSharedPreferenceChangeListener{
@@ -55,8 +57,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         public ViewHolder(View view){
             super(view);
             optionView = view;
-            aboveText = (TextView)view.findViewById(R.id.aboveText);
-            belowText = (TextView)view.findViewById(R.id.belowText);
+            aboveText = view.findViewById(R.id.aboveText);
+            belowText = view.findViewById(R.id.belowText);
         }
     }
     public OptionAdapter(List<Option> optionList,Context context,Activity activity){
@@ -76,19 +78,19 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                try {
-                    Click(v,position);
-                } catch (IOException | URISyntaxException e) {
-                    e.printStackTrace();
-                }
+            int position = holder.getAdapterPosition();
+            try {
+                Click(v,position);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
             }
         });
         return holder;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void Click(View v, int position) throws IOException, URISyntaxException {
+    public void Click(View v, int position) throws URISyntaxException {
         switch (position){
             //case 1-3 为定时事件
             case 1: //自动记账
@@ -107,7 +109,6 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
             case 5: //指纹密码
                 boolean isOpenFingerprintCode = sharedPreferences.getBoolean("isEnableFingerprintCode",false);
                 if(!isOpenFingerprintCode) {//未设置指纹
-                    Toast.makeText(context,"开始",Toast.LENGTH_SHORT).show();
                     boolean enable = enableFingerprintCode();
                     if(enable){
                         CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
@@ -151,10 +152,33 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 if(!isSetTextCode){
                     setTextCode();
                 }else{
-                    Toast.makeText(context,"TODO",Toast.LENGTH_SHORT).show();
-                    //TODO
-                    //change code
-                    //close code
+                    final ChangeCodeDialog changeCodeDialog = new ChangeCodeDialog(context, new ChangeCodeDialogListener() {
+                        @Override
+                        public void clickBtnChangeCode() {
+                            setTextCode();
+                        }
+
+                        @Override
+                        public void clickBtnCloseCode() {
+                            CustomDialog customDialog =  new CustomDialog(context, new CustomDialogClickListener() {
+                                @Override
+                                public void clickConfirm() {
+                                    editor.putBoolean("isSetTextCode",false);
+                                    editor.apply();
+                                    Toast.makeText(context,"文字密码已关闭",Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void clickCancel() {
+                                    //do nothing
+                                }
+                            });
+                            customDialog.setMessage("是否关闭文字密码");
+                            customDialog.setTile("关闭密码");
+                            customDialog.show();
+                        }
+                    });
+                    changeCodeDialog.show();
                 }
                 break;
             case 7: //图形密码
@@ -162,10 +186,33 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 if(!isSetPatternCode){
                     setPatternCode();
                 }else{
-                    Toast.makeText(context,"TODO",Toast.LENGTH_SHORT).show();
-                    //TODO
-                    //change code
-                    //close code
+                    final ChangeCodeDialog changeCodeDialog = new ChangeCodeDialog(context, new ChangeCodeDialogListener() {
+                        @Override
+                        public void clickBtnChangeCode() {
+                            setPatternCode();
+                        }
+
+                        @Override
+                        public void clickBtnCloseCode() {
+                            CustomDialog customDialog =  new CustomDialog(context, new CustomDialogClickListener() {
+                                @Override
+                                public void clickConfirm() {
+                                    editor.putBoolean("isSetPatternCode",false);
+                                    editor.apply();
+                                    Toast.makeText(context,"图形密码已关闭",Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void clickCancel() {
+                                    //do nothing
+                                }
+                            });
+                            customDialog.setMessage("是否关闭图形密码");
+                            customDialog.setTile("关闭密码");
+                            customDialog.show();
+                        }
+                    });
+                    changeCodeDialog.show();
                 }
                 break;
 
@@ -212,7 +259,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
                     @Override
                     public void clickConfirm() {
-                        //TODO
+                        LitePal.deleteAll(Detail.class,"Money > ?","0");
+                        Toast.makeText(context,"所有账单数据已清除",Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void clickCancel() {

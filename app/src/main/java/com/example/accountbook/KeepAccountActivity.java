@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -34,17 +35,52 @@ public class KeepAccountActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keep_account);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         InitView();
+    }
+    public Fragment getFragment(String type){
+        switch (type){
+            case "PAY":
+                return list.get(1);
+            case "INCOME":
+                return list.get(2);
+            case "TRANSFER":
+                return list.get(3);
+            case "LOAN":
+                return list.get(4);
+        }
+        return null;
+    }
+    public void changePage(String type){
+        switch (type){
+            case "PAY":
+                myViewPager.setCurrentItem(1);
+                changeColor(1);
+                break;
+            case "INCOME":
+                myViewPager.setCurrentItem(2);
+                changeColor(2);
+                break;
+            case "TRANSFER":
+                myViewPager.setCurrentItem(3);
+                changeColor(3);
+                break;
+            case "LOAN":
+                myViewPager.setCurrentItem(4);
+                changeColor(4);
+                break;
+        }
     }
     private void InitView() {
         //指定控件id
-        btn_go_back = (Button) findViewById(R.id.goback);
-        text_template = (TextView)findViewById(R.id.text_template);
-        text_expenditure = (TextView)findViewById(R.id.text_expenditure);
-        text_income = (TextView)findViewById(R.id.text_income);
-        text_transfer = (TextView)findViewById(R.id.text_transfer);
-        text_loan = (TextView)findViewById(R.id.text_loan);
-        myViewPager = (ViewPager) findViewById(R.id.myViewPager);
+        btn_go_back = findViewById(R.id.goback);
+        text_template = findViewById(R.id.text_template);
+        text_expenditure = findViewById(R.id.text_expenditure);
+        text_income = findViewById(R.id.text_income);
+        text_transfer = findViewById(R.id.text_transfer);
+        text_loan = findViewById(R.id.text_loan);
+        myViewPager = findViewById(R.id.myViewPager);
+        myViewPager.setOffscreenPageLimit(0);
         //设置响应事件
         btn_go_back.setOnClickListener(this);
         text_template.setOnClickListener(this);

@@ -5,6 +5,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Model extends Detail implements Parcelable {
+    public Model(){
+
+    }
     public Model(Detail detail){
         this.setAccount(detail.getAccount1(),detail.getAccount2());
         this.setCategory(detail.getCategory1(),detail.getCategory2());

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value="demo" />
+    <dbname value="AccountBook" />
 
-    <version value="6" />
+    <version value="7" />
 
     <list>
             <mapping class="com.example.accountbook.helper.PickerDataHelper" />

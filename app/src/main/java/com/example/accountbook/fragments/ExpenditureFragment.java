@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
-import com.example.accountbook.bean.Bill;
 import com.example.accountbook.bean.Detail;
 import com.example.accountbook.R;
 import com.example.accountbook.bean.Model;
@@ -77,10 +76,10 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
     }
 
     @SuppressLint("SetTextI18n")
-    private void setDefaultValue() {
+    public void setDefaultValue() {
         Calendar date = Calendar.getInstance();
         String time_text = date.get(Calendar.HOUR_OF_DAY) + "时" + date.get(Calendar.MINUTE) + "分";
-        String date_text = date.get(Calendar.YEAR) + "年" + date.get(Calendar.MONTH) + "月" + date.get(Calendar.DAY_OF_MONTH) + "日";
+        String date_text = date.get(Calendar.YEAR) + "年" + (date.get(Calendar.MONTH)+1) + "月" + date.get(Calendar.DAY_OF_MONTH) + "日";
         btn_show_time.setText(time_text);
         btn_show_date.setText(date_text);
         btn_show_category.setText(getDefaultValue(category_1, category_2));
@@ -93,6 +92,8 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
         if(bundle!=null)
             model = bundle.getParcelable("PAY");
         if(model!=null){
+            edit_money.setText(Float.toString(model.getMoney()));
+            Log.d("test", "setDefaultValue: "+Float.toString(model.getMoney()));
             btn_show_category.setText(model.getCategory1()+"->"+model.getCategory2());
             btn_show_account.setText(model.getAccount1()+"->"+model.getAccount2());
             String store = model.getTrader();
@@ -138,17 +139,17 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
     }
 
     private void initView(View view){
-        btn_show_time = (Button) view.findViewById(R.id.btn_show_time);
-        btn_show_account = (Button) view.findViewById(R.id.btn_show_account);
-        btn_show_date = (Button) view.findViewById(R.id.btn_show_date);
-        btn_show_member = (Button) view.findViewById(R.id.btn_show_member);
-        btn_show_project = (Button) view.findViewById(R.id.btn_show_project);
-        btn_show_store = (Button) view.findViewById(R.id.btn_show_store);
-        btn_show_category = (Button) view.findViewById(R.id.btn_show_category);
-        btn_save_as_model = (Button) view.findViewById(R.id.btn_save_as_model);
-        btn_save = (Button) view.findViewById(R.id.btn_save);
-        edit_money = (EditText) view.findViewById(R.id.edit_money);
-        edit_remark = (EditText) view.findViewById(R.id.edit_remark);
+        btn_show_time = view.findViewById(R.id.btn_show_time);
+        btn_show_account = view.findViewById(R.id.btn_show_account);
+        btn_show_date = view.findViewById(R.id.btn_show_date);
+        btn_show_member = view.findViewById(R.id.btn_show_member);
+        btn_show_project = view.findViewById(R.id.btn_show_project);
+        btn_show_store = view.findViewById(R.id.btn_show_store);
+        btn_show_category = view.findViewById(R.id.btn_show_category);
+        btn_save_as_model = view.findViewById(R.id.btn_save_as_model);
+        btn_save = view.findViewById(R.id.btn_save);
+        edit_money = view.findViewById(R.id.edit_money);
+        edit_remark = view.findViewById(R.id.edit_remark);
     }
 
     private void setBtnListener(){
@@ -166,49 +167,64 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
         return this.Type;
     }
 
-    private void saveBill(){
+    private boolean saveBill(){
         ArrayList<String> temp = new ArrayList<>();
         TextSplitter textSplitter = new TextSplitter();
-        Log.d("test", "saveBill: 1");
+        //Log.d("test", "saveBill: 1");
         //1.设置账单类型
         detail.setType(Type);
-        Log.d("test", "saveBill: 2");
+        //Log.d("test", "saveBill: 2");
         //2.设置备注
         detail.setNote(edit_remark.getText().toString());
-        Log.d("test", "saveBill: 3");
+        //Log.d("test", "saveBill: 3");
         //3.设置时间和日期
         Calendar Date = datePicker.getTime();
         Calendar Time = timePicker.getTime();
         Time.set(Calendar.YEAR,Date.get(Calendar.YEAR));
         Time.set(Calendar.MONTH,Date.get(Calendar.MONTH));
         Time.set(Calendar.DAY_OF_MONTH,Date.get(Calendar.DAY_OF_MONTH));
-        Log.d("test", "saveBill: t");
+//        Log.d("test", "saveBill: t");
         detail.setTime(Time);
-        Log.d("test", "saveBill: 4");
+//        Log.d("test", "saveBill: 4");
         //4.设置分类
         temp = textSplitter.splitArrow(btn_show_category.getText().toString());
         detail.setCategory(temp.get(0),temp.get(1));
-        Log.d("test", "saveBill: 5");
-        //5.设置金额
-        detail.setMoney(Float.parseFloat(edit_money.getEditableText().toString().trim()));
-        Log.d("test", "saveBill: 6");
-        //6.设置账户
+//        Log.d("test", "saveBill: 5");
+
+        //5.设置账户
         temp = textSplitter.splitArrow(btn_show_account.getText().toString());
         detail.setAccount(temp.get(0),temp.get(1));
-        Log.d("test", "saveBill: 7");
-        //7.设置商家
+//        Log.d("test", "saveBill: 6");
+        //6.设置商家
         temp = textSplitter.splitArrow(btn_show_store.getText().toString());
         detail.setTrader(temp.get(1));
-        Log.d("test", "saveBill: 8");
-        //8.设置成员
+//        Log.d("test", "saveBill: 7");
+        //7.设置成员
         temp = textSplitter.splitArrow(btn_show_member.getText().toString());
         detail.setMember(temp.get(1));
-        //9.设置项目
+        //8.设置项目
         temp = textSplitter.splitArrow(btn_show_project.getText().toString());
         detail.setProject(temp.get(1));
-        Log.d("test", "saveBill: 9");
+//        Log.d("test", "saveBill: 8");
+        //9.设置金额
+        try {
+            float money = Float.parseFloat(edit_money.getEditableText().toString().trim());
+            if(Math.abs(money-0)<=10e-6){
+                Toast.makeText(mContext,"金额不能为0",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if(money<0){
+                Toast.makeText(mContext,"金额不能小于0",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            detail.setMoney(money);
+        }catch (Exception e){
+            Toast.makeText(mContext,"请输入合法数字",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+//        Log.d("test", "saveBill: 9");
         //10.保存至数据库
-
+        return true;
     }
 
     @Override
@@ -262,20 +278,25 @@ public class ExpenditureFragment extends Fragment implements View.OnClickListene
                 }
                 break;
             case R.id.btn_save_as_model:
-                saveBill();
-                Model model = new Model(detail);
-                model.save();
-                Toast.makeText(mContext,"已添加至模板",Toast.LENGTH_SHORT).show();
+                boolean saveModel = saveBill();
+                if(saveModel) {
+                    Model model = new Model(detail);
+                    model.save();
+                    Toast.makeText(mContext, "已添加至模板", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_save:
-                saveBill();
-                detail.save();
-                Toast.makeText(mContext,"账单添加成功",Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                boolean save = saveBill();
+                if(save) {
+                    detail.save();
+                    Toast.makeText(mContext, "账单添加成功", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
                 break;
             default:
                 break;
         }
     }
+
 
 }

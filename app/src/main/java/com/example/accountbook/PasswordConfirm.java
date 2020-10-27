@@ -24,6 +24,7 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
     boolean isSetTextCode;
     boolean isSetPatternCode;
     boolean isEnableFingerprintCode;
+    boolean BACK_DISABLE = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,12 +110,17 @@ public class PasswordConfirm extends AppCompatActivity implements View.OnClickLi
         transaction.replace(R.id.passwordFragment,fragment);
         transaction.commit();
     }
+    public void setBackDisable(boolean disable){
+        this.BACK_DISABLE = disable;
+    }
     //重写keyEvent，防止用户使用Back返回MainActivity
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-            //do nothing
-            return true;
+        if(BACK_DISABLE) {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+                //do nothing
+                return true;
+            }
         }
         return super.dispatchKeyEvent(event);
     }
