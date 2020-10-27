@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="AccountBook" />
+
+    <version value="7" />
+
+    <list>
+            <mapping class="com.example.accountbook.helper.PickerDataHelper" />
+            <mapping class="com.example.accountbook.bean.Model" />
+            <mapping class="com.example.accountbook.bean.Detail" />
+    </list>
+    <storage value="internal"/>
+</litepal>
