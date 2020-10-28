@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class StatisticsActivity extends AppCompatActivity{
     private String select_state;                            //当前选择哪种分类
     private List<Detail> bill_list = new ArrayList<>();     //全部账单
     private List<DetailHeader> headers = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,7 +153,7 @@ public class StatisticsActivity extends AppCompatActivity{
                 break;
             case "分类":
                 if (cate_select.equals("二级分类")) {
-                    List<String> exist_cate2_pay = getExistCate2("PAY");
+                    List<String> exist_cate2_pay = getExistCate2("PAY", "INCOME");
                     for (String cate2 : exist_cate2_pay) {
                         DetailHeader detailHeader = new DetailHeader();
                         detailHeader.setDataList(getDataListByCate2(cate2));
@@ -161,7 +163,7 @@ public class StatisticsActivity extends AppCompatActivity{
                         headers.add(detailHeader);
                     }
                 } else {
-                    List<String> exist_cate1_pay = getExistCate1("PAY");
+                    List<String> exist_cate1_pay = getExistCate1("PAY", "INCOME");
                     for (String cate1 : exist_cate1_pay) {
                         DetailHeader detailHeader = new DetailHeader();
                         detailHeader.setDataList(getDataListByCate1(cate1));
@@ -305,6 +307,19 @@ public class StatisticsActivity extends AppCompatActivity{
         }
         return cate1_exist;
     }
+    private List<String> getExistCate1(String type1 , String type2) {
+        List<String> cate1_exist = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_type = bill.getType();
+            if (bill_type.equals(type1) || bill_type.equals(type2)) {
+                String bill_cate1 = bill.getCategory1();
+                if (cate1_exist.indexOf(bill_cate1) < 0)  {
+                    cate1_exist.add(bill_cate1);
+                }
+            }
+        }
+        return cate1_exist;
+    }
     /**
      * @param cate1
      * @return 返回指定一级分类的所有账单
@@ -330,6 +345,19 @@ public class StatisticsActivity extends AppCompatActivity{
             String bill_type = bill.getType();
             if (cate2_exist.indexOf(bill_cate2) < 0 && bill_type.equals(type))  {
                 cate2_exist.add(bill_cate2);
+            }
+        }
+        return cate2_exist;
+    }
+    private List<String> getExistCate2(String type1 , String type2) {
+        List<String> cate2_exist = new ArrayList<>();
+        for (Detail bill : bill_list) {
+            String bill_type = bill.getType();
+            if (bill_type.equals(type1) || bill_type.equals(type2)) {
+                String bill_cate2 = bill.getCategory2();
+                if (cate2_exist.indexOf(bill_cate2) < 0)  {
+                    cate2_exist.add(bill_cate2);
+                }
             }
         }
         return cate2_exist;
@@ -555,9 +583,9 @@ public class StatisticsActivity extends AppCompatActivity{
         mListItemClickListener = (new RVAdapter.OnItemClickListener() {
             @Override
             //点击列表项动作 跳转详情页面
-            public void onItemClick(View view, int position) {
+            public void onItemClick(View view, long id) {
                 Intent intent = new Intent(StatisticsActivity.this, BillDetailActivity.class);
-                intent.putExtra("id", bill_list.get(position).getId());
+                intent.putExtra("id", id);
                 startActivityForResult(intent, 1);
             }
         });
@@ -565,8 +593,12 @@ public class StatisticsActivity extends AppCompatActivity{
         mDeletedItemListener = new RVAdapter.DeletedItemListener() {
             @Override
             //点击删除键动作
-            public void deleted(int position) {
-                LitePal.delete(Detail.class, bill_list.get(position).getId());
+            public void deleted(long id) {
+                LitePal.delete(Detail.class, id);
+                getBillList();
+                getData();
+                mAdapter.setData(headers);
+                getSummary();
             }
         };
         //返回

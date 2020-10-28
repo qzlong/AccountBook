@@ -213,6 +213,7 @@ public class TransferFragment extends Fragment implements View.OnClickListener{
             Toast.makeText(mContext,"请输入合法数字",Toast.LENGTH_SHORT).show();
             return false;
         }
+        detail.setCategory("不可用", "不可用");
         return true;
     }
 

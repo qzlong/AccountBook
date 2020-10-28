@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectChangeListener;
@@ -77,6 +78,10 @@ public class DatePicker {
         return date_picker;
     }
     public Calendar getTime(){
+        return this.dateForReturn;
+    }
+    public Calendar getTime(TextView btn){
+
         return this.dateForReturn;
     }
 }

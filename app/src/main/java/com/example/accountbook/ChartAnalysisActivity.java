@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.accountbook.adapter.mSpinnerAdapter;
 import com.example.accountbook.bean.Detail;
+import com.example.accountbook.helper.TextSplitter;
 import com.example.accountbook.pickers.DatePicker;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -298,33 +299,46 @@ public class ChartAnalysisActivity extends AppCompatActivity {
 
         if (bill_list.size() <= 1) return;
         startTime = (Calendar) current_date.clone();
+        startTime.set(Calendar.HOUR_OF_DAY, 0);
+        startTime.set(Calendar.MINUTE, 0);
         endTime = (Calendar) current_date.clone();
+        endTime.set(Calendar.HOUR_OF_DAY, 0);
+        endTime.set(Calendar.MINUTE, 0);
+        endTime.add(Calendar.DAY_OF_MONTH, 1);
         switch (time_select) {
             case "全部时间":
                 startTime = bill_list.get(bill_list.size()-1).getTime();
                 endTime = bill_list.get(0).getTime();
                 return;
             case "本月":
-                startTime.set(Calendar.DAY_OF_MONTH, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 1);
                 break;
             case "上月":
-                startTime.set(Calendar.DAY_OF_MONTH, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 1);
                 startTime.add(Calendar.MONTH, -1);
-                endTime.set(Calendar.DAY_OF_MONTH, 0);
+                endTime.set(Calendar.DAY_OF_MONTH, 1);
                 break;
             case "最近半年" :
-                startTime.set(Calendar.DAY_OF_MONTH, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 1);
                 startTime.set(Calendar.MONTH, start_month);
                 break;
             case "最近一年":
-                startTime.set(Calendar.DAY_OF_MONTH, 0);
+                startTime.set(Calendar.DAY_OF_MONTH, 1);
                 startTime.set(Calendar.MONTH, 0);
                 endTime.set(Calendar.MONTH, 12);
-                endTime.set(Calendar.DAY_OF_MONTH, 0);
+                endTime.set(Calendar.DAY_OF_MONTH, 31);
+                endTime.add(Calendar.DAY_OF_MONTH, 1);
                 break;
             case "自定义":
-                startTime = startTimePicker.getTime();
-                endTime = endTimePicker.getTime();
+                TextSplitter textSplitter = new TextSplitter();
+                ArrayList<Integer> temp_start = textSplitter.splitDate(btn_setStartTime.getText().toString());
+                ArrayList<Integer> temp_end = textSplitter.splitDate(btn_setEndTime.getText().toString());
+                startTime.set(Calendar.YEAR, temp_start.get(0));
+                startTime.set(Calendar.MONTH,temp_start.get(1) - 1);
+                startTime.set(Calendar.DAY_OF_MONTH,temp_start.get(2));
+                endTime.set(Calendar.YEAR, temp_end.get(0));
+                endTime.set(Calendar.MONTH,temp_end.get(1) - 1);
+                endTime.set(Calendar.DAY_OF_MONTH,temp_end.get(2) + 1);
                 break;
             default:;
         }
@@ -368,9 +382,11 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(category1);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(category1);
+                        index = counts.size() - 1;
+                    } else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
+
                 }
                 break;
             case "二级收入":
@@ -381,9 +397,10 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(category2);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(category2);
+                        index = counts.size() - 1;
+                    }else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             case "成员":
@@ -393,9 +410,10 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(member);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(member);
+                        index = counts.size() - 1;
+                    }else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             case "账户":
@@ -405,9 +423,10 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(account);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(account);
+                        index = counts.size() - 1;
+                    }else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             case "商家":
@@ -417,9 +436,10 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(trader);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(trader);
+                        index = counts.size() - 1;
+                    }else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             case "项目":
@@ -429,9 +449,10 @@ public class ChartAnalysisActivity extends AppCompatActivity {
                     if (index < 0) {
                         exists.add(project);
                         counts.add(bill.getMoney());
-                        index = exists.indexOf(project);
+                        index = counts.size() - 1;
+                    }else {
+                        counts.set(index, counts.get(index) + bill.getMoney());
                     }
-                    counts.set(index, counts.get(index) + bill.getMoney());
                 }
                 break;
             default:;

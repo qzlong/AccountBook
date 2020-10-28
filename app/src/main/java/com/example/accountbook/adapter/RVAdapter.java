@@ -22,10 +22,6 @@ import cn.we.swipe.helper.WeSwipeHelper;
 import cn.we.swipe.helper.WeSwipeProxyAdapter;
 
 public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
-    public static final int ITEM_TYPE_CONTENT = 0;
-    public static final int ITEM_TYPE_HEADER = 1;
-    private int mHeaderCount = 1;
-    private int mExpandedPosition = -1;
     private OnItemClickListener onItemClickListener;
     private DeletedItemListener delectedItemListener;
     //创建ViewHolder
@@ -81,7 +77,6 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
             holder.cate1.setText(mData.get(position).getCategory1());
             String moneyStr = String.valueOf(mData.get(position).getMoney());
             holder.money.setText(moneyStr);
-
             String type = mData.get(position).getType();
             if (type.equals("PAY")){
                 holder.type.setText("支出");
@@ -106,7 +101,8 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
                 public void onClick(final View v) {
                     if(onItemClickListener != null) {
                         int pos = holder.getLayoutPosition();
-                        onItemClickListener.onItemClick(holder.itemView, pos);
+                        long id = mData.get(pos).getId();
+                        onItemClickListener.onItemClick(holder.itemView, id);
                     }
                 }
             });
@@ -115,7 +111,8 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     int pos = holder.getLayoutPosition();
-                    delectedItemListener.deleted(pos);
+                    long id = mData.get(pos).getId();
+                    delectedItemListener.deleted(id);
                     mData.remove(pos);
                     proxyNotifyItemRemoved(pos);
                 }
@@ -186,11 +183,11 @@ public class RVAdapter extends WeSwipeProxyAdapter<RVAdapter.ViewHolder> {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View view, long id);
     }
 
     public interface DeletedItemListener {
-        void deleted(int position);
+        void deleted(long id);
     }
 
 

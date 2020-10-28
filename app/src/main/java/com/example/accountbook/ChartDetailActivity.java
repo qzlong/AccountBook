@@ -185,7 +185,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getCategory1().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;
@@ -194,7 +193,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getCategory2().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;
@@ -202,7 +200,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getMember().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;
@@ -210,7 +207,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getAccount2().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;
@@ -218,7 +214,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getTrader().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;
@@ -226,7 +221,6 @@ public class ChartDetailActivity extends AppCompatActivity{
                 for (Detail bill : bill_list) {
                     if (bill.getProject().equals(category)) {
                         data.add(bill);
-                        break;
                     }
                 }
                 break;

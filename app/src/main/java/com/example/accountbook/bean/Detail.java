@@ -150,4 +150,23 @@ public class Detail extends LitePalSupport {
         return this.Trader;
     }
 
+    public int getYear() {
+        return Year;
+    }
+
+    public int getMonth() {
+        return Month;
+    }
+
+    public int getDay() {
+        return Day;
+    }
+
+    public int getHour() {
+        return Hour;
+    }
+
+    public int getMinute() {
+        return Minute;
+    }
 }

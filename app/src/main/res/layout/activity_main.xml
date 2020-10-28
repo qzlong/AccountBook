@@ -53,21 +53,16 @@
             android:layout_height="0dp"
             android:layout_weight="9"
             >
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/cat" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardBackgroundColor="@color/cardview_light_background">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cat">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,21 +79,28 @@
 
                             <TextView
                                 android:id="@+id/statis_summary_remain_title"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="15dp"
                                 android:paddingLeft="10dp"
-                                android:text="结余"
-                                android:textSize="14sp" />
+                                android:text="本月"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/statis_summary_expend_title"
+                                android:layout_width="35dp"
+                                android:layout_height="wrap_content"
+                                android:text="支出" />
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/statis_summary_remain"
+                            android:id="@+id/statis_summary_expend"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:paddingLeft="10dp"
                             android:text="0.00"
-                            android:textSize="30sp" />
+                            android:textSize="48dp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -117,28 +119,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0.00"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/statis_summary_divide"
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="|"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/statis_summary_expend_title"
-                                android:layout_width="35dp"
-                                android:layout_height="wrap_content"
-                                android:text="支出" />
-
-                            <TextView
-                                android:id="@+id/statis_summary_expend"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0.00"
-                                android:textSize="18sp" />
+                                android:textSize="24sp" />
 
                         </LinearLayout>
 
@@ -146,14 +127,75 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <TextView
+                        android:id="@+id/day_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="4dp"
+                        android:text="今天"
+                        android:textColor="@color/grey3"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/day_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/day_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="还未记账"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/day_expenditure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/day_income_value"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="0"
+                        android:textColor="#32CD32"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/day_income_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
+                        android:text="0"
+                        android:textColor="#B22222"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCC" />
+
                 <!--周-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
 
                     <TextView
                         android:id="@+id/week_text"
@@ -161,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="4dp"
-                        android:text="周"
+                        android:text="本周"
                         android:textColor="@color/grey3"
                         android:textSize="20dp" />
 
@@ -176,74 +218,32 @@
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/week_balance"
+                        android:id="@+id/week_expenditure_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_toLeftOf="@+id/week_balance_value"
-                        android:text="结余:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/week_balance_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/week_income_value"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
-                        android:text="-100.00"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/week_expenditure_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/week_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/week_income"
-                        android:text="150.00"
+                        android:text="0"
                         android:textColor="#32CD32"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/week_expenditure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/week_balance"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/week_expenditure_value"
-                        android:text="支出:"
-                        android:textColor="@color/grey9e"
                         android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/week_income_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/week_balance"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:text="50.00"
+                        android:text="0"
                         android:textColor="#B22222"
                         android:textSize="15dp" />
 
-                    <TextView
-                        android:id="@+id/week_income"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/week_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/week_income_value"
-                        android:text="收入:"
-                        android:textColor="@color/grey9e"
-                        android:textSize="15dp" />
                 </RelativeLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -254,8 +254,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
 
                     <TextView
                         android:id="@+id/month_text"
@@ -263,7 +263,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="4dp"
-                        android:text="月"
+                        android:text="本月"
                         android:textColor="@color/grey3"
                         android:textSize="20dp" />
 
@@ -278,190 +278,46 @@
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/month_balance"
+                        android:id="@+id/month_expenditure_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toLeftOf="@+id/month_balance_value"
-                        android:text="结余:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/month_balance_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_income_value"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
-                        android:text="100.00"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/month_expenditure_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/month_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/month_income"
-                        android:text="150.00"
+                        android:text="0"
                         android:textColor="#32CD32"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/month_expenditure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/month_balance"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/month_expenditure_value"
-                        android:text="支出:"
-                        android:textColor="@color/grey9e"
                         android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/month_income_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/month_balance"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:text="250.00"
+                        android:text="0"
                         android:textColor="#B22222"
                         android:textSize="15dp" />
 
-                    <TextView
-                        android:id="@+id/month_income"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/month_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/month_income_value"
-                        android:text="收入:"
-                        android:textColor="@color/grey9e"
-                        android:textSize="15dp" />
                 </RelativeLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#CCC" />
                 <!--季-->
                 <!--年-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
-
-                    <TextView
-                        android:id="@+id/quarter_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="4dp"
-                        android:text="季"
-                        android:textColor="@color/grey3"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
-                        android:layout_below="@id/quarter_text"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="第三季度"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_balance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toLeftOf="@+id/quarter_balance_value"
-                        android:text="结余:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/quarter_balance_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="10dp"
-                        android:text="150.00"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_expenditure_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/quarter_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/quarter_income"
-                        android:text="350.00"
-                        android:textColor="#32CD32"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_expenditure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/quarter_balance"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/quarter_expenditure_value"
-                        android:text="支出:"
-                        android:textColor="@color/grey9e"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_income_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/quarter_balance"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="10dp"
-                        android:text="500.00"
-                        android:textColor="#B22222"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/quarter_income"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/quarter_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/quarter_income_value"
-                        android:text="收入:"
-                        android:textColor="@color/grey9e"
-                        android:textSize="15dp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#CCC" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
 
                     <TextView
                         android:id="@+id/year_text"
@@ -469,7 +325,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="4dp"
-                        android:text="年"
+                        android:text="今年"
                         android:textColor="@color/grey3"
                         android:textSize="20dp" />
 
@@ -484,73 +340,30 @@
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/year_balance"
+                        android:id="@+id/year_expenditure_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toLeftOf="@+id/year_balance_value"
-                        android:text="结余:"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/year_balance_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_below="@id/year_income_value"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
-                        android:text="550.00"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/year_expenditure_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/year_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/year_income"
-                        android:text="1500.00"
+                        android:text="0"
                         android:textColor="#32CD32"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/year_expenditure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/year_balance"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/year_expenditure_value"
-                        android:text="支出:"
-                        android:textColor="@color/grey9e"
                         android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/year_income_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/year_balance"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
-                        android:text="2050.00"
+                        android:text="0"
                         android:textColor="#B22222"
                         android:textSize="15dp" />
 
-                    <TextView
-                        android:id="@+id/year_income"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/year_balance"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toLeftOf="@id/year_income_value"
-                        android:text="收入:"
-                        android:textColor="@color/grey9e"
-                        android:textSize="15dp" />
                 </RelativeLayout>
             </LinearLayout>
 

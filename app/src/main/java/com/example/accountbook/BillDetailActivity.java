@@ -29,7 +29,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class BillDetailActivity extends AppCompatActivity implements View.OnClickListener{
-    private final String Type = "PAY";
+    private String Type;
 
     private Button btn_show_time;
     private Button btn_show_account;
@@ -75,6 +75,7 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         intent = getIntent();
         bill_id = intent.getLongExtra("id", 0);
         detail = LitePal.find(Detail.class, bill_id);
+        Type = detail.getType();
         initPickerData();
         InitView();
         setBtnListener();
@@ -102,18 +103,14 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
         btn_show_account.setText(detail.getAccount1() + "->" + detail.getAccount2());
         Calendar date = detail.getTime();
         String time_text = date.get(Calendar.HOUR_OF_DAY) + "时" + date.get(Calendar.MINUTE) + "分";
-        String date_text = date.get(Calendar.YEAR) + "年" + date.get(Calendar.MONTH) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
+        String date_text = date.get(Calendar.YEAR) + "年" + (date.get(Calendar.MONTH)+1) +"月" +date.get(Calendar.DAY_OF_MONTH) +"日";
         btn_show_time.setText(time_text);
         btn_show_date.setText(date_text);
         edit_remark.setText(detail.getNote());
-        if(!detail.getTrader().equals("无商家"))
-            btn_show_store.setText("所有->"+detail.getTrader());
-        if(!detail.getMember().equals("无成员"))
-            btn_show_member.setText("所有->"+detail.getMember());
-        if(!detail.getProject().equals("无项目"))
-            btn_show_project.setText("所有->"+detail.getProject());
-        if(detail.getNote()!=null||detail.getNote().length()!=0)
-            edit_remark.setText(detail.getNote());
+        btn_show_store.setText("所有->"+detail.getTrader());
+        btn_show_member.setText("所有->"+detail.getMember());
+        btn_show_project.setText("所有->"+detail.getProject());
+        edit_remark.setText(detail.getNote());
     }
     private String getDefaultValue(ArrayList array1,ArrayList<ArrayList<String>> array2){
         return array1.get(1)+"->"+array2.get(1).get(0);
@@ -156,48 +153,42 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
     public String getType(){
         return this.Type;
     }
-//    private String getDefaultValue(ArrayList array1,ArrayList<ArrayList<String>> array2){
-//        return array1.get(1)+"->"+array2.get(1).get(0);
-//    }
+
     private boolean saveBill(){
         ArrayList<String> temp = new ArrayList<>();
+        ArrayList<Integer> temp_date = null;
+        ArrayList<Integer> temp_time = null;
         TextSplitter textSplitter = new TextSplitter();
-        //Log.d("test", "saveBill: 1");
         //1.设置账单类型
-        detail.setType(Type);
-        //Log.d("test", "saveBill: 2");
+//        detail.setType(Type);
         //2.设置备注
         detail.setNote(edit_remark.getText().toString());
-        //Log.d("test", "saveBill: 3");
         //3.设置时间和日期
-        Calendar Date = datePicker.getTime();
-        Calendar Time = timePicker.getTime();
-        Time.set(Calendar.YEAR,Date.get(Calendar.YEAR));
-        Time.set(Calendar.MONTH,Date.get(Calendar.MONTH));
-        Time.set(Calendar.DAY_OF_MONTH,Date.get(Calendar.DAY_OF_MONTH));
-//        Log.d("test", "saveBill: t");
+        temp_date = textSplitter.splitDate(btn_show_date.getText().toString());
+        temp_time = textSplitter.splitTime(btn_show_time.getText().toString());
+        Calendar Time = datePicker.getTime();
+        Time.set(Calendar.YEAR, temp_date.get(0));
+        Time.set(Calendar.MONTH,temp_date.get(1) - 1);
+        Time.set(Calendar.DAY_OF_MONTH,temp_date.get(2));
+        Time.set(Calendar.HOUR_OF_DAY,temp_time.get(0));
+        Time.set(Calendar.MINUTE,temp_time.get(1));
+        Time.get(Calendar.MILLISECOND);
         detail.setTime(Time);
-//        Log.d("test", "saveBill: 4");
         //4.设置分类
         temp = textSplitter.splitArrow(btn_show_category.getText().toString());
         detail.setCategory(temp.get(0),temp.get(1));
-//        Log.d("test", "saveBill: 5");
-
         //5.设置账户
         temp = textSplitter.splitArrow(btn_show_account.getText().toString());
         detail.setAccount(temp.get(0),temp.get(1));
-//        Log.d("test", "saveBill: 6");
         //6.设置商家
         temp = textSplitter.splitArrow(btn_show_store.getText().toString());
         detail.setTrader(temp.get(1));
-//        Log.d("test", "saveBill: 7");
         //7.设置成员
         temp = textSplitter.splitArrow(btn_show_member.getText().toString());
         detail.setMember(temp.get(1));
         //8.设置项目
         temp = textSplitter.splitArrow(btn_show_project.getText().toString());
         detail.setProject(temp.get(1));
-//        Log.d("test", "saveBill: 8");
         //9.设置金额
         try {
             float money = Float.parseFloat(edit_money.getEditableText().toString().trim());
@@ -223,7 +214,6 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.goback:
-                setResult(1, intent);
                 finish();
                 break;
             case R.id.btn_show_time:
@@ -248,10 +238,11 @@ public class BillDetailActivity extends AppCompatActivity implements View.OnClic
                 project_picker.show();
                 break;
             case R.id.btn_save:
-                saveBill();
-                Toast.makeText(mContext,"账单修改成功",Toast.LENGTH_LONG).show();
-                setResult(RESULT_OK, intent);
-                finish();
+                if (saveBill()) {
+                    Toast.makeText(mContext, "账单修改成功", Toast.LENGTH_LONG).show();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
                 break;
             default:
                 break;
