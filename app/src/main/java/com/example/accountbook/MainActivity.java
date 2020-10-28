@@ -6,6 +6,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,7 +15,9 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.accountbook.bean.Detail;
@@ -60,7 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView expend_year;
     //date
     private final Calendar current_date = Calendar.getInstance();
-    private final int current_month = current_date.get(Calendar.MONTH);
+    private final int current_month = current_date.get(Calendar.MONTH) + 1;
+    //定义图片数组
+    private int images[]={R.drawable.cat1,
+            R.drawable.dog1,R.drawable.cat2,R.drawable.redpanda,R.drawable.cat3,R.drawable.cat4};
+    //定义一个View的数组
+    private List<View> views=new ArrayList<>();
+    private ViewPager ImageViewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,14 +115,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initOptions() {
         optionList.clear();
-        Option option1 = new Option(" ","    定时任务");
-        optionList.add(option1);
-        Option option2 = new Option("   自动记账","    定时自动添加账单");
-        optionList.add(option2);
-        Option option3 = new Option("   记账提醒","    设置记账提醒");
-        optionList.add(option3);
-        Option option4 = new Option("   自动备份","    自动备份数据");
-        optionList.add(option4);
+//        Option option1 = new Option(" ","    定时任务");
+//        optionList.add(option1);
+//        Option option2 = new Option("   自动记账","    定时自动添加账单");
+//        optionList.add(option2);
+//        Option option3 = new Option("   记账提醒","    设置记账提醒");
+//        optionList.add(option3);
+//        Option option4 = new Option("   自动备份","    自动备份数据");
+//        optionList.add(option4);
         Option option5 = new Option(" ","    密码安全");
         optionList.add(option5);
         Option option6 = new Option("   指纹密码","    打开/关闭使用指纹密码");
@@ -161,6 +171,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         expend_month = findViewById(R.id.month_expenditure_value);
         expend_today = findViewById(R.id.day_expenditure_value);
         expend_year = findViewById(R.id.year_expenditure_value);
+        ImageViewpager = (ViewPager) findViewById(R.id.ImageViewpager);
+        ImageViewpager = (ViewPager) findViewById(R.id.ImageViewpager);
+        //将images数组中的图片放入ImageView
+        for (int i = 0; i < images.length; i++) {
+            ImageView imageView=new ImageView(this);
+            imageView.setImageResource(images[i]);
+            imageView.setAdjustViewBounds(true);
+            views.add(imageView);
+        }
+        //为ViewPager设置适配器
+        ImageViewpager.setAdapter(new MyImageAdapter());
+    }
+    class MyImageAdapter extends PagerAdapter {
+        @Override
+        public int getCount() {
+            return views.size();
+        }
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view==object;
+        }
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View v=views.get(position);
+            container.addView(v);
+            return v;
+        }
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            View v=views.get(position);
+            //前一张图片划过后删除该View
+            container.removeView(v);
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -185,30 +228,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         week_time.setText(weekTimeText);
         getSummary(expend_week, income_week, getDataByTime(week_start, current_date, bill_list));
         getSummary(expend_all, income_all, getDataByTime(week_start, current_date, bill_list));
-
-        month_time.setText(current_date.getMonth() + "月");
+        title_all.setText(current_month + "");
+        month_time.setText(current_month + "月");
         getSummary(expend_month, income_month, getDataByTime(month_start, current_date, bill_list));
 
         if (bill_list.size() == 0) {
-            today_describe.setText("今天还未记账");
-        }
-        else if (bill_list.get(bill_list.size()-1).getTime().get(Calendar.DAY_OF_MONTH) != current_date.getDayOfMonth()) {
-            today_describe.setText("今天还未记账");
+            today_describe.setText("还未记账");
         } else {
             Detail today = bill_list.get(bill_list.size()-1);
-            String type;
             switch (today.getType()){
                 case "PAY" :
-                    today_describe.setText("最近  " + "支出： " + today.getMoney());
+                    today_describe.setText("最近一笔   " + today.getCategory2() + " " + today.getMoney());
                     break;
                 case "INCOME" :
-                    today_describe.setText("最近  " + "收入： " + today.getMoney());
+                    today_describe.setText("最近一笔   " + today.getCategory2() + today.getMoney());
                     break;
                 case "LOAN" :
-                    today_describe.setText("最近  " + "借贷： " + today.getMoney());
+                    today_describe.setText("最近一笔   " + "借贷 " + today.getMoney());
                     break;
                 case "TRANSFER" :
-                    today_describe.setText("最近  " + "转账： " + today.getMoney());
+                    today_describe.setText("最近一笔   " + "转账 " + today.getMoney());
                     break;
                 default:
                     today_describe.setText("");
@@ -216,9 +255,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         getSummary(expend_today, income_today, getDataByTime(today_start, current_date, bill_list));
 
-        year_time.setText(current_date.getYear() + "");
+        year_time.setText(current_date.getYear() + "年");
         getSummary(expend_year, income_year, getDataByTime(year_start, current_date, bill_list));
     }
+
     private void setButtonListener() {
         btn_keepaccount.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
@@ -279,14 +319,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float income = getSumIncome(list);
         incomeView.setText(income + "");
     }
-    private void getSummary(TextView expendView, TextView incomeView, TextView remainView, List<Detail> list) {
-        float expend = getSumExpend(list);
-        expendView.setText(expend + "");
-        float income = getSumIncome(list);
-        incomeView.setText(income + "");
-        float remain = income - expend;
-        remainView.setText(remain + "");
-    }
 
     /**
      * @param list
@@ -313,19 +345,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         return sum;
-    }
-
-    private List<Detail> getDataByTime(Calendar startTime, Calendar endTime, List<Detail> list) {
-        List<Detail> data = new ArrayList<>();
-        for (Detail bill : list) {
-            Calendar date = bill.getTime();
-            if (date.after(startTime)) {
-                if (date.before(endTime)) {
-                    data.add(bill);
-                }
-            }
-        }
-        return data;
     }
 
     private List<Detail> getDataByTime(mCalendar startTime, mCalendar endTime, List<Detail> list) {

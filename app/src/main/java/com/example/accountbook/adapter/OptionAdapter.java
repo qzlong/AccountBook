@@ -93,20 +93,18 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     public void Click(View v, int position) throws URISyntaxException {
         switch (position){
             //case 1-3 为定时事件
-            case 1: //自动记账
-                //点击示例
-                Toast.makeText(v.getContext(),"自动记账",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), ChartAnalysisActivity.class);
-                v.getContext().startActivity(intent);
-                break;
-            case 2: //记账提醒
-                Toast.makeText(v.getContext(),"记账提醒",Toast.LENGTH_SHORT).show();
-                break;
-            case 3: //自动备份
-                Toast.makeText(v.getContext(),"自动备份",Toast.LENGTH_SHORT).show();
-                break;
+//            case 1: //自动记账
+//                //点击示例
+//                Toast.makeText(v.getContext(),"自动记账",Toast.LENGTH_SHORT).show();
+//                break;
+//            case 2: //记账提醒
+//                Toast.makeText(v.getContext(),"记账提醒",Toast.LENGTH_SHORT).show();
+//                break;
+//            case 3: //自动备份
+//                Toast.makeText(v.getContext(),"自动备份",Toast.LENGTH_SHORT).show();
+//                break;
 
-            case 5: //指纹密码
+            case 1: //指纹密码
                 boolean isOpenFingerprintCode = sharedPreferences.getBoolean("isEnableFingerprintCode",false);
                 if(!isOpenFingerprintCode) {//未设置指纹
                     boolean enable = enableFingerprintCode();
@@ -147,7 +145,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                     customDialog.show();
                 }
                 break;
-            case 6: //文本密码
+            case 2: //文本密码
                 boolean isSetTextCode = sharedPreferences.getBoolean("isSetTextCode",false);
                 if(!isSetTextCode){
                     setTextCode();
@@ -181,7 +179,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                     changeCodeDialog.show();
                 }
                 break;
-            case 7: //图形密码
+            case 3: //图形密码
                 boolean isSetPatternCode = sharedPreferences.getBoolean("isSetPatternCode",false);
                 if(!isSetPatternCode){
                     setPatternCode();
@@ -216,7 +214,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 }
                 break;
 
-            case 9: //绑定邮箱
+            case 5: //绑定邮箱
                 boolean isSetEmailAddress = sharedPreferences.getBoolean("isSetEmailAddress",false);
                 if(!isSetEmailAddress) {
                     final EmailEditDialog emailEditDialog = new EmailEditDialog(context,editor);
@@ -241,7 +239,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 }
                 break;
 
-            case 10: //数据导出
+            case 6: //数据导出
                 boolean email = sharedPreferences.getBoolean("isSetEmailAddress",false);
                 if(email){
                     dataOutput(v);
@@ -250,12 +248,12 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 }
                 break;
 
-            case 11: //数据导入
+            case 7: //数据导入
                 dataInput(v);
                 Toast.makeText(v.getContext(),"数据导入",Toast.LENGTH_SHORT).show();
                 break;
 
-            case 13: //清空账单
+            case 9: //清空账单
                 CustomDialog customDialog = new CustomDialog(context, new CustomDialogClickListener() {
                     @Override
                     public void clickConfirm() {

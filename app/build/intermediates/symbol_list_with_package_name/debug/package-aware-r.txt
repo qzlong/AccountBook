@@ -1737,6 +1737,10 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable cat
+drawable cat1
+drawable cat2
+drawable cat3
+drawable cat4
 drawable chengyuan
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1748,6 +1752,7 @@ drawable dialog_bg
 drawable dialog_btn_gray
 drawable dialog_btn_style
 drawable dialog_editor_style
+drawable dog1
 drawable fanhui
 drawable fenlei
 drawable fingerprint
@@ -1811,6 +1816,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable people
 drawable preference_list_divider_material
+drawable redpanda
 drawable riqi
 drawable rmb_black
 drawable rmb_blue
@@ -1838,6 +1844,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id ImageViewpager
 id META
 id NO_DEBUG
 id SHIFT

@@ -1,11 +1,19 @@
 [
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_redpanda.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\redpanda.jpg"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_btn_gray.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable\\dialog_btn_gray.xml"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_text_layout.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\text_layout.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat3.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\cat3.jpg"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_circle_bg.xml.flat",
@@ -68,6 +76,10 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat2.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\cat2.jpg"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fenlei.png.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-xxhdpi\\fenlei.png"
     },
@@ -78,6 +90,10 @@
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_password_confirm.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\activity_password_confirm.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_dog1.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\dog1.jpg"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_income.xml.flat",
@@ -284,6 +300,10 @@
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat4.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\cat4.jpg"
+    },
+    {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
@@ -342,6 +362,10 @@
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_statistics.xml.flat",
         "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\layout\\activity_statistics.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat1.jpg.flat",
+        "source": "D:\\Projects\\Java\\Android\\AccountBook\\app\\src\\main\\res\\drawable-v21\\cat1.jpg"
     },
     {
         "merged": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bing.jpg.flat",
