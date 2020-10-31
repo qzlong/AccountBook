@@ -1,0 +1,374 @@
+[
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_loan.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\loan.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fenlei.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\fenlei.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_editor_style.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\dialog_editor_style.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\cat.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_flow_popup.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\flow_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_add_text_code_dialog.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\add_text_code_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_chengyuan.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\chengyuan.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_customeditdialog.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\customeditdialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_keep_account.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_keep_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat4.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\cat4.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_tubiao.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\tubiao.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_jiedai.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\jiedai.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_text_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\text_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_expenditure.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\expenditure.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_transfer.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\transfer.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_income.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\income.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_zhuanzhang.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\zhuanzhang.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bing.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\bing.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_header_item.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\list_header_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main_title.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_main_title.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_template.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\template.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fanhui.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\fanhui.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_zhichu.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\zhichu.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_bg.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\dialog_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_btn_style.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\dialog_btn_style.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat1.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\cat1.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_shezhi.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\shezhi.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_btn_background.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\btn_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_statistics.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_statistics.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\color_color_popup.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\color\\color_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_shike.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\shike.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_xiangmu.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\xiangmu.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_rmb_black.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\rmb_black.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_fingerprint_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\fingerprint_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_circle_bg.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\shape_circle_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat2.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\cat2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_pattern_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\pattern_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chart_analysis.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_chart_analysis.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_option_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\option_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_dog1.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\dog1.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_myedittext.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\myedittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_temp_item_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\temp_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_bill_details.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_bill_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_beizhu.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\beizhu.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_redpanda.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\redpanda.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_btn_gray.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\dialog_btn_gray.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_test.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\test.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_zhanghu.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\zhanghu.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_select_account.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_select_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chart_detail.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_chart_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_password_confirm.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_password_confirm.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_change_code_dialog.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\change_code_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_customdialog.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\customdialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_set_pattern_code.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\activity_set_pattern_code.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_zhanghu1.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\zhanghu1.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_shangjia.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\shangjia.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_rmb_blue.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\rmb_blue.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_addcategorydialog.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\addcategorydialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_cat3.jpg.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-v21\\cat3.jpg"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\layout_fingerprint_dialog_layout.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\layout\\fingerprint_dialog_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_liushui.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\liushui.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_riqi.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\riqi.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_shouru.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\shouru.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fingerprint.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\fingerprint.png"
+    },
+    {
+        "merged": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_people.png.flat",
+        "source": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\src\\main\\res\\drawable-xxhdpi\\people.png"
+    }
+]

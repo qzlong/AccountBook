@@ -7,139 +7,145 @@
 7
 8    <uses-sdk
 9        android:minSdkVersion="17"
-9-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+9-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml
 10        android:targetSdkVersion="30" />
-10-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml
+10-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml
 11
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:8:5-67
-12-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:8:22-64
+12-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:8:5-67
+12-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:8:22-64
 13    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-13-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:9:5-72
-13-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:9:22-69
+13-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:9:5-72
+13-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:9:22-69
 14    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
-14-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:10:5-91
-14-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:10:22-88
+14-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:10:5-91
+14-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:10:22-88
 15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-15-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:11:5-81
-15-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:11:22-78
+15-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:11:5-81
+15-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:11:22-78
 16    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
-16-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:12:5-117
-16-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:12:22-114
-17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-17-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:13:5-80
-17-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:13:22-77
-18
-19    <application
-19-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:14:5-42:19
-20        android:name="org.litepal.LitePalApplication"
-20-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:15:9-54
-21        android:allowBackup="true"
-21-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:16:9-35
-22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.3.1] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
-23        android:debuggable="true"
-24        android:icon="@mipmap/ic_launcher"
-24-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:17:9-43
-25        android:label="@string/app_name"
-25-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:18:9-41
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:19:9-54
-27        android:supportsRtl="true"
-27-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:20:9-35
-28        android:testOnly="true"
+16-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:12:5-117
+16-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:12:22-114
+17    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+17-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:13:5-120
+17-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:13:22-81
+18    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+18-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:13:5-80
+18-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:13:22-77
+19
+20    <application
+20-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:15:5-45:19
+21        android:name="org.litepal.LitePalApplication"
+21-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:16:9-54
+22        android:allowBackup="true"
+22-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:17:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.3.1] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\ff37b710ecf84191a2687617c776753e\core-1.3.1\AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:18:9-43
+26        android:label="@string/app_name"
+26-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:19:9-41
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:20:9-54
+28        android:supportsRtl="true"
+28-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:21:9-35
 29        android:theme="@style/AppTheme" >
-29-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:21:9-40
+29-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:22:9-40
 30        <activity android:name="com.example.accountbook.SetPatternCodeActivity" />
-30-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:22:9-60
-30-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:22:19-57
+30-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:23:9-60
+30-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:23:19-57
 31        <activity android:name="com.example.accountbook.SelectAccount" />
-31-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:23:9-51
-31-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:23:19-48
+31-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:24:9-51
+31-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:24:19-48
 32        <activity android:name="com.example.accountbook.KeepAccountActivity" />
-32-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:24:9-57
-32-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:24:19-54
+32-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:25:9-57
+32-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:25:19-54
 33        <activity android:name="com.example.accountbook.PasswordConfirm" />
-33-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:25:9-53
-33-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:25:19-50
+33-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:26:9-53
+33-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:26:19-50
 34        <activity
-34-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:26:9-27:58
+34-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:27:9-28:58
 35            android:name="com.example.accountbook.ChartAnalysisActivity"
-35-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:26:19-56
+35-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:27:19-56
 36            android:parentActivityName="com.example.accountbook.MainActivity" />
-36-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:27:13-55
+36-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:28:13-55
 37        <activity
-37-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:28:9-29:58
+37-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:29:9-30:58
 38            android:name="com.example.accountbook.StatisticsActivity"
-38-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:28:19-53
+38-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:29:19-53
 39            android:parentActivityName="com.example.accountbook.MainActivity" />
-39-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:29:13-55
+39-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:30:13-55
 40        <activity
-40-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:30:9-31:64
+40-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:31:9-32:64
 41            android:name="com.example.accountbook.BillDetailActivity"
-41-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:30:19-53
+41-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:31:19-53
 42            android:parentActivityName="com.example.accountbook.StatisticsActivity" />
-42-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:31:13-61
+42-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:32:13-61
 43        <activity
-43-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:32:9-33:67
+43-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:33:9-34:67
 44            android:name="com.example.accountbook.ChartDetailActivity"
-44-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:32:19-54
+44-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:33:19-54
 45            android:parentActivityName="com.example.accountbook.ChartAnalysisActivity" />
-45-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:33:13-64
+45-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:34:13-64
 46        <activity android:name="com.example.accountbook.MainActivity" >
-46-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:35:9-41:20
-46-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:35:19-47
+46-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:36:9-42:20
+46-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:36:19-47
 47            <intent-filter>
-47-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:36:13-40:29
+47-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:37:13-41:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:37:17-69
-48-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:37:25-66
+48-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:38:17-69
+48-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:38:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:39:17-77
-50-->D:\Projects\Java\Android\AccountBook\app\src\main\AndroidManifest.xml:39:27-74
+50-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:40:17-77
+50-->C:\Users\xyrain\Desktop\ACC\AccountBook-dev\app\src\main\AndroidManifest.xml:40:27-74
 51            </intent-filter>
 52        </activity>
-53        <activity
-53-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:18:9-20:62
-54            android:name="droidninja.filepicker.FilePickerActivity"
-54-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:19:13-68
-55            android:configChanges="orientation|screenSize" />
-55-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:20:13-59
-56        <activity
-56-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:21:9-23:62
-57            android:name="droidninja.filepicker.MediaDetailsActivity"
-57-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:22:13-70
-58            android:configChanges="orientation|screenSize" />
-58-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:23:13-59
-59
-60        <provider
-60-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:25:9-33:20
-61            android:name="droidninja.filepicker.utils.FilePickerProvider"
-61-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:26:13-74
-62            android:authorities="com.example.accountbook.droidninja.filepicker.provider"
-62-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:27:13-82
-63            android:exported="false"
-63-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:28:13-37
-64            android:grantUriPermissions="true" >
-64-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:29:13-47
-65            <meta-data
-65-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:30:13-32:58
-66                android:name="android.support.FILE_PROVIDER_PATHS"
-66-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:31:17-67
-67                android:resource="@xml/provider_paths" />
-67-->[com.droidninja:filepicker:2.2.4] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\e0703193a4df64bc7b02b6c8f336ac04\jetified-filepicker-2.2.4\AndroidManifest.xml:32:17-55
-68        </provider>
-69        <provider
-69-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-70            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-70-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-71            android:authorities="com.example.accountbook.lifecycle-process"
-71-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-72            android:exported="false"
-72-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-73            android:multiprocess="true" />
-73-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Tools\Java\Android\.gradle\caches\transforms-2\files-2.1\894873d045a0a220e7c24d43283db9eb\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-74    </application>
-75
-76</manifest>
+53        <!--
+54        This attribute is "false" by default on apps targeting
+55        Android 10 or higher.
+56        -->
+57        <activity
+57-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:18:9-20:62
+58            android:name="droidninja.filepicker.FilePickerActivity"
+58-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:19:13-68
+59            android:configChanges="orientation|screenSize" />
+59-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:20:13-59
+60        <activity
+60-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:21:9-23:62
+61            android:name="droidninja.filepicker.MediaDetailsActivity"
+61-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:22:13-70
+62            android:configChanges="orientation|screenSize" />
+62-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:23:13-59
+63
+64        <provider
+64-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:25:9-33:20
+65            android:name="droidninja.filepicker.utils.FilePickerProvider"
+65-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:26:13-74
+66            android:authorities="com.example.accountbook.droidninja.filepicker.provider"
+66-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:27:13-82
+67            android:exported="false"
+67-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:28:13-37
+68            android:grantUriPermissions="true" >
+68-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:29:13-47
+69            <meta-data
+69-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:30:13-32:58
+70                android:name="android.support.FILE_PROVIDER_PATHS"
+70-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:31:17-67
+71                android:resource="@xml/provider_paths" />
+71-->[com.droidninja:filepicker:2.2.4] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\dafdedec0d11f04c29c24dd9536fec0f\jetified-filepicker-2.2.4\AndroidManifest.xml:32:17-55
+72        </provider>
+73        <provider
+73-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\67f50bf9e8ec0e817db6486d97ff49c5\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+74            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+74-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\67f50bf9e8ec0e817db6486d97ff49c5\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+75            android:authorities="com.example.accountbook.lifecycle-process"
+75-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\67f50bf9e8ec0e817db6486d97ff49c5\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+76            android:exported="false"
+76-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\67f50bf9e8ec0e817db6486d97ff49c5\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+77            android:multiprocess="true" />
+77-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\xyrain\.gradle\caches\transforms-2\files-2.1\67f50bf9e8ec0e817db6486d97ff49c5\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+78    </application>
+79
+80</manifest>

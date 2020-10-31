@@ -1,5 +1,19 @@
 package com.example.accountbook;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,27 +23,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
+import com.example.accountbook.adapter.OptionAdapter;
 import com.example.accountbook.bean.Detail;
 import com.example.accountbook.bean.mCalendar;
+import com.example.accountbook.helper.CsvIOHelper;
 import com.example.accountbook.setting.Option;
-import com.example.accountbook.adapter.OptionAdapter;
 
 import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,SharedPreferences.OnSharedPreferenceChangeListener{
     //主页面
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //定义一个View的数组
     private List<View> views=new ArrayList<>();
     private ViewPager ImageViewpager;
+    public static String import_file_path = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,6 +213,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+//    public void showBrowser(){
+//        StorageChooser chooser = new StorageChooser.Builder()
+//                .withActivity(MainActivity.this)
+//                .withFragmentManager(getFragmentManager())
+//                .withMemoryBar(true)
+//                .build();
+//        chooser.show();
+//        chooser.setOnSelectListener(new StorageChooser.OnSelectListener() {
+//            @Override
+//            public void onSelect(String path) {
+//                import_file_path = path;
+//            }
+//        });
+//        Log.e("SELECTED_PATH", import_file_path);
+//        return import_file_path;
+//    }
+
+    public void openDirChooseFile(int requestCode) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        if (mimeTypes != null) {
+//            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+//        }
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(intent, requestCode);
+    }
+
+    public void chooseFile(int requestCode) {
+        this.openDirChooseFile(requestCode);
+//        Log.e("File Path:", import_file_path);
+//        return import_file_path;
+    }
+
+    public String getDocPath(String raw_path){
+        String pattern = ".*raw:(/storage/.*)";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(raw_path);
+        m.find();
+        return m.group(1);
+    }
+
     @SuppressLint("SetTextI18n")
     private void bindView() {
         final List<Detail> bill_list = LitePal.findAll(Detail.class);
@@ -310,6 +358,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (requestCode == 2) {
             bindView();
+        }
+        else if (requestCode == 3) {
+            Uri uri = data.getData();
+            import_file_path = getDocPath(uri.getPath().toString());
+            if(import_file_path != null)
+                Log.e("Getting path:",import_file_path);
+            CsvIOHelper csv_importer = new CsvIOHelper();
+            csv_importer.readDetail(import_file_path);
+            String import_success_news = "成功导入数据：" + import_file_path;
+            Toast.makeText(this,import_success_news,Toast.LENGTH_SHORT).show();
         }
     }
 

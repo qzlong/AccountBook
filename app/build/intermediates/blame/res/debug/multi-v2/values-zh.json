@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\Java\\Android\\AccountBook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "C:\\Users\\xyrain\\Desktop\\ACC\\AccountBook-dev\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "D:\\Tools\\Java\\Android\\.gradle\\caches\\transforms-2\\files-2.1\\e0703193a4df64bc7b02b6c8f336ac04\\jetified-filepicker-2.2.4\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\xyrain\\.gradle\\caches\\transforms-2\\files-2.1\\e0703193a4df64bc7b02b6c8f336ac04\\jetified-filepicker-2.2.4\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

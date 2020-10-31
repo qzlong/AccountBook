@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.accountbook.ChartAnalysisActivity;
+import com.example.accountbook.MainActivity;
 import com.example.accountbook.R;
 import com.example.accountbook.SetPatternCodeActivity;
 import com.example.accountbook.bean.Detail;
@@ -39,9 +38,6 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.List;
-
-import droidninja.filepicker.FilePickerBuilder;
-import droidninja.filepicker.utils.ContentUriUtils;
 
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> implements SharedPreferences.OnSharedPreferenceChangeListener{
@@ -249,6 +245,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                 break;
 
             case 7: //数据导入
+//                String gotten_file_path = dataInput(v);
+//                Log.e("SELECTED_PATH", gotten_file_path);
                 dataInput(v);
                 Toast.makeText(v.getContext(),"数据导入",Toast.LENGTH_SHORT).show();
                 break;
@@ -259,6 +257,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
                     public void clickConfirm() {
                         LitePal.deleteAll(Detail.class,"Money > ?","0");
                         Toast.makeText(context,"所有账单数据已清除",Toast.LENGTH_SHORT).show();
+                        activity.finish();
+                        activity.startActivity(activity.getIntent());
                     }
                     @Override
                     public void clickCancel() {
@@ -276,14 +276,11 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     }
 
     private void dataInput(View v) throws URISyntaxException {
-        String[] types = {"csv"};
-        FilePickerBuilder.getInstance()
-                .addFileSupport("CSV",types)
-                .setMaxCount(1) //optional
-                .setActivityTheme(R.style.LibAppTheme) //optional
-                .pickFile(activity);
-        Uri uri = null;
-        ContentUriUtils.INSTANCE.getFilePath(context, uri);
+        MainActivity mainActivity = (MainActivity) activity;
+        mainActivity.chooseFile(3);
+//        mainActivity
+//        return mainActivity.showBrowser();
+//        mainActivity.showBrowser();
     }
 
     private void setTextCode() {

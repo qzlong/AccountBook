@@ -1,17 +1,15 @@
 package com.example.accountbook.helper;
 
-import org.litepal.LitePal;
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
-
 import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
 import com.example.accountbook.bean.Detail;
 
-import java.util.Calendar;
-import java.util.List;
+import org.litepal.LitePal;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Calendar;
+import java.util.List;
 
 public class CsvIOHelper{
 
@@ -57,7 +55,7 @@ public class CsvIOHelper{
 
         try {
             // 创建CSV读对象
-            CsvReader backup_reader = new CsvReader(filePath);
+            CsvReader backup_reader = new CsvReader(filePath, ',', Charset.forName("GBK"));
 
             // 读表头
             backup_reader.readHeaders();

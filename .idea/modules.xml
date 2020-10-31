@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AccountBook.iml" filepath="$PROJECT_DIR$/.idea/modules/AccountBook.iml" group="AccountBook" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="AccountBook/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/.idea/modules/pickerview/pickerview.iml" group="AccountBook/pickerview" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wheelview/wheelview.iml" filepath="$PROJECT_DIR$/.idea/modules/wheelview/wheelview.iml" group="AccountBook/wheelview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AccountBook.iml" filepath="$PROJECT_DIR$/.idea/modules/AccountBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AccountBook.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AccountBook.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pickerview/AccountBook.pickerview.iml" filepath="$PROJECT_DIR$/.idea/modules/pickerview/AccountBook.pickerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wheelview/AccountBook.wheelview.iml" filepath="$PROJECT_DIR$/.idea/modules/wheelview/AccountBook.wheelview.iml" />
     </modules>
   </component>
 </project>
